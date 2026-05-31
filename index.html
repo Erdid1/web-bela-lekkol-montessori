@@ -1,0 +1,515 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bela Lekkol Montessori — L'école française de Guinée · Conakry</title>
+    <meta name="description" content="Bela Lekkol Montessori à Conakry : programme français certifié, pédagogie Montessori, IA éducative et ancrage culturel guinéen. De la Maternelle au Baccalauréat. Inscriptions 2026-2027 ouvertes.">
+    <meta property="og:title" content="Bela Lekkol Montessori — L'école française de Guinée">
+    <meta property="og:description" content="Programme français certifié, pédagogie Montessori et ancrage culturel africain. Conakry, Guinée.">
+    <meta property="og:image" content="./public/hero_bela_lekkol.png">
+    <meta property="og:type" content="website">
+    <link rel="icon" href="./public/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="./src/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+</head>
+<body>
+
+    <!-- Top Bar style GSJC -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-left">
+                <a href="tel:+224626313180"><i class="fas fa-phone"></i> +224 626 31 31 80</a>
+                <div class="top-bar-divider"></div>
+                <a href="mailto:belalekkol.montessori@gmail.com"><i class="fas fa-envelope"></i> belalekkol.montessori@gmail.com</a>
+            </div>
+            <div class="top-bar-right">
+                <a href="https://wa.me/224626313180" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                <a href="https://www.facebook.com/profile.php?id=61562529852559" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a>
+            </div>
+        </div>
+    </div>
+    <!-- Bannière d'urgence -->
+    <div class="notice-banner">
+        <i class="fas fa-calendar-check"></i>
+        <strong>Inscriptions 2026-2027 ouvertes jusqu'au 30 juin 2026</strong>
+        <span>·</span>
+        <span>Tests d'admission <strong>GRATUITS</strong></span>
+        <span>·</span>
+        <a href="./admissions.html">Inscrire mon enfant →</a>
+    </div>
+
+    <header id="header">
+        <div class="container">
+            <nav>
+                <a href="./index.html" class="logo">
+                    <img src="./public/logo_officiel.jpg" alt="Bela Lekkol Montessori" class="logo-img">
+                    <div class="logo-text">
+                        <div class="logo-main"><span class="t-red">BELA</span> <span class="t-yellow">LEKKOL</span> <span class="t-blue-dark">MONTESSORI</span></div>
+                        <div class="logo-sub">L'école française au service de la Guinée</div>
+                    </div>
+                </a>
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="./index.html">Accueil</a></li>
+                    <li><a href="./about.html">À Propos</a></li>
+                    <li><a href="./programs.html">Programmes</a></li>
+                    <li><a href="./cfp.html">CFP Montessori</a></li>
+                    <li><a href="./innovation.html">Innovation & IA</a></li>
+                    <li><a href="./life.html">Vie Scolaire</a></li>
+                    <li><a href="./admissions.html" class="btn btn-secondary" style="padding: 0.5rem 1.5rem;">Admission</a></li>
+                </ul>
+                <div class="mobile-toggle" id="mobile-toggle"><i class="fas fa-bars"></i></div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- Logo Officiel -->
+        <section style="background: var(--cream); padding: 2.5rem 0; border-bottom: 2px solid rgba(200,169,81,0.25);">
+            <div class="container" style="display:flex; align-items:center; justify-content:center; gap: 2rem; flex-wrap: wrap;">
+                <img src="./public/logo_officiel.jpg" alt="Logo officiel Bela Lekkol Montessori" style="height: 130px; width: auto; border-radius: 8px;">
+                <div>
+                    <div style="font-family: var(--font-serif); font-size: 2.2rem; font-weight: 800; color: var(--primary); line-height: 1.1;">
+                        <span class="t-red">BELA</span> <span class="t-yellow" style="color:#C8A951;">LEKKOL</span> <span style="color: var(--primary);">MONTESSORI</span>
+                    </div>
+                    <div style="font-family: var(--font-serif); font-style: italic; font-size: 1.1rem; color: var(--primary); margin-top: 0.3rem; opacity: 0.8;">L'école française de Guinée</div>
+                    <div style="display:flex; gap: 0.5rem; margin-top: 0.75rem; flex-wrap: wrap;">
+                        <span style="background: rgba(11,31,75,0.08); color: var(--primary); padding: 0.2rem 0.7rem; border-radius: 20px; font-size: 0.75rem; font-weight: 600;">Fondée en 2004</span>
+                        <span style="background: rgba(16,185,129,0.1); color: var(--secondary-dark); padding: 0.2rem 0.7rem; border-radius: 20px; font-size: 0.75rem; font-weight: 600;">Programme Français Officiel</span>
+                        <span style="background: rgba(200,169,81,0.15); color:#92400e; padding: 0.2rem 0.7rem; border-radius: 20px; font-size: 0.75rem; font-weight: 600;">Pédagogie Montessori</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hero -->
+        <section class="hero" style="background: linear-gradient(rgba(11,31,75,0.78), rgba(26,53,112,0.72)), url('./public/hero_bela_lekkol.png') center/cover no-repeat;">
+            <!-- Anneaux animés décoratifs -->
+            <div class="hero-rings"></div>
+            <div class="container">
+                <div class="hero-content" data-aos>
+                    <div class="hero-badge">
+                        <span class="badge-dot"></span>
+                        Conakry · Guinée · Fondée en 2004
+                    </div>
+                    <h1 style="font-family: 'Playfair Display', serif; font-size: 3.8rem; line-height: 1.1; margin-bottom: 1.5rem;">L'école du futur,<br><span style="color: var(--gold);">maintenant.</span></h1>
+                    <p style="font-size: 1.1rem; max-width: 620px; margin-bottom: 2.2rem; opacity: 0.9; line-height: 1.75;">Une école guinéenne d'exception alliant <strong>programme français certifié</strong>, pédagogie Montessori et <strong>ancrage culturel africain</strong> — pour que chaque enfant grandisse en confiance et en autonomie.</p>
+                    <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                        <a href="./admissions.html" class="btn btn-primary" style="background: var(--gold); color: var(--primary); font-weight: 700;">Inscrire mon enfant</a>
+                        <a href="./programs.html" class="btn btn-outline" style="border-color: rgba(255,255,255,0.5); color: white;">Découvrir nos programmes</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cycles Bar -->
+        <section class="cycles-bar">
+            <div class="container">
+                <a href="./programs.html#maternelle" class="cycle-badge fr" style="text-decoration:none;cursor:pointer;" title="Maternelle Montessori">PS · MS · GS</a>
+                <a href="./programs.html#primaire" class="cycle-badge fr" style="text-decoration:none;cursor:pointer;" title="Primaire MHF/MHM">CP → CM2</a>
+                <a href="./programs.html#college" class="cycle-badge fr" style="text-decoration:none;cursor:pointer;" title="Collège français">6e → 3e</a>
+                <a href="./programs.html#college" class="cycle-badge gn" style="text-decoration:none;cursor:pointer;" title="Collège Franco-Guinéen">Collège Franco-Guinéen</a>
+                <a href="./programs.html#lycee" class="cycle-badge gn" style="text-decoration:none;cursor:pointer;background:var(--secondary-dark);" title="Lycée système guinéen enrichi">Lycée · 10e → Terminale</a>
+                <a href="./programs.html#examens" class="cycle-badge dip" style="text-decoration:none;cursor:pointer;" title="DNB · DELF">DNB · DELF</a>
+                <a href="./programs.html#examens" class="cycle-badge dip" style="text-decoration:none;cursor:pointer;" title="Diplômes Guinéens">Diplômes Guinéens</a>
+            </div>
+        </section>
+
+        <!-- Stats Premium avec compteurs animés -->
+        <section class="stats-premium">
+            <div class="container">
+                <div class="stats-premium-grid">
+                    <div class="stat-premium-card" data-aos>
+                        <div class="stat-premium-num">
+                            <span class="counter" data-target="2004" data-mode="year">2004</span>
+                        </div>
+                        <div class="stat-premium-label">Fondée à Conakry</div>
+                        <div class="stat-gold-bar"></div>
+                    </div>
+                    <div class="stat-premium-card" data-aos>
+                        <div class="stat-premium-num">
+                            <span class="counter" data-target="4">0</span><span class="stat-suffix"> cycles</span>
+                        </div>
+                        <div class="stat-premium-label">Maternelle → Collège</div>
+                        <div class="stat-gold-bar"></div>
+                    </div>
+                    <div class="stat-premium-card" data-aos>
+                        <div class="stat-premium-num">
+                            N<span style="font-size:1.8rem;color:var(--gold);">°1</span>
+                        </div>
+                        <div class="stat-premium-label">IA éducative à Conakry</div>
+                        <div class="stat-gold-bar"></div>
+                    </div>
+                    <div class="stat-premium-card" data-aos>
+                        <div class="stat-premium-num">
+                            <span class="counter" data-target="4">0</span><span class="stat-suffix">+</span>
+                        </div>
+                        <div class="stat-premium-label">Partenaires institutionnels</div>
+                        <div class="stat-gold-bar"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6 Points Forts -->
+        <section class="section-padding">
+            <div class="container">
+                <div class="text-center" style="max-width: 700px; margin: 0 auto 4rem;">
+                    <h2 class="font-heading" style="font-size: 2.5rem; margin-bottom: 1rem;">Nos <span class="text-secondary">Points Forts</span></h2>
+                    <p class="text-light">Ce qui fait de Bela Lekkol Montessori un établissement unique en Guinée.</p>
+                </div>
+                <div class="grid grid-2" style="gap: 2.5rem;">
+                    <div class="point-fort card" data-aos>
+                        <span class="point-fort-dot" style="background: var(--primary);"></span>
+                        <div>
+                            <h4 style="margin-bottom: 0.5rem;">Programme Français Officiel</h4>
+                            <p style="font-size: 0.875rem; color: var(--text-light);">Conforme aux standards du Ministère de l'Éducation Nationale français, de la Maternelle au DNB. Supports pédagogiques contextualisés à la Guinée.</p>
+                        </div>
+                    </div>
+                    <div class="point-fort card" data-aos>
+                        <span class="point-fort-dot" style="background: var(--secondary);"></span>
+                        <div>
+                            <h4 style="margin-bottom: 0.5rem;">Ancrage Culturel Africain</h4>
+                            <p style="font-size: 0.875rem; color: var(--text-light);">Histoires, exemples et activités ancrés dans la réalité guinéenne et africaine : des supports pédagogiques où nos enfants s'identifient et s'inspirent de leur culture.</p>
+                        </div>
+                    </div>
+                    <div class="point-fort card" data-aos>
+                        <span class="point-fort-dot" style="background: var(--secondary);"></span>
+                        <div>
+                            <h4 style="margin-bottom: 0.5rem;">Enseignants d'Excellence</h4>
+                            <p style="font-size: 0.875rem; color: var(--text-light);">Formés par M. Éric Didier, expert en pédagogie Montessori et systèmes francophones. Formation continue garantissant une pédagogie novatrice intégrant l'IA dans les outils didactiques.</p>
+                        </div>
+                    </div>
+                    <div class="point-fort card" data-aos>
+                        <span class="point-fort-dot" style="background: var(--accent);"></span>
+                        <div>
+                            <h4 style="margin-bottom: 0.5rem;">Infrastructure Moderne</h4>
+                            <p style="font-size: 0.875rem; color: var(--text-light);">Salles lumineuses, matériel Montessori authentique, espace numérique équipé et bibliothèque en cours d'aménagement. Initiation aux technologies IA dès le collège.</p>
+                        </div>
+                    </div>
+                    <div class="point-fort card" data-aos>
+                        <span class="point-fort-dot" style="background: var(--primary);"></span>
+                        <div>
+                            <h4 style="margin-bottom: 0.5rem;">Partenariat Familles</h4>
+                            <p style="font-size: 0.875rem; color: var(--text-light);">Suivi via ADMISCO & EDUMOOV, réunions régulières et accueil personnalisé pour chaque famille inscrite. Transparence totale sur les progrès de votre enfant.</p>
+                        </div>
+                    </div>
+                    <div class="point-fort card" data-aos>
+                        <span class="point-fort-dot" style="background: #CE1126;"></span>
+                        <div>
+                            <h4 style="margin-bottom: 0.5rem;">Résultats Prouvés</h4>
+                            <p style="font-size: 0.875rem; color: var(--text-light);">Compétences solides en lecture, écriture et maths. Élèves autonomes, confiants, prêts pour les cycles suivants. Meilleur rapport qualité/prix de Conakry.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Montessori + IA -->
+        <section class="section-padding" style="background: white;">
+            <div class="container">
+                <div class="text-center" style="max-width: 700px; margin: 0 auto 4rem;">
+                    <h2 class="font-heading" style="font-size: 2.5rem; margin-bottom: 1rem;">Une Éducation Doublement <span class="text-secondary">Innovante</span></h2>
+                    <p class="text-light">Deux piliers complémentaires pour former les esprits de demain.</p>
+                </div>
+                <div class="grid grid-2">
+                    <div class="card" data-aos style="padding: 0; overflow: hidden;">
+                        <img src="./public/jecris_poster.jpg" loading="lazy" alt="Pédagogie Montessori" style="width: 100%; height: 280px; object-fit: cover;">
+                        <div style="padding: 2rem;">
+                            <h3 style="margin-bottom: 0.75rem;">Pédagogie Montessori & MHF</h3>
+                            <p style="font-size: 0.9rem; color: var(--text-light);">Méthodes MHF/MHM, apprentissage actif, enfant au centre. Autonomie, expérimentation et bienveillance au service de chaque élève.</p>
+                            <a href="./about.html" class="text-primary" style="display: block; margin-top: 1rem; font-weight: 600; font-size: 0.875rem;">En savoir plus <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="card" data-aos style="padding: 0; overflow: hidden;">
+                        <img src="./public/classroom.jpg" loading="lazy" alt="Innovation & IA" style="width: 100%; height: 280px; object-fit: cover;">
+                        <div style="padding: 2rem;">
+                            <h3 style="margin-bottom: 0.75rem;">N°1 IA Éducative à Conakry</h3>
+                            <p style="font-size: 0.9rem; color: var(--text-light);">Outils numériques innovants, parcours personnalisés par l'intelligence artificielle, production de manuels adaptés au contexte guinéen.</p>
+                            <a href="./innovation.html" class="text-primary" style="display: block; margin-top: 1rem; font-weight: 600; font-size: 0.875rem;">En savoir plus <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Engagements -->
+        <section class="section-padding">
+            <div class="container">
+                <div class="grid grid-2" style="gap: 3rem; align-items: center;">
+                    <div data-aos>
+                        <h2 class="font-heading" style="font-size: 2rem; margin-bottom: 2rem;">Nos <span class="text-primary">Engagements</span></h2>
+                        <div class="engagement">
+                            <strong>Engagement 1 — Qualité & Suivi</strong>
+                            <p>« Bela Lekkol Montessori s'engage à offrir un enseignement rigoureux, innovant et accessible. Nos équipes garantissent un suivi personnalisé pour chaque élève et une formation continue pour les professeurs. »</p>
+                        </div>
+                        <div class="engagement">
+                            <strong>Engagement 2 — Économie & Maîtrise</strong>
+                            <p>En évitant le recours illusoire au CNED, Bela Lekkol permet une économie de 12 000 000 GNF à chaque parent et un enseignement 100% maîtrisé et présentiel. Le DNB français et les 3 examens nationaux guinéens sont préparés.</p>
+                        </div>
+                    </div>
+                    <div data-aos>
+                        <img src="./public/billboard.jpg" loading="lazy" alt="Bela Lekkol Montessori" style="width: 100%; border-radius: var(--radius); box-shadow: var(--shadow);">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Galerie Swiper -->
+        <section class="gallery-section">
+            <div class="container">
+                <div class="section-header-premium">
+                    <span class="section-label">Notre école en images</span>
+                    <h2>La vie à <em>Bela Lekkol</em></h2>
+                    <div class="gold-bar"></div>
+                </div>
+                <!-- Filtres galerie -->
+                <div class="gallery-filters" style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:1.5rem;">
+                    <button class="gfilter-btn active" data-filter="all">Tout</button>
+                    <button class="gfilter-btn" data-filter="classes">Classes & Maternelle</button>
+                    <button class="gfilter-btn" data-filter="activites">Activités</button>
+                    <button class="gfilter-btn" data-filter="evenements">Événements</button>
+                    <button class="gfilter-btn" data-filter="diplomes">Diplômes & Réussite</button>
+                </div>
+
+                <div class="swiper gallery-swiper">
+                    <div class="swiper-wrapper">
+                        <!-- CLASSES & MATERNELLE -->
+                        <div class="swiper-slide" data-cat="classes">
+                            <img src="./public/ph_maternelle_1.jpg" loading="lazy" alt="Classe Petite Section — Bela Lekkol">
+                            <div class="slide-caption">🌸 Classe Petite Section — Casa dei Bambini</div>
+                        </div>
+                        <div class="swiper-slide" data-cat="classes">
+                            <img src="./public/ph_maternelle_2.jpg" loading="lazy" alt="Maternelle Bela Lekkol Montessori">
+                            <div class="slide-caption">🌸 Maternelle — environnement préparé Montessori</div>
+                        </div>
+                        <div class="swiper-slide" data-cat="classes">
+                            <img src="./public/ph_classe_1.jpg" loading="lazy" alt="Classe primaire Bela Lekkol">
+                            <div class="slide-caption">📚 Classe primaire — apprentissage actif</div>
+                        </div>
+                        <div class="swiper-slide" data-cat="classes">
+                            <img src="./public/ph_classe_2.jpg" loading="lazy" alt="Classe Bela Lekkol Montessori">
+                            <div class="slide-caption">📚 Nos classes — programme français certifié</div>
+                        </div>
+                        <div class="swiper-slide" data-cat="classes">
+                            <img src="./public/ph_classe_3.jpg" loading="lazy" alt="Élèves Bela Lekkol">
+                            <div class="slide-caption">📚 Élèves autonomes et curieux</div>
+                        </div>
+                        <div class="swiper-slide" data-cat="classes">
+                            <img src="./public/ph_classe_4.jpg" loading="lazy" alt="Vie en classe Bela Lekkol">
+                            <div class="slide-caption">📚 Vie en classe — méthodes MHF/MHM</div>
+                        </div>
+                        <!-- ACTIVITÉS 2022 -->
+                        <div class="swiper-slide" data-cat="activites">
+                            <img src="./public/ph_activite_2022_1.jpg" loading="lazy" alt="Activités scolaires 2022">
+                            <div class="slide-caption">🎨 Ateliers Montessori — matériel didactique</div>
+                        </div>
+                        <div class="swiper-slide" data-cat="activites">
+                            <img src="./public/ph_activite_2022_2.jpg" loading="lazy" alt="Activités pédagogiques">
+                            <div class="slide-caption">🎨 Apprentissage par la manipulation</div>
+                        </div>
+                        <div class="swiper-slide" data-cat="activites">
+                            <img src="./public/ph_activite_2022_3.jpg" loading="lazy" alt="Élèves en activité">
+                            <div class="slide-caption">🎨 Curiosité et découverte — Bela Lekkol</div>
+                        </div>
+                        <div class="swiper-slide" data-cat="activites">
+                            <img src="./public/ph_activite_2022_4.jpg" loading="lazy" alt="Activités en groupe">
+                            <div class="slide-caption">🤝 Travail en groupe — coopération et entraide</div>
+                        </div>
+                        <!-- ACTIVITÉS 2026 -->
+                        <div class="swiper-slide" data-cat="activites">
+                            <img src="./public/ph_activite_2026_1.jpg" loading="lazy" alt="Activités janvier 2026">
+                            <div class="slide-caption">📖 Rentrée 2026 — accueil et premiers apprentissages</div>
+                        </div>
+                        <div class="swiper-slide" data-cat="activites">
+                            <img src="./public/ph_activite_2026_2.jpg" loading="lazy" alt="Activités Bela Lekkol 2026">
+                            <div class="slide-caption">📖 Vie scolaire — janvier 2026</div>
+                        </div>
+                        <div class="swiper-slide" data-cat="activites">
+                            <img src="./public/ph_activite_2026_3.jpg" loading="lazy" alt="Mars 2026 — Bela Lekkol">
+                            <div class="slide-caption">🌿 Activités de mars 2026 — ancrage culturel guinéen</div>
+                        </div>
+                        <div class="swiper-slide" data-cat="activites">
+                            <img src="./public/ph_activite_2026_4.jpg" loading="lazy" alt="Activités printanières 2026">
+                            <div class="slide-caption">🌿 Printemps 2026 — projets interdisciplinaires</div>
+                        </div>
+                        <!-- ÉVÉNEMENTS oct 2025 -->
+                        <div class="swiper-slide" data-cat="evenements">
+                            <img src="./public/ph_oct2025_1.jpg" loading="lazy" alt="Événement Bela Lekkol oct 2025">
+                            <div class="slide-caption">🎉 Événement scolaire — octobre 2025</div>
+                        </div>
+                        <div class="swiper-slide" data-cat="evenements">
+                            <img src="./public/ph_oct2025_2.jpg" loading="lazy" alt="Activité parascolaire oct 2025">
+                            <div class="slide-caption">🎉 Activités parascolaires — tournoi sportif</div>
+                        </div>
+                        <div class="swiper-slide" data-cat="evenements">
+                            <img src="./public/ph_oct2025_3.jpg" loading="lazy" alt="Vie scolaire oct 2025">
+                            <div class="slide-caption">🏆 Esprit d'équipe et de compétition bienveillante</div>
+                        </div>
+                        <div class="swiper-slide" data-cat="evenements">
+                            <img src="./public/ph_oct2025_4.jpg" loading="lazy" alt="Événement scolaire">
+                            <div class="slide-caption">🌍 Communauté Bela Lekkol — Conakry, Guinée</div>
+                        </div>
+                        <div class="swiper-slide" data-cat="evenements">
+                            <img src="./public/ph_oct2025_5.jpg" loading="lazy" alt="Activité Bela Lekkol">
+                            <div class="slide-caption">🌍 Fierté guinéenne — identité et excellence</div>
+                        </div>
+                        <!-- ÉVÉNEMENTS Facebook -->
+                        <div class="swiper-slide" data-cat="evenements">
+                            <img src="./public/ph_event_1.jpg" loading="lazy" alt="Événement Bela Lekkol">
+                            <div class="slide-caption">🎊 Fête scolaire — élèves et familles réunis</div>
+                        </div>
+                        <div class="swiper-slide" data-cat="evenements">
+                            <img src="./public/ph_event_2.jpg" loading="lazy" alt="Cérémonie Bela Lekkol">
+                            <div class="slide-caption">🎊 Cérémonie de fin d'année — tradition Bela Lekkol</div>
+                        </div>
+                        <div class="swiper-slide" data-cat="evenements">
+                            <img src="./public/ph_event_3.jpg" loading="lazy" alt="Festivités scolaires">
+                            <div class="slide-caption">🎊 Festivités scolaires — joie et partage</div>
+                        </div>
+                        <div class="swiper-slide" data-cat="evenements">
+                            <img src="./public/ph_event_4.jpg" loading="lazy" alt="Animation scolaire">
+                            <div class="slide-caption">🎊 Animations culturelles — identité africaine</div>
+                        </div>
+                        <div class="swiper-slide" data-cat="evenements">
+                            <img src="./public/ph_event_5.jpg" loading="lazy" alt="Grande fête Bela Lekkol">
+                            <div class="slide-caption">🎊 La grande fête annuelle de Bela Lekkol</div>
+                        </div>
+                        <!-- DIPLÔMES -->
+                        <div class="swiper-slide" data-cat="diplomes">
+                            <img src="./public/ph_diplomes.jpg" loading="lazy" alt="Tableau d'honneur Bela Lekkol">
+                            <div class="slide-caption">🏅 Tableau d'honneur — réussite et mérite</div>
+                        </div>
+                    </div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hymne & Culture -->
+        <section class="section-padding" style="background: white;">
+            <div class="container text-center">
+                <h2 class="font-heading" style="margin-bottom: 0.5rem;">Hymne & Culture</h2>
+                <p style="color: var(--text-light); margin-bottom: 3rem;">Une mélodie qui rassemble nos élèves et leurs familles.</p>
+                <div class="grid grid-2" style="align-items: center; max-width: 900px; margin: 0 auto;">
+                    <div class="card" data-aos>
+                        <img src="./public/mother_child.jpg" alt="Culture guinéenne" style="width: 100%; border-radius: 10px; margin-bottom: 1.5rem; height: 200px; object-fit: cover;">
+                        <h3 style="margin-bottom: 1rem;">Écoutez notre Hymne</h3>
+                        <audio id="school-anthem" src="./public/anthem.mp3" preload="auto"></audio>
+                        <div style="display: flex; align-items: center; justify-content: center; gap: 1rem;">
+                            <button id="play-pause" class="btn btn-primary" style="border-radius: 50%; width: 56px; height: 56px; padding: 0;">
+                                <i class="fas fa-play"></i>
+                            </button>
+                            <a href="./public/anthem.mp3" download class="btn btn-outline"><i class="fas fa-download"></i> Télécharger</a>
+                        </div>
+                    </div>
+                    <div class="card" data-aos>
+                        <img src="./public/galerie_4.jpg" loading="lazy" loading="lazy" alt="Vie scolaire" style="width: 100%; border-radius: 10px; margin-bottom: 1.5rem; height: 200px; object-fit: cover;">
+                        <h3 style="margin-bottom: 0.75rem;">Ouverture sur le Monde</h3>
+                        <p style="font-size: 0.9rem; color: var(--text-light);">Une école guinéenne avec une vision internationale d'excellence française, ancrée dans la réalité africaine.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Partner Bar -->
+        <section class="partner-bar">
+            <div class="container">
+                <span style="font-size: 0.75rem; font-weight: 700; color: var(--text-light); text-transform: uppercase; letter-spacing: 0.1em; margin-right: 1rem;">Partenaires :</span>
+                <div class="partner-item"><i class="fas fa-flag"></i> Institut Français de Guinée</div>
+                <div class="partner-item"><i class="fas fa-university"></i> ISSEG</div>
+                <div class="partner-item"><i class="fas fa-landmark"></i> MEPU-A</div>
+                <div class="partner-item"><i class="fas fa-city"></i> Ville de Nice</div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="cta-section">
+            <div class="container" data-aos>
+                <h2>Inscriptions 2026-2027 ouvertes</h2>
+                <p>Rejoignez la communauté Bela Lekkol Montessori. Tests d'admission gratuits — Dossier gratuit — Paiements en 3 ou 4 tranches.</p>
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="./admissions.html" class="btn btn-white">Inscrire mon enfant</a>
+                    <a href="./admissions.html#tarifs" class="btn btn-outline-white">Voir les tarifs</a>
+                    <a href="https://wa.me/224626313180" target="_blank" rel="noopener noreferrer" class="btn btn-outline-white"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-logo">
+                        <div class="logo-main" style="color: white; margin-bottom: 5px;"><span class="t-red">BELA</span> <span class="t-yellow">LEKKOL</span> MONTESSORI</div>
+                        <div style="font-size: 0.65rem; opacity: 0.8; letter-spacing: 1px; margin-bottom: 1rem;">L'ÉCOLE FRANÇAISE AU SERVICE DE LA GUINÉE</div>
+                    </div>
+                    <p style="opacity: 0.7; font-size: 0.875rem; margin-bottom: 1rem;">Programme français certifié · Pédagogie Montessori · Ancrage culturel africain.</p>
+                    <p style="opacity: 0.5; font-size: 0.75rem; margin-bottom: 1.25rem;">Partenaires : Institut Français · ISSEG · MEPU-A · Ville de Nice</p>
+                    <div style="display: flex; gap: 1rem; font-size: 1.25rem;">
+                        <a href="https://www.facebook.com/profile.php?id=61562529852559" target="_blank" rel="noopener noreferrer" style="opacity:0.8;"><i class="fab fa-facebook"></i></a>
+                        <a href="https://wa.me/224626313180" target="_blank" rel="noopener noreferrer" style="opacity:0.8;"><i class="fab fa-whatsapp"></i></a>
+                        <a href="mailto:belalekkol.montessori@gmail.com" style="opacity:0.8;"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>L'École</h4>
+                    <ul>
+                        <li><a href="./about.html">Notre Histoire & Vision</a></li>
+                        <li><a href="./programs.html">Nos Programmes</a></li>
+                        <li><a href="./innovation.html">Innovation & IA</a></li>
+                        <li><a href="./cfp.html">CFP Maria Montessori</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Familles</h4>
+                    <ul>
+                        <li><a href="./admissions.html">Inscriptions 2026-27</a></li>
+                        <li><a href="./admissions.html#tarifs">Frais de scolarité</a></li>
+                        <li><a href="./life.html">Vie Scolaire</a></li>
+                        <li><a href="./contact.html">Nous contacter</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Contact</h4>
+                    <ul style="opacity: 0.85; font-size: 0.875rem; line-height: 2.2;">
+                        <li><i class="fas fa-location-dot" style="margin-right: 0.5rem; color: var(--accent);"></i>T2, Kipé, 100m Prima Center, Conakry</li>
+                        <li><i class="fas fa-phone" style="margin-right: 0.5rem; color: var(--accent);"></i>+224 626 31 31 80 / 623 23 18 07</li>
+                        <li><i class="fas fa-envelope" style="margin-right: 0.5rem; color: var(--accent);"></i>belalekkol.montessori@gmail.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Bela Lekkol Montessori · CFP Maria Montessori · Conakry, Guinée. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script type="module" src="./src/main.js"></script>
+    <script>
+        const audio = document.getElementById('school-anthem');
+        const playPauseBtn = document.getElementById('play-pause');
+        if (playPauseBtn && audio) {
+            const icon = playPauseBtn.querySelector('i');
+            playPauseBtn.addEventListener('click', () => {
+                if (audio.paused) { audio.play(); icon.classList.replace('fa-play', 'fa-pause'); }
+                else { audio.pause(); icon.classList.replace('fa-pause', 'fa-play'); }
+            });
+            audio.addEventListener('ended', () => icon.classList.replace('fa-pause', 'fa-play'));
+        }
+    </script>
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/224626313180" target="_blank" rel="noopener noreferrer" class="wa-float" title="Contacter par WhatsApp"><i class="fab fa-whatsapp"></i></a>
+
+</body>
+</html>
+
+
+
