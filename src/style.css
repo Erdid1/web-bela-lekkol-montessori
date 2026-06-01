@@ -393,16 +393,22 @@ footer {
   opacity: 0.6;
 }
 
-/* Animations */
+/* Animations — visible par défaut, animées au scroll si JS disponible */
 [data-aos] {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* JS actif : cacher avant animation */
+.js-loaded [data-aos]:not(.aos-animate) {
   opacity: 0;
   transform: translateY(30px);
-  transition: 0.8s ease-out;
 }
 
 [data-aos].aos-animate {
-  opacity: 1;
-  transform: translateY(0);
+  opacity: 1 !important;
+  transform: translateY(0) !important;
 }
 
 /* ── URGENCY / NOTICE BANNERS ── */

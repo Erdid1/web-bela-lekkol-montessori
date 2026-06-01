@@ -1,4 +1,5 @@
 import './style.css';
+document.body.classList.add('js-loaded');
 
 // ── COMPTEURS ANIMÉS ──────────────────────────────────────
 function animateCounter(el) {
@@ -114,9 +115,16 @@ document.querySelectorAll('.nav-links a').forEach(link => {
 });
 
 // Simple Intersection Observer for AOS (Animate on Scroll)
+// Fallback : rendre visibles tous les éléments après 400ms si l'observer ne déclenche pas
+setTimeout(() => {
+    document.querySelectorAll('[data-aos]:not(.aos-animate)').forEach(el => {
+        el.classList.add('aos-animate');
+    });
+}, 400);
+
 const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
+    threshold: 0.05,
+    rootMargin: '100px 0px 0px 0px'
 };
 
 const observer = new IntersectionObserver((entries) => {
