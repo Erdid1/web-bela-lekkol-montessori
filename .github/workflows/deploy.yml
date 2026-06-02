@@ -1,8 +1,11 @@
-name: Build & Deploy → Hostinger
+name: Build & Deploy → GitHub Pages
 
 on:
   push:
     branches: [ master ]
+
+permissions:
+  contents: write
 
 jobs:
   deploy:
@@ -24,12 +27,9 @@ jobs:
       - name: Build Vite
         run: npm run build
 
-      - name: Déploiement FTP vers Hostinger
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      - name: Déploiement GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          server: ${{ secrets.FTPSERVER }}
-          username: ${{ secrets.FTPUSERNAME }}
-          password: ${{ secrets.FTPPASSWORD }}
-          local-dir: ./dist/
-          server-dir: /domains/blmlecolefrancaise.com/public_html/
-          dangerous-clean-slate: false
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          cname: blmlecolefrancaise.com
