@@ -97,12 +97,20 @@ if (mobileToggle) {
         icon.classList.toggle('fa-bars');
         icon.classList.toggle('fa-times');
     });
+    // Fermer le menu au clic sur un lien
+    navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            const icon = mobileToggle.querySelector('i');
+            if (icon) { icon.classList.replace('fa-times', 'fa-bars'); }
+        });
+    });
     // Fermer le menu au clic extérieur
     document.addEventListener('click', (e) => {
         if (navLinks.classList.contains('active') && !navLinks.contains(e.target) && e.target !== mobileToggle && !mobileToggle.contains(e.target)) {
             navLinks.classList.remove('active');
             const icon = mobileToggle.querySelector('i');
-            icon.classList.replace('fa-times', 'fa-bars');
+            if (icon) { icon.classList.replace('fa-times', 'fa-bars'); }
         }
     });
 }
