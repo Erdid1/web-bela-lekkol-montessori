@@ -1,35 +1,50 @@
-name: Build & Deploy → GitHub Pages
+name: 🚀 Build & Deploy → blmlecolefrancaise.com
 
 on:
   push:
-    branches: [ master ]
+    branches: [ master, main ]
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
 
 jobs:
-  deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Récupération du code
+      - name: ⬇️ Récupération du code
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
-      - name: Installation Node.js
+      - name: 🟢 Installation Node.js 20
         uses: actions/setup-node@v4
         with:
           node-version: '20'
           cache: 'npm'
 
-      - name: Installation des dépendances
+      - name: 📦 Installation des dépendances
         run: npm ci
 
-      - name: Build Vite
+      - name: 🔨 Build Vite (production)
         run: npm run build
+        env:
+          NODE_ENV: production
 
-      - name: Déploiement GitHub Pages
+      - name: ✅ Vérification du build
+        run: |
+          echo "Fichiers générés dans dist/ :"
+          ls -la dist/
+          echo "Assets :"
+          ls -la dist/assets/ 2>/dev/null || echo "Pas de dossier assets"
+
+      - name: 🌐 Déploiement GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
           cname: blmlecolefrancaise.com
+          commit_message: "deploy: ${{ github.event.head_commit.message }}"
+          force_orphan: false
