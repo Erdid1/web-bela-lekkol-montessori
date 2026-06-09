@@ -76,41 +76,91 @@ if (document.querySelector('.gallery-swiper')) {
   });
 }
 
-// Navbar scroll logic
+// ── NAVBAR SCROLL — glassmorphism dynamique ───────────────────
 const header = document.getElementById('header');
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-        header.classList.add('scrolled');
-    } else {
-        header.classList.remove('scrolled');
-    }
+if (header) {
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 60);
+  }, { passive: true });
+}
+
+// ── TUBELIGHT PILL — effet lumineux 21st.dev ──────────────────
+function initNavPill() {
+  const nav = document.getElementById('nav-links');
+  if (!nav || window.innerWidth <= 968) return;
+
+  let pill = nav.querySelector('.nav-pill');
+  if (!pill) {
+    pill = document.createElement('span');
+    pill.className = 'nav-pill';
+    nav.appendChild(pill);
+  }
+
+  const links = [...nav.querySelectorAll('li a')]
+    .filter(a => !a.classList.contains('btn') && !a.classList.contains('btn-secondary'));
+
+  const activeLink = links.find(a => a.classList.contains('nav-active')) || null;
+
+  function moveTo(el) {
+    const navRect = nav.getBoundingClientRect();
+    const elRect  = el.getBoundingClientRect();
+    pill.style.left    = (elRect.left - navRect.left) + 'px';
+    pill.style.width   = elRect.width + 'px';
+    pill.style.opacity = '1';
+  }
+
+  // Position initiale sans animation
+  if (activeLink) {
+    pill.style.transition = 'none';
+    moveTo(activeLink);
+    requestAnimationFrame(() => { pill.style.transition = ''; });
+  } else {
+    pill.style.opacity = '0';
+  }
+
+  // Hover : le pill suit la souris
+  links.forEach(link => {
+    link.addEventListener('mouseenter', () => moveTo(link));
+    link.addEventListener('mouseleave', () => {
+      if (activeLink) moveTo(activeLink);
+      else pill.style.opacity = '0';
+    });
+  });
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+  // Attendre que le layout soit stable
+  requestAnimationFrame(initNavPill);
+  window.addEventListener('resize', initNavPill, { passive: true });
 });
 
-// Mobile menu toggle
+// ── MOBILE MENU TOGGLE ────────────────────────────────────────
 const mobileToggle = document.getElementById('mobile-toggle');
 const navLinks = document.getElementById('nav-links');
 
 if (mobileToggle) {
     mobileToggle.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
+        const isOpen = navLinks.classList.toggle('active');
         const icon = mobileToggle.querySelector('i');
-        icon.classList.toggle('fa-bars');
-        icon.classList.toggle('fa-times');
+        if (icon) {
+          icon.className = isOpen ? 'fas fa-times' : 'fas fa-bars';
+        }
     });
-    // Fermer le menu au clic sur un lien
     navLinks.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', () => {
             navLinks.classList.remove('active');
             const icon = mobileToggle.querySelector('i');
-            if (icon) { icon.classList.replace('fa-times', 'fa-bars'); }
+            if (icon) { icon.className = 'fas fa-bars'; }
         });
     });
-    // Fermer le menu au clic extérieur
     document.addEventListener('click', (e) => {
-        if (navLinks.classList.contains('active') && !navLinks.contains(e.target) && e.target !== mobileToggle && !mobileToggle.contains(e.target)) {
+        if (navLinks.classList.contains('active') &&
+            !navLinks.contains(e.target) &&
+            e.target !== mobileToggle &&
+            !mobileToggle.contains(e.target)) {
             navLinks.classList.remove('active');
             const icon = mobileToggle.querySelector('i');
-            if (icon) { icon.classList.replace('fa-times', 'fa-bars'); }
+            if (icon) { icon.className = 'fas fa-bars'; }
         }
     });
 }
