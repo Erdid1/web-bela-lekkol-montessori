@@ -40,11 +40,13 @@ jobs:
           echo "Assets :"
           ls -la dist/assets/ 2>/dev/null || echo "Pas de dossier assets"
 
-      - name: 🌐 Déploiement GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+      - name: 📂 Copie actualites.html (standalone)
+        run: cp actualites.html dist/actualites.html
+
+      - name: 🌐 Déploiement Hostinger FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
-          cname: blmlecolefrancaise.com
-          commit_message: "deploy: ${{ github.event.head_commit.message }}"
-          force_orphan: false
+          server: 194.164.74.73
+          username: u376691524
+          password: ${{ secrets.FTP_PASSWORD }}
+ 
