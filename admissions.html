@@ -12,6 +12,174 @@
     <link rel="icon" href="./public/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="./src/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+    /* ══ NAVBAR BELA LEKKOL ══ */
+    header {
+      background: rgba(11,31,75,0.90);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-bottom: 1px solid rgba(200,169,81,0.18);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      transition: background .4s ease, box-shadow .4s ease;
+    }
+    header::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, transparent 0%, rgba(200,169,81,0.1) 20%, #C8A951 50%, rgba(200,169,81,0.1) 80%, transparent 100%);
+      background-size: 200% 100%;
+      animation: shimmer-hdr 4s ease-in-out infinite;
+    }
+    @keyframes shimmer-hdr {
+      0%   { background-position: 200% 0; opacity:.5; }
+      50%  { background-position: 0%   0; opacity:1;  }
+      100% { background-position:-200% 0; opacity:.5; }
+    }
+    header.scrolled {
+      background: rgba(255,255,255,0.96);
+      box-shadow: 0 4px 24px -4px rgba(11,31,75,0.12);
+    }
+    header.scrolled::after {
+      background: linear-gradient(90deg, transparent 0%, rgba(46,125,50,0.1) 20%, #2E7D32 50%, rgba(46,125,50,0.1) 80%, transparent 100%);
+      background-size: 200% 100%;
+    }
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+      gap: 1rem;
+    }
+    .logo-block { display: flex; align-items: center; gap: .7rem; flex-shrink: 0; text-decoration: none; }
+    .logo-circle {
+      width: 40px; height: 40px;
+      background: linear-gradient(135deg,#1B5E20,#2E7D32);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      color: #fff;
+      font-weight: 800;
+      font-size: .95rem;
+      letter-spacing: -.5px;
+      box-shadow: 0 0 14px rgba(46,125,50,0.35);
+      flex-shrink: 0;
+    }
+    .logo-text { line-height: 1.2; }
+    .logo-text strong { display: block; font-size: .93rem; color: rgba(255,255,255,0.92); font-weight: 700; }
+    .logo-text span { font-size: .70rem; color: rgba(255,255,255,0.52); }
+    header.scrolled .logo-text strong { color: var(--green-dark); }
+    header.scrolled .logo-text span   { color: var(--text-light); }
+
+    /* Nav avec pill indicator */
+    nav { display: flex; align-items: center; gap: 2px; flex-wrap: wrap; position: relative; padding: 3px; }
+    nav a {
+      padding: .42rem .7rem;
+      border-radius: 9999px;
+      font-size: .80rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.72);
+      white-space: nowrap;
+      position: relative; z-index: 1;
+      transition: color .2s ease;
+      text-decoration: none;
+    }
+    nav a:hover { color: #C8A951; }
+    nav a.active { color: #C8A951; text-shadow: 0 0 16px rgba(200,169,81,0.5); }
+    header.scrolled nav a { color: var(--text-light); }
+    header.scrolled nav a:hover { color: var(--green-dark); }
+    header.scrolled nav a.active { color: var(--green-dark); font-weight: 700; text-shadow: none; }
+
+    /* Pill tubelight */
+    .nav-pill {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      height: calc(100% - 6px); border-radius: 9999px;
+      background: rgba(200,169,81,0.12);
+      border: 1px solid rgba(200,169,81,0.28);
+      box-shadow: 0 0 12px rgba(200,169,81,0.22), inset 0 1px 0 rgba(255,255,255,0.06);
+      transition: left .32s cubic-bezier(.4,0,.2,1), width .32s cubic-bezier(.4,0,.2,1), opacity .2s;
+      pointer-events: none; z-index: 0;
+    }
+    .nav-pill::before {
+      content: ''; position: absolute; top: -3px; left: 10%; width: 80%; height: 2px;
+      border-radius: 9999px;
+      background: linear-gradient(90deg, transparent, #C8A951, transparent);
+      opacity: .65; filter: blur(1px);
+    }
+    header.scrolled .nav-pill {
+      background: rgba(46,125,50,0.07); border-color: rgba(46,125,50,0.18);
+      box-shadow: 0 0 10px rgba(46,125,50,0.08);
+    }
+    header.scrolled .nav-pill::before {
+      background: linear-gradient(90deg, transparent, var(--green-dark), transparent); opacity: .4;
+    }
+
+    .btn-inscrire {
+      background: var(--green);
+      color: #fff !important;
+      padding: .45rem 1rem !important;
+      border-radius: 8px !important;
+      font-size: .80rem !important;
+      font-weight: 600 !important;
+      margin-left: .4rem;
+      flex-shrink: 0;
+      transition: background .2s;
+      text-decoration: none;
+    }
+    .btn-inscrire:hover { background: var(--green-dark) !important; }
+    .hamburger {
+      display: none; font-size: 1.3rem; cursor: pointer;
+      background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 7px; color: #fff; padding: .4rem .5rem;
+      transition: background .2s;
+    }
+    .hamburger:hover { background: rgba(255,255,255,0.18); }
+    header.scrolled .hamburger { color: var(--green-dark); background: rgba(46,125,50,0.07); border-color: rgba(46,125,50,0.18); }
+
+    /* ===== BREADCRUMB ===== */
+    .breadcrumb {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: .5rem 0;
+    }
+@media (max-width: 768px) {
+      .main-wrap { grid-template-columns: 1fr; }
+      .nav-pill { display: none !important; }
+      nav {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 64px; left: 0; right: 0;
+        background: linear-gradient(160deg,#061535,#0B2060);
+        padding: .8rem;
+        z-index: 99;
+        gap: 4px;
+      }
+      nav.open { display: flex; }
+      nav a {
+        color: rgba(255,255,255,0.82) !important;
+        text-shadow: none !important;
+        padding: .75rem 1rem;
+        border-radius: 10px;
+        font-size: .88rem;
+        background: rgba(255,255,255,0.04);
+        border: 1px solid rgba(255,255,255,0.07);
+        width: 100%;
+      }
+      nav a:hover, nav a.active {
+        color: #C8A951 !important;
+        background: rgba(200,169,81,0.10) !important;
+        border-color: rgba(200,169,81,0.25) !important;
+        text-shadow: none !important;
+      }
+      .hamburger { display: block; }
+      .hero h1 { font-size: 1.5rem; }
+    }
+  
+</style>
 </head>
 <body>
     <!-- Top Bar style GSJC -->
@@ -37,29 +205,29 @@
         <span>Tests <strong>GRATUITS</strong> · Dossier <strong>GRATUIT</strong> · Paiements en 3 ou 4 tranches</span>
     </div>
 
-    <header id="header" class="scrolled">
-        <div class="container">
-            <nav>
-                <a href="./index.html" class="logo">
-                    <img src="/logo_officiel.jpg" alt="Bela Lekkol Montessori" class="logo-img">
-                    <div class="logo-text">
-                        <div class="logo-main"><span class="t-red">BELA</span> <span class="t-yellow">LEKKOL</span> <span class="t-blue-dark">MONTESSORI</span></div>
-                        <div class="logo-sub">L'école française au service de la Guinée</div>
-                    </div>
-                </a>
-                <ul class="nav-links" id="nav-links">
-                    <li><a href="./index.html">Accueil</a></li>
-                    <li><a href="./about.html">École</a></li>
-                    <li><a href="./programs.html">Programmes</a></li>
-                    <li><a href="./cfp.html">CFP</a></li>
-                    <li><a href="./innovation.html">Innovation</a></li>
-                    <li><a href="./life.html">Vie scolaire</a></li>
-                    <li><a href="./admissions.html" class="btn btn-secondary" style="padding:0.38rem 1rem;font-size:0.7rem;">Admission</a></li>
-                </ul>
-                <div class="mobile-toggle" id="mobile-toggle"><i class="fas fa-bars"></i></div>
-            </nav>
-        </div>
-    </header>
+    <header>
+  <div class="nav-inner">
+    <a href="index.html" class="logo-block">
+      <div class="logo-circle">BL</div>
+      <div class="logo-text">
+        <strong>Bela Lekkol Montessori</strong>
+        <span>Kipé, Conakry — Guinée</span>
+      </div>
+    </a>
+    <button class="hamburger" onclick="this.nextElementSibling.classList.toggle('open')" aria-label="Menu">☰</button>
+    <nav>
+      <a href="index.html">Accueil</a>
+      <a href="about.html">À Propos</a>
+      <a href="programs.html">Programmes</a>
+      <a href="cfp.html">CFP</a>
+      <a href="innovation.html">Innovation</a>
+      <a href="life.html">Vie scolaire</a>
+      <a href="actualites.html">Actualités</a>
+      <a href="contact.html">Contact</a>
+      <a href="admissions.html" class="btn-inscrire active">S'inscrire →</a>
+    </nav>
+  </div>
+</header>
 
     <main>
 
@@ -402,6 +570,59 @@
     </footer>
 
     <script type="module" src="./src/main.js"></script>
+<script>
+  // ── HEADER SCROLL — glassmorphism mode clair ─────────────────
+  const hdr = document.querySelector('header');
+  window.addEventListener('scroll', () => {
+    hdr.classList.toggle('scrolled', window.scrollY > 50);
+  }, { passive: true });
+
+  // ── TUBELIGHT PILL — effet 21st.dev ──────────────────────────
+  function initPill() {
+    const nav = document.querySelector('nav');
+    if (!nav || window.innerWidth <= 768) return;
+
+    let pill = nav.querySelector('.nav-pill');
+    if (!pill) {
+      pill = document.createElement('span');
+      pill.className = 'nav-pill';
+      nav.appendChild(pill);
+    }
+
+    const links = [...nav.querySelectorAll('a')]
+      .filter(a => !a.classList.contains('btn-inscrire'));
+
+    const activeLink = links.find(a => a.classList.contains('active')) || null;
+
+    function moveTo(el) {
+      const navRect = nav.getBoundingClientRect();
+      const elRect  = el.getBoundingClientRect();
+      pill.style.left    = (elRect.left - navRect.left) + 'px';
+      pill.style.width   = elRect.width + 'px';
+      pill.style.opacity = '1';
+    }
+
+    if (activeLink) {
+      pill.style.transition = 'none';
+      moveTo(activeLink);
+      requestAnimationFrame(() => { pill.style.transition = ''; });
+    } else {
+      pill.style.opacity = '0';
+    }
+
+    links.forEach(link => {
+      link.addEventListener('mouseenter', () => moveTo(link));
+      link.addEventListener('mouseleave', () => {
+        if (activeLink) moveTo(activeLink);
+        else pill.style.opacity = '0';
+      });
+    });
+  }
+
+  window.addEventListener('DOMContentLoaded', () => {
+    requestAnimationFrame(initPill);
+    window.addEventListener('resize', initPill, { passive: true });
+</script>
 </body>
 </html>
 

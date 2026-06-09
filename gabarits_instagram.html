@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gabarits Instagram — Bela Lekkol Montessori</title>
+<style>
+  /* ===== RESET & BASE ===== */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --vert:    #2E7D32;
+    --vert-f:  #1B5E20;
+    --vert-l:  #4CAF50;
+    --or:      #F9A825;
+    --or-f:    #F57F17;
+    --blanc:   #FFFFFF;
+    --gris:    #F5F5F5;
+    --texte:   #212121;
+    --shadow:  rgba(0,0,0,0.18);
+  }
+
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #ECEFF1;
+    color: var(--texte);
+  }
+
+  /* ===== HEADER INTERFACE ===== */
+  .ui-header {
+    background: var(--vert);
+    color: white;
+    padding: 16px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 8px var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .ui-header h1 { font-size: 1.1rem; font-weight: 700; letter-spacing: 0.5px; }
+  .ui-header span { font-size: 0.8rem; opacity: 0.8; }
+
+  .ui-tabs {
+    background: white;
+    border-bottom: 2px solid #E0E0E0;
+    display: flex;
+    gap: 0;
+    padding: 0 24px;
+    overflow-x: auto;
+    position: sticky;
+    top: 57px;
+    z-index: 99;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  }
+  .tab-btn {
+    padding: 14px 20px;
+    border: none;
+    background: none;
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+    color: #757575;
+    border-bottom: 3px solid transparent;
+    white-space: nowrap;
+    transition: all 0.2s;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+  }
+  .tab-btn:hover { color: var(--vert); }
+  .tab-btn.active { color: var(--vert); border-bottom-color: var(--or); }
+
+  .ui-main {
+    padding: 32px 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* ===== TEMPLATE SECTION ===== */
+  .template-section { display: none; }
+  .template-section.active { display: block; }
+
+  .section-title {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #757575;
+    margin-bottom: 20px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #E0E0E0;
+  }
+
+  .templates-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+    gap: 28px;
+  }
+
+  .template-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px var(--shadow);
+    overflow: hidden;
+  }
+  .template-card-meta {
+    padding: 14px 16px;
+    border-bottom: 1px solid #F0F0F0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .template-card-meta h3 { font-size: 0.85rem; font-weight: 700; color: var(--vert); }
+  .format-badge {
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 12px;
+    background: var(--or);
+    color: #5D4037;
+  }
+
+  .canvas-wrapper {
+    display: flex;
+    justify-content: center;
+    padding: 16px;
+    background: #F9F9F9;
+  }
+
+  .template-hint {
+    padding: 10px 16px;
+    font-size: 0.75rem;
+    color: #9E9E9E;
+    background: #FAFAFA;
+    border-top: 1px solid #F0F0F0;
+  }
+
+  /* ===== INSTAGRAM FRAMES ===== */
+  /* Toutes les frames sont à 540px pour la preview = 50% de 1080px réel */
+  .ig-frame {
+    position: relative;
+    overflow: hidden;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    flex-shrink: 0;
+  }
+  /* Carré 1:1 = 540×540 */
+  .ig-sq { width: 540px; height: 540px; }
+  /* Portrait 4:5 = 540×675 */
+  .ig-pt { width: 540px; height: 675px; }
+
+  /* ===== TEMPLATE 1 : BIENVENUE (carré) ===== */
+  .t1 { background: var(--vert); display: flex; flex-direction: column; }
+  .t1-top { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; padding: 40px; }
+  .t1-logo-ring {
+    width: 90px; height: 90px; border-radius: 50%;
+    background: white;
+    border: 3px solid var(--or);
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+    font-size: 2.4rem;
+  }
+  .t1-logo-ring img { width: 100%; height: 100%; object-fit: contain; border-radius: 50%; }
+  .t1-titre {
+    color: white; font-size: 1.5rem; font-weight: 900;
+    text-align: center; line-height: 1.2; text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .t1-sous { color: var(--or); font-size: 0.95rem; font-weight: 600; text-align: center; }
+  .t1-tag {
+    background: var(--or); color: var(--vert-f);
+    font-size: 0.78rem; font-weight: 800;
+    padding: 6px 16px; border-radius: 20px;
+    text-transform: uppercase; letter-spacing: 0.5px;
+  }
+  .t1-bottom {
+    background: rgba(0,0,0,0.25);
+    padding: 14px 32px;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .t1-bottom span { color: rgba(255,255,255,0.8); font-size: 0.7rem; }
+  .t1-bottom strong { color: var(--or); font-size: 0.75rem; }
+
+  /* ===== TEMPLATE 2 : INSCRIPTIONS (portrait) ===== */
+  .t2 { background: var(--vert-f); display: flex; flex-direction: column; }
+  .t2-band { background: var(--or); padding: 10px 28px; display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+  .t2-band-txt { font-size: 0.7rem; font-weight: 800; color: var(--vert-f); text-transform: uppercase; letter-spacing: 2px; flex: 1; text-align: center; }
+  .t2-band-logo { width: 36px; height: 36px; border-radius: 50%; background: white; overflow: hidden; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .t2-band-logo img { width: 100%; height: 100%; object-fit: contain; }
+  .t2-body { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px; padding: 32px 36px; }
+  .t2-icon { font-size: 3.5rem; }
+  .t2-h { color: white; font-size: 2.2rem; font-weight: 900; text-align: center; text-transform: uppercase; line-height: 1.1; }
+  .t2-year { color: var(--or); font-size: 1.3rem; font-weight: 700; }
+  .t2-divider { width: 60px; height: 3px; background: var(--or); border-radius: 2px; }
+  .t2-niveaux {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 8px;
+    padding: 14px 20px;
+    width: 100%;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
+  }
+  .t2-niv { color: rgba(255,255,255,0.85); font-size: 0.72rem; display: flex; align-items: center; gap: 6px; }
+  .t2-niv::before { content: '✓'; color: var(--or); font-weight: 800; }
+  .t2-deadline {
+    background: var(--or); color: var(--vert-f);
+    padding: 10px 24px; border-radius: 24px;
+    font-size: 0.78rem; font-weight: 800;
+    text-transform: uppercase; text-align: center;
+    letter-spacing: 0.5px; line-height: 1.4;
+  }
+  .t2-footer { background: rgba(0,0,0,0.3); padding: 12px 28px; text-align: center; }
+  .t2-footer span { color: rgba(255,255,255,0.7); font-size: 0.68rem; }
+
+  /* ===== TEMPLATE 3 : KERMESSE (carré) ===== */
+  .t3 {
+    background: linear-gradient(145deg, #1a4a1c, #2E7D32);
+    display: flex; flex-direction: column;
+  }
+  .t3-confetti {
+    position: absolute; top: 0; left: 0; right: 0; height: 8px;
+    background: repeating-linear-gradient(90deg,
+      var(--or) 0,var(--or) 12%,
+      white 12%,white 22%,
+      var(--vert-l) 22%,var(--vert-l) 32%,
+      var(--or) 32%,var(--or) 44%,
+      white 44%,white 54%,
+      var(--vert-l) 54%,var(--vert-l) 66%,
+      var(--or) 66%,var(--or) 78%,
+      white 78%,white 88%,
+      var(--vert-l) 88%,var(--vert-l) 100%
+    );
+  }
+  .t3-body { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; padding: 40px 36px 28px; margin-top: 8px; }
+  .t3-emoji { font-size: 3rem; }
+  .t3-label { background: var(--or); color: var(--vert-f); font-size: 0.68rem; font-weight: 800; padding: 4px 14px; border-radius: 12px; text-transform: uppercase; letter-spacing: 1px; }
+  .t3-titre { color: white; font-size: 2rem; font-weight: 900; text-align: center; text-transform: uppercase; line-height: 1.1; }
+  .t3-annuelle { color: var(--or); font-size: 1.1rem; font-weight: 600; }
+  .t3-date-box {
+    background: var(--or);
+    border-radius: 10px;
+    padding: 10px 20px;
+    text-align: center;
+    width: 100%;
+    max-width: 280px;
+  }
+  .t3-date-box .jour { color: var(--vert-f); font-size: 0.65rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; }
+  .t3-date-box .date { color: var(--vert-f); font-size: 1.5rem; font-weight: 900; line-height: 1; }
+  .t3-invite { color: rgba(255,255,255,0.85); font-size: 0.75rem; text-align: center; font-style: italic; }
+  .t3-footer { background: rgba(0,0,0,0.3); padding: 10px 20px; display: flex; justify-content: space-between; align-items: center; }
+  .t3-footer span { color: rgba(255,255,255,0.7); font-size: 0.65rem; }
+  .t3-footer-logo { width: 28px; height: 28px; border-radius: 50%; background: white; overflow: hidden; display: flex; align-items: center; justify-content: center; border: 1px solid var(--or); }
+  .t3-footer-logo img { width: 100%; height: 100%; object-fit: contain; }
+
+  /* ===== TEMPLATE 4 : BULLETINS (portrait) ===== */
+  .t4 { background: white; display: flex; flex-direction: column; }
+  .t4-head { background: var(--vert); padding: 28px; display: flex; flex-direction: column; align-items: center; gap: 8px; }
+  .t4-head-logo { width: 52px; height: 52px; border-radius: 50%; background: white; border: 2px solid var(--or); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; overflow: hidden; }
+  .t4-head-logo img { width: 100%; height: 100%; object-fit: contain; border-radius: 50%; }
+  .t4-head-nom { color: white; font-size: 0.9rem; font-weight: 700; text-align: center; text-transform: uppercase; letter-spacing: 0.5px; }
+  .t4-body { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 28px 36px; }
+  .t4-icon { font-size: 3rem; }
+  .t4-h { color: var(--vert); font-size: 1.7rem; font-weight: 900; text-align: center; text-transform: uppercase; line-height: 1.1; }
+  .t4-annee { color: var(--vert); font-size: 1rem; font-weight: 600; }
+  .t4-date-pill {
+    background: var(--vert);
+    color: white;
+    padding: 10px 24px;
+    border-radius: 24px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-align: center;
+  }
+  .t4-date-pill span { display: block; font-size: 0.6rem; font-weight: 400; opacity: 0.8; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 2px; }
+  .t4-msg {
+    background: #F1F8E9;
+    border-left: 4px solid var(--vert);
+    padding: 12px 16px;
+    border-radius: 0 8px 8px 0;
+    font-size: 0.72rem;
+    color: #2E4A2F;
+    line-height: 1.5;
+    width: 100%;
+    font-style: italic;
+  }
+  .t4-footer { background: var(--or); padding: 12px 28px; text-align: center; }
+  .t4-footer span { color: var(--vert-f); font-size: 0.68rem; font-weight: 600; }
+
+  /* ===== TEMPLATE 5 : CLUB IA (carré) ===== */
+  .t5 { background: #0D1117; display: flex; flex-direction: column; }
+  .t5-grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(46,125,50,0.12) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(46,125,50,0.12) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+  .t5-body { position: relative; z-index: 1; flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; padding: 40px; }
+  .t5-icon { font-size: 3.5rem; }
+  .t5-label { background: rgba(46,125,50,0.8); color: #69F0AE; font-size: 0.65rem; font-weight: 700; padding: 4px 12px; border-radius: 4px; font-family: monospace; letter-spacing: 1px; }
+  .t5-titre { color: white; font-size: 1.8rem; font-weight: 900; text-align: center; line-height: 1.2; text-transform: uppercase; }
+  .t5-green { color: #4CAF50; }
+  .t5-sous { color: rgba(255,255,255,0.6); font-size: 0.78rem; text-align: center; line-height: 1.4; }
+  .t5-tags { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+  .t5-tag { background: rgba(46,125,50,0.3); border: 1px solid #4CAF50; color: #69F0AE; font-size: 0.65rem; font-family: monospace; padding: 4px 10px; border-radius: 4px; }
+  .t5-footer { position: relative; z-index: 1; background: rgba(46,125,50,0.9); padding: 12px 28px; display: flex; justify-content: space-between; align-items: center; }
+  .t5-footer span { color: rgba(255,255,255,0.7); font-size: 0.65rem; }
+  .t5-footer strong { color: #4CAF50; font-family: monospace; font-size: 0.7rem; }
+
+  /* ===== TEMPLATE 6 : CITATION (portrait) ===== */
+  .t6 { background: #F9F6EF; display: flex; flex-direction: column; }
+  .t6-top { background: var(--vert); height: 60px; display: flex; align-items: center; justify-content: center; gap: 10px; padding: 0 20px; }
+  .t6-top-logo { width: 40px; height: 40px; border-radius: 50%; background: white; overflow: hidden; display: flex; align-items: center; justify-content: center; border: 2px solid var(--or); }
+  .t6-top-logo img { width: 100%; height: 100%; object-fit: contain; }
+  .t6-top-nom { color: white; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
+  .t6-body { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 20px; padding: 32px 40px; }
+  .t6-quote-icon { font-size: 5rem; color: var(--or); line-height: 1; margin-bottom: -10px; font-family: Georgia, serif; opacity: 0.5; }
+  .t6-citation {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 1.15rem;
+    color: #2E2E2E;
+    text-align: center;
+    line-height: 1.65;
+    font-style: italic;
+  }
+  .t6-trait { width: 50px; height: 3px; background: var(--or); border-radius: 2px; }
+  .t6-auteur { color: var(--vert); font-weight: 700; font-size: 0.85rem; text-align: center; }
+  .t6-sub { color: #9E9E9E; font-size: 0.72rem; text-align: center; }
+  .t6-bottom { background: var(--vert); padding: 14px 28px; display: flex; justify-content: space-between; align-items: center; }
+  .t6-bottom span { color: rgba(255,255,255,0.7); font-size: 0.65rem; }
+  .t6-bottom strong { color: var(--or); font-size: 0.72rem; }
+
+  /* ===== INSTRUCTIONS ===== */
+  .info-box {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px var(--shadow);
+    padding: 24px 28px;
+    margin-bottom: 28px;
+  }
+  .info-box h2 { font-size: 0.95rem; font-weight: 700; color: var(--vert); margin-bottom: 12px; }
+  .steps { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; margin-top: 12px; }
+  .step { display: flex; align-items: flex-start; gap: 10px; font-size: 0.78rem; color: #555; line-height: 1.4; }
+  .step-num { background: var(--vert); color: white; border-radius: 50%; width: 22px; height: 22px; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; font-weight: 700; flex-shrink: 0; }
+
+  /* ===== FORMAT SWITCH ===== */
+  .format-note {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 0.72rem; color: #757575;
+    padding: 8px 16px;
+    background: #FAFAFA;
+    border-top: 1px solid #F0F0F0;
+  }
+  .format-note .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--or); }
+
+  @media print {
+    .ui-header, .ui-tabs, .info-box, .template-card-meta, .format-note, .template-hint { display: none !important; }
+    .templates-grid { grid-template-columns: 1fr; gap: 40px; }
+    .template-section { display: block !important; }
+    .canvas-wrapper { background: none; padding: 0; }
+    body { background: white; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="ui-header">
+  <h1>🎨 Gabarits Instagram — Bela Lekkol Montessori</h1>
+  <span>6 templates · Juin 2026</span>
+</header>
+
+<!-- TABS -->
+<nav class="ui-tabs">
+  <button class="tab-btn active" onclick="showTab('tous')">Tous (6)</button>
+  <button class="tab-btn" onclick="showTab('inscriptions')">📋 Inscriptions</button>
+  <button class="tab-btn" onclick="showTab('evenements')">🎉 Événements</button>
+  <button class="tab-btn" onclick="showTab('pedagogie')">🎓 Pédagogie</button>
+  <button class="tab-btn" onclick="showTab('guide')">📖 Guide d'utilisation</button>
+</nav>
+
+<main class="ui-main">
+
+  <!-- SECTION TOUS -->
+  <div class="template-section active" id="tab-tous">
+    <div class="section-title">6 gabarits prêts à l'emploi — cliquer-droit → Enregistrer l'image ou faire une capture</div>
+    <div class="templates-grid">
+
+      <!-- T1 : BIENVENUE -->
+      <div class="template-card">
+        <div class="template-card-meta">
+          <h3>🏫 Bienvenue sur la page</h3>
+          <span class="format-badge">1:1 Carré</span>
+        </div>
+        <div class="canvas-wrapper">
+          <div class="ig-frame ig-sq t1">
+            <div class="t1-top">
+              <div class="t1-logo-ring"><img src="logo_officiel.jpg" alt="BLM" onerror="this.style.display='none';this.parentNode.innerHTML='🏫';"></div>
+              <div class="t1-titre">Bela Lekkol<br>Montessori</div>
+              <div class="t1-sous">L'école française de Guinée<br>à Kipé, Conakry</div>
+              <div class="t1-tag">✨ Bienvenue sur notre page Instagram</div>
+            </div>
+            <div class="t1-bottom">
+              <span>📍 Kipé, Conakry</span>
+              <strong>blmlecolefrancaise.com</strong>
+            </div>
+          </div>
+        </div>
+        <div class="template-hint">Post 1 — Premier post de la page · Épingler en haut du profil</div>
+      </div>
+
+      <!-- T2 : INSCRIPTIONS -->
+      <div class="template-card">
+        <div class="template-card-meta">
+          <h3>📋 Inscriptions ouvertes</h3>
+          <span class="format-badge">4:5 Portrait</span>
+        </div>
+        <div class="canvas-wrapper">
+          <div class="ig-frame ig-pt t2">
+            <div class="t2-band">
+              <div class="t2-band-logo"><img src="logo_officiel.jpg" alt="BLM" onerror="this.style.display='none';this.parentNode.innerHTML='🏫';"></div>
+              <div class="t2-band-txt">⚡ Dernier délai — 30 juin 2026</div>
+              <div style="width:36px;"></div>
+            </div>
+            <div class="t2-body">
+              <div class="t2-icon">📚</div>
+              <div class="t2-h">Inscriptions<br>2026–2027</div>
+              <div class="t2-year">Ouvertes maintenant !</div>
+              <div class="t2-divider"></div>
+              <div class="t2-niveaux">
+                <div class="t2-niv">Maternelle (TPS → GS)</div>
+                <div class="t2-niv">Primaire (CP → CM2)</div>
+                <div class="t2-niv">Collège (6ème → 3ème)</div>
+                <div class="t2-niv">Lycée (10ème → Terminale)</div>
+                <div class="t2-niv">Programme 🇫🇷 certifié</div>
+                <div class="t2-niv">Pédagogie Montessori</div>
+              </div>
+              <div class="t2-deadline">
+                Tests d'admission gratuits<br>
+                📞 +224 626 31 31 80
+              </div>
+            </div>
+            <div class="t2-footer"><span>blmlecolefrancaise.com · Kipé, Conakry</span></div>
+          </div>
+        </div>
+        <div class="template-hint">Post 8 — Inscriptions · Booster ce post le 28–30 juin pour la deadline</div>
+      </div>
+
+      <!-- T3 : KERMESSE -->
+      <div class="template-card">
+        <div class="template-card-meta">
+          <h3>🎉 Kermesse annuelle</h3>
+          <span class="format-badge">1:1 Carré</span>
+        </div>
+        <div class="canvas-wrapper">
+          <div class="ig-frame ig-sq t3" style="position:relative;">
+            <div class="t3-confetti"></div>
+            <div class="t3-body">
+              <div class="t3-emoji">🎊</div>
+              <div class="t3-label">Fête de fin d'année</div>
+              <div class="t3-titre">Grande<br>Kermesse !</div>
+              <div class="t3-annuelle">Bela Lekkol Montessori</div>
+              <div class="t3-date-box">
+                <div class="jour">Vendredi</div>
+                <div class="date">27 Juin 2026</div>
+              </div>
+              <div class="t3-invite">🎈 Toute la famille est invitée !<br>Activités · Musique · Diplômes</div>
+            </div>
+            <div class="t3-footer">
+              <span>📍 Kipé, Conakry</span>
+              <span>📞 626 31 31 80</span>
+            </div>
+          </div>
+        </div>
+        <div class="template-hint">Post 10 — À publier le 22 juin (J-5 kermesse)</div>
+      </div>
+
+      <!-- T4 : BULLETINS -->
+      <div class="template-card">
+        <div class="template-card-meta">
+          <h3>📊 Remise des bulletins</h3>
+          <span class="format-badge">4:5 Portrait</span>
+        </div>
+        <div class="canvas-wrapper">
+          <div class="ig-frame ig-pt t4">
+            <div class="t4-head">
+              <div class="t4-head-logo"><img src="logo_officiel.jpg" alt="BLM" onerror="this.style.display='none';this.parentNode.innerHTML='🏫';"></div>
+              <div class="t4-head-nom">Bela Lekkol Montessori</div>
+            </div>
+            <div class="t4-body">
+              <div class="t4-icon">📊</div>
+              <div class="t4-h">Remise des<br>Bulletins P5</div>
+              <div class="t4-annee">Année scolaire 2025–2026</div>
+              <div class="t4-date-pill">
+                <span>Rendez-vous le</span>
+                Vendredi 20 Juin 2026
+              </div>
+              <div class="t4-msg">
+                « Chaque résultat est le reflet du travail accompli ensemble — par l'élève, ses parents et ses enseignants. Bravo à tous nos apprenants ! »
+              </div>
+            </div>
+            <div class="t4-footer"><span>blmlecolefrancaise.com · 📞 +224 626 31 31 80</span></div>
+          </div>
+        </div>
+        <div class="template-hint">Post 7 — Remise bulletins · Publier le 18–19 juin</div>
+      </div>
+
+      <!-- T5 : CLUB IA -->
+      <div class="template-card">
+        <div class="template-card-meta">
+          <h3>🤖 Club Intelligence Artificielle</h3>
+          <span class="format-badge">1:1 Carré</span>
+        </div>
+        <div class="canvas-wrapper">
+          <div class="ig-frame ig-sq t5" style="position:relative;">
+            <div class="t5-grid"></div>
+            <div class="t5-body">
+              <div class="t5-icon">🤖</div>
+              <div class="t5-label">[ INNOVATION PÉDAGOGIQUE ]</div>
+              <div class="t5-titre">Club <span class="t5-green">IA</span><br>à Conakry</div>
+              <div class="t5-sous">Premier club d'Intelligence Artificielle<br>dans une école de Guinée 🇬🇳</div>
+              <div class="t5-tags">
+                <span class="t5-tag">Python</span>
+                <span class="t5-tag">Machine Learning</span>
+                <span class="t5-tag">Robotique</span>
+                <span class="t5-tag">Scratch IA</span>
+              </div>
+            </div>
+            <div class="t5-footer">
+              <span>Bela Lekkol Montessori · Kipé</span>
+              <strong>blmlecolefrancaise.com</strong>
+            </div>
+          </div>
+        </div>
+        <div class="template-hint">Post 5 — Club IA · Très bon engagement (sujet unique)</div>
+      </div>
+
+      <!-- T6 : CITATION -->
+      <div class="template-card">
+        <div class="template-card-meta">
+          <h3>💬 Citation pédagogique</h3>
+          <span class="format-badge">4:5 Portrait</span>
+        </div>
+        <div class="canvas-wrapper">
+          <div class="ig-frame ig-pt t6">
+            <div class="t6-top">
+              <div class="t6-top-logo"><img src="logo_officiel.jpg" alt="BLM" onerror="this.style.display='none';this.parentNode.innerHTML='🏫';"></div>
+              <div class="t6-top-nom">Bela Lekkol Montessori</div>
+            </div>
+            <div class="t6-body">
+              <div class="t6-quote-icon">"</div>
+              <div class="t6-citation">
+                L'éducation n'est pas la préparation à la vie —
+                l'éducation, <em>c'est la vie elle-même</em>.
+              </div>
+              <div class="t6-trait"></div>
+              <div class="t6-auteur">John Dewey</div>
+              <div class="t6-sub">Philosophe & pédagogue</div>
+              <div style="background:#F1F8E9; border-radius:8px; padding:12px 16px; width:100%; text-align:center;">
+                <div style="font-size:0.72rem; color:var(--vert); font-weight:700; margin-bottom:4px;">Notre pédagogie chez BLM</div>
+                <div style="font-size:0.68rem; color:#555; line-height:1.5;">Montessori · Méthodes actives · Projets de vie</div>
+              </div>
+            </div>
+            <div class="t6-bottom">
+              <span>@belalekkol.montessori</span>
+              <strong>blmlecolefrancaise.com</strong>
+            </div>
+          </div>
+        </div>
+        <div class="template-hint">Post 7+ — Format récurrent chaque semaine · Haute mémorabilité</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SECTION INSCRIPTIONS -->
+  <div class="template-section" id="tab-inscriptions">
+    <div class="section-title">Posts liés aux inscriptions 2026–2027</div>
+    <div class="templates-grid">
+      <div class="template-card">
+        <div class="template-card-meta"><h3>📋 Inscriptions ouvertes</h3><span class="format-badge">4:5 Portrait</span></div>
+        <div class="canvas-wrapper">
+          <div class="ig-frame ig-pt t2">
+            <div class="t2-band">
+              <div class="t2-band-logo"><img src="logo_officiel.jpg" alt="BLM" onerror="this.style.display='none';this.parentNode.innerHTML='🏫';"></div>
+              <div class="t2-band-txt">⚡ Dernier délai — 30 juin 2026</div>
+              <div style="width:36px;"></div>
+            </div>
+            <div class="t2-body">
+              <div class="t2-icon">📚</div>
+              <div class="t2-h">Inscriptions<br>2026–2027</div>
+              <div class="t2-year">Ouvertes maintenant !</div>
+              <div class="t2-divider"></div>
+              <div class="t2-niveaux">
+                <div class="t2-niv">Maternelle (TPS → GS)</div>
+                <div class="t2-niv">Primaire (CP → CM2)</div>
+                <div class="t2-niv">Collège (6ème → 3ème)</div>
+                <div class="t2-niv">Lycée (10ème → Terminale)</div>
+                <div class="t2-niv">Programme 🇫🇷 certifié</div>
+                <div class="t2-niv">Pédagogie Montessori</div>
+              </div>
+              <div class="t2-deadline">Tests d'admission gratuits<br>📞 +224 626 31 31 80</div>
+            </div>
+            <div class="t2-footer"><span>blmlecolefrancaise.com · Kipé, Conakry</span></div>
+          </div>
+        </div>
+        <div class="template-hint">À booster le 28, 29, 30 juin — deadline inscriptions</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION ÉVÉNEMENTS -->
+  <div class="template-section" id="tab-evenements">
+    <div class="section-title">Posts événements : Kermesse & Bulletins</div>
+    <div class="templates-grid">
+      <div class="template-card">
+        <div class="template-card-meta"><h3>🎉 Kermesse</h3><span class="format-badge">1:1 Carré</span></div>
+        <div class="canvas-wrapper">
+          <div class="ig-frame ig-sq t3" style="position:relative;">
+            <div class="t3-confetti"></div>
+            <div class="t3-body">
+              <div class="t3-emoji">🎊</div>
+              <div class="t3-label">Fête de fin d'année</div>
+              <div class="t3-titre">Grande<br>Kermesse !</div>
+              <div class="t3-annuelle">Bela Lekkol Montessori</div>
+              <div class="t3-date-box">
+                <div class="jour">Vendredi</div>
+                <div class="date">27 Juin 2026</div>
+              </div>
+              <div class="t3-invite">🎈 Toute la famille est invitée !<br>Activités · Musique · Diplômes</div>
+            </div>
+            <div class="t3-footer">
+              <span>📍 Kipé, Conakry</span>
+              <div class="t3-footer-logo"><img src="logo_officiel.jpg" alt="BLM" onerror="this.style.display='none';this.parentNode.innerHTML='🏫';"></div>
+              <span>📞 626 31 31 80</span>
+            </div>
+          </div>
+        </div>
+        <div class="template-hint">Publier le 22 juin (J-5)</div>
+      </div>
+      <div class="template-card">
+        <div class="template-card-meta"><h3>📊 Bulletins P5</h3><span class="format-badge">4:5 Portrait</span></div>
+        <div class="canvas-wrapper">
+          <div class="ig-frame ig-pt t4">
+            <div class="t4-head">
+              <div class="t4-head-logo"><img src="logo_officiel.jpg" alt="BLM" onerror="this.style.display='none';this.parentNode.innerHTML='🏫';"></div>
+              <div class="t4-head-nom">Bela Lekkol Montessori</div>
+            </div>
+            <div class="t4-body">
+              <div class="t4-icon">📊</div>
+              <div class="t4-h">Remise des<br>Bulletins P5</div>
+              <div class="t4-annee">Année scolaire 2025–2026</div>
+              <div class="t4-date-pill"><span>Rendez-vous le</span>Vendredi 20 Juin 2026</div>
+              <div class="t4-msg">« Chaque résultat est le reflet du travail accompli ensemble — par l'élève, ses parents et ses enseignants. »</div>
+            </div>
+            <div class="t4-footer"><span>blmlecolefrancaise.com · 📞 +224 626 31 31 80</span></div>
+          </div>
+        </div>
+        <div class="template-hint">Publier le 18–19 juin</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION PÉDAGOGIE -->
+  <div class="template-section" id="tab-pedagogie">
+    <div class="section-title">Posts pédagogiques : Club IA & Citations</div>
+    <div class="templates-grid">
+      <div class="template-card">
+        <div class="template-card-meta"><h3>🤖 Club IA</h3><span class="format-badge">1:1 Carré</span></div>
+        <div class="canvas-wrapper">
+          <div class="ig-frame ig-sq t5" style="position:relative;">
+            <div class="t5-grid"></div>
+            <div class="t5-body">
+              <div class="t5-icon">🤖</div>
+              <div class="t5-label">[ INNOVATION PÉDAGOGIQUE ]</div>
+              <div class="t5-titre">Club <span class="t5-green">IA</span><br>à Conakry</div>
+              <div class="t5-sous">Premier club d'Intelligence Artificielle<br>dans une école de Guinée 🇬🇳</div>
+              <div class="t5-tags">
+                <span class="t5-tag">Python</span>
+                <span class="t5-tag">Machine Learning</span>
+                <span class="t5-tag">Robotique</span>
+                <span class="t5-tag">Scratch IA</span>
+              </div>
+            </div>
+            <div class="t5-footer"><span>Bela Lekkol Montessori · Kipé</span><strong>blmlecolefrancaise.com</strong></div>
+          </div>
+        </div>
+        <div class="template-hint">Publier le 15 juin — fort potentiel viral (sujet unique en Guinée)</div>
+      </div>
+      <div class="template-card">
+        <div class="template-card-meta"><h3>💬 Citation pédagogique</h3><span class="format-badge">4:5 Portrait</span></div>
+        <div class="canvas-wrapper">
+          <div class="ig-frame ig-pt t6">
+            <div class="t6-top">
+              <div class="t6-top-logo"><img src="logo_officiel.jpg" alt="BLM" onerror="this.style.display='none';this.parentNode.innerHTML='🏫';"></div>
+              <div class="t6-top-nom">Bela Lekkol Montessori</div>
+            </div>
+            <div class="t6-body">
+              <div class="t6-quote-icon">"</div>
+              <div class="t6-citation">L'éducation n'est pas la préparation à la vie — l'éducation, <em>c'est la vie elle-même</em>.</div>
+              <div class="t6-trait"></div>
+              <div class="t6-auteur">John Dewey</div>
+              <div class="t6-sub">Philosophe & pédagogue</div>
+              <div style="background:#F1F8E9;border-radius:8px;padding:12px 16px;width:100%;text-align:center;">
+                <div style="font-size:0.72rem;color:var(--vert);font-weight:700;margin-bottom:4px;">Notre pédagogie chez BLM</div>
+                <div style="font-size:0.68rem;color:#555;line-height:1.5;">Montessori · Méthodes actives · Projets de vie</div>
+              </div>
+            </div>
+            <div class="t6-bottom"><span>@belalekkol.montessori</span><strong>blmlecolefrancaise.com</strong></div>
+          </div>
+        </div>
+        <div class="template-hint">Format récurrent — remplacer la citation et l'auteur selon la semaine</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION GUIDE -->
+  <div class="template-section" id="tab-guide">
+    <div class="info-box">
+      <h2>📖 Comment utiliser ces gabarits</h2>
+      <div class="steps">
+        <div class="step"><div class="step-num">1</div><div>Ouvrir ce fichier dans Chrome (double-clic sur <strong>gabarits_instagram.html</strong>)</div></div>
+        <div class="step"><div class="step-num">2</div><div>Choisir le template souhaité dans les onglets ci-dessus</div></div>
+        <div class="step"><div class="step-num">3</div><div><strong>Capture d'écran Windows :</strong> Win+Shift+S → sélectionner exactement le cadre du template</div></div>
+        <div class="step"><div class="step-num">4</div><div>Ou clic-droit sur le template → <em>Enregistrer l'image sous</em> (si le navigateur le propose)</div></div>
+        <div class="step"><div class="step-num">5</div><div>Uploader directement sur Instagram depuis le téléphone (AirDrop ou Google Drive)</div></div>
+      </div>
+    </div>
+
+    <div class="info-box">
+      <h2>📐 Formats Instagram expliqués</h2>
+      <div class="steps">
+        <div class="step"><div class="step-num" style="background:var(--or);color:#5D4037;">1:1</div><div><strong>Carré 1080×1080px</strong> — format universel, visible en entier dans la grille du profil. Recommandé pour : bienvenue, kermesse, Club IA.</div></div>
+        <div class="step"><div class="step-num" style="background:var(--or);color:#5D4037;">4:5</div><div><strong>Portrait 1080×1350px</strong> — occupe plus de place dans le feed (meilleur engagement). Recommandé pour : inscriptions, bulletins, citations.</div></div>
+        <div class="step"><div class="step-num" style="background:#E53935;color:white;">⚠</div><div><strong>Éviter le 16:9</strong> (format paysage) — Instagram recadre automatiquement et coupe les bords. Toujours utiliser 1:1 ou 4:5.</div></div>
+      </div>
+    </div>
+
+    <div class="info-box">
+      <h2>🗓 Calendrier de publication recommandé</h2>
+      <table style="width:100%;border-collapse:collapse;font-size:0.78rem;">
+        <thead>
+          <tr style="background:var(--vert);color:white;">
+            <th style="padding:8px 12px;text-align:left;">Date</th>
+            <th style="padding:8px 12px;text-align:left;">Template</th>
+            <th style="padding:8px 12px;text-align:left;">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="background:#F9F9F9;"><td style="padding:8px 12px;">8 juin</td><td>🏫 Bienvenue sur la page</td><td>Publier + épingler</td></tr>
+          <tr><td style="padding:8px 12px;">10 juin</td><td>📋 Inscriptions ouvertes</td><td>Publier</td></tr>
+          <tr style="background:#F9F9F9;"><td style="padding:8px 12px;">15 juin</td><td>🤖 Club IA</td><td>Publier + Reels si vidéo dispo</td></tr>
+          <tr><td style="padding:8px 12px;">18 juin</td><td>💬 Citation pédagogique</td><td>Publier</td></tr>
+          <tr style="background:#F9F9F9;"><td style="padding:8px 12px;">19–20 juin</td><td>📊 Bulletins P5</td><td>Publier + Story</td></tr>
+          <tr><td style="padding:8px 12px;">22 juin</td><td>🎉 Kermesse (J-5)</td><td>Publier</td></tr>
+          <tr style="background:#F9F9F9;"><td style="padding:8px 12px;">27 juin</td><td>🎉 Kermesse (jour J)</td><td>Story live + Post bilan</td></tr>
+          <tr><td style="padding:8px 12px;">28–30 juin</td><td>📋 Inscriptions (deadline)</td><td>Publier + <strong>BOOSTER</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</main>
+
+<script>
+  function showTab(id) {
+    document.querySelectorAll('.template-section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('tab-' + id).classList.add('active');
+    event.target.classList.add('active');
+  }
+</script>
+</body>
+</html>

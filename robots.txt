@@ -1,26 +1,5 @@
 User-agent: *
 Allow: /
-Disallow: /admin/
-Disallow: /private/
-Disallow: /*.zip$
-Disallow: /SITE_COMPLET_UPLOAD/
+Disallow: /assets/
 
 Sitemap: https://blmlecolefrancaise.com/sitemap.xml
-
-# Allow search engine crawlers to access CSS, JS, images
-User-agent: *
-Allow: *.css$
-Allow: *.js$
-Allow: *.jpg$
-Allow: *.jpeg$
-Allow: *.png$
-Allow: *.gif$
-Allow: *.svg$
-
-# Specific crawl delay for Googlebot (optional)
-User-agent: Googlebot
-Crawl-delay: 0
-
-# Block bad bots
-User-agent: MJ12bot
-Disallow: /

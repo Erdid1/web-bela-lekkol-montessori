@@ -49,4 +49,18 @@ jobs:
           server: 194.164.74.73
           username: u376691524
           password: ${{ secrets.FTP_PASSWORD }}
- 
+          local-dir: ./dist/
+          server-dir: /domains/blmlecolefrancaise.com/public_html/
+          dangerous-clean-slate: false
+          exclude: |
+            **/.git*
+            **/.git*/**
+
+      - name: 🌐 Déploiement GitHub Pages (backup)
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          cname: blmlecolefrancaise.com
+          commit_message: "deploy: ${{ github.event.head_commit.message }}"
+          force_orphan: false
