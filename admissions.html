@@ -75,7 +75,7 @@
     header.scrolled .logo-text span   { color: var(--text-light); }
 
     /* Nav avec pill indicator */
-    nav { display: flex; align-items: center; gap: 2px; flex-wrap: wrap; position: relative; padding: 3px; }
+    nav { display: flex; align-items: center; gap: 2px; flex-wrap: nowrap; position: relative; padding: 3px; }
     nav a {
       padding: .42rem .7rem;
       border-radius: 9999px;
@@ -216,7 +216,6 @@
     </a>
     <button class="hamburger" onclick="this.nextElementSibling.classList.toggle('open')" aria-label="Menu">☰</button>
     <nav>
-      <a href="index.html">Accueil</a>
       <a href="about.html">À Propos</a>
       <a href="programs.html">Programmes</a>
       <a href="cfp.html">CFP</a>

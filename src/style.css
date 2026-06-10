@@ -310,11 +310,11 @@ header.scrolled .logo-sub  { color: var(--text-light); text-shadow: none; }
 .nav-links a {
   display: block;
   font-weight: 600;
-  font-size: 0.66rem;      /* réduit : 0.73 → 0.66rem */
+  font-size: 0.63rem;
   color: rgba(255,255,255,0.82);
-  letter-spacing: 0.05em;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
-  padding: 0.35rem 0.55rem; /* plus compact */
+  padding: 0.3rem 0.5rem;
   border-radius: 9999px;
   transition: color 0.25s ease;
   white-space: nowrap;

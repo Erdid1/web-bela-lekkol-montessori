@@ -22,6 +22,7 @@ export default defineConfig({
         life:        resolve(__dirname, 'life.html'),
         admissions:  resolve(__dirname, 'admissions.html'),
         contact:     resolve(__dirname, 'contact.html'),
+        actualites:  resolve(__dirname, 'actualites.html'),
       },
       output: {
         // JS bundlés dans assets/

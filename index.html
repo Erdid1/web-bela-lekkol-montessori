@@ -76,7 +76,7 @@
     header.scrolled .logo-text span   { color: var(--text-light); }
 
     /* Nav avec pill indicator */
-    nav { display: flex; align-items: center; gap: 2px; flex-wrap: wrap; position: relative; padding: 3px; }
+    nav { display: flex; align-items: center; gap: 2px; flex-wrap: nowrap; position: relative; padding: 3px; }
     nav a {
       padding: .42rem .7rem;
       border-radius: 9999px;
@@ -219,7 +219,6 @@
     </a>
     <button class="hamburger" onclick="this.nextElementSibling.classList.toggle('open')" aria-label="Menu">☰</button>
     <nav>
-      <a href="index.html" class="active">Accueil</a>
       <a href="about.html">À Propos</a>
       <a href="programs.html">Programmes</a>
       <a href="cfp.html">CFP</a>
@@ -639,7 +638,6 @@
                     <h4>Familles</h4>
                     <ul>
                         <li><a href="./admissions.html">Inscriptions 2026-27</a></li>
-                        <li><a href="./admissions.html#tarifs">Frais de scolarité</a></li>
                         <li><a href="./life.html">Vie Scolaire</a></li>
                         <li><a href="./contact.html">Nous contacter</a></li>
                     </ul>
