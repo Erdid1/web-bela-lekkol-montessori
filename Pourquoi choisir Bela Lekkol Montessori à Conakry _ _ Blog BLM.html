@@ -266,4 +266,20 @@
 
 
 
+<script>
+(function(){
+  var nav = document.querySelector('header nav');
+  var btn = document.querySelector('header .hamburger');
+  if(!nav) return;
+  nav.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){ nav.classList.remove('open'); if(btn) btn.innerHTML='&#9776;'; });
+  });
+  document.addEventListener('click', function(e){
+    if(nav.classList.contains('open') && !nav.contains(e.target) && e.target !== btn && !btn.contains(e.target)){
+      nav.classList.remove('open');
+      if(btn) btn.innerHTML='&#9776;';
+    }
+  });
+})();
+</script>
 </body></html>

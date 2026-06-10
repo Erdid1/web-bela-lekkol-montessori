@@ -158,11 +158,11 @@
         z-index: 99;
         gap: 4px;
       }
-      nav.open { display: flex; }
+      nav.open { display: flex; max-height: 65vh; overflow-y: auto; }
       nav a {
         color: rgba(255,255,255,0.82) !important;
         text-shadow: none !important;
-        padding: .75rem 1rem;
+        padding: .5rem .8rem;
         border-radius: 10px;
         font-size: .88rem;
         background: rgba(255,255,255,0.04);
@@ -502,6 +502,22 @@
   window.addEventListener('DOMContentLoaded', () => {
     requestAnimationFrame(initPill);
     window.addEventListener('resize', initPill, { passive: true });
+</script>
+<script>
+(function(){
+  var nav = document.querySelector('header nav');
+  var btn = document.querySelector('header .hamburger');
+  if(!nav) return;
+  nav.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){ nav.classList.remove('open'); if(btn) btn.innerHTML='&#9776;'; });
+  });
+  document.addEventListener('click', function(e){
+    if(nav.classList.contains('open') && !nav.contains(e.target) && e.target !== btn && !btn.contains(e.target)){
+      nav.classList.remove('open');
+      if(btn) btn.innerHTML='&#9776;';
+    }
+  });
+})();
 </script>
 </body>
 </html>
