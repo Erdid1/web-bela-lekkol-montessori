@@ -146,35 +146,47 @@
       border-bottom: 1px solid var(--border);
       padding: .5rem 0;
     }
-@media (max-width: 768px) {
+/* Backdrop menu mobile */
+    .nav-backdrop {
+      display: none; position: fixed; inset: 0; z-index: 98;
+      background: rgba(0,0,0,0.4);
+    }
+    .nav-backdrop.open { display: block; }
+    @media (max-width: 768px) {
       .main-wrap { grid-template-columns: 1fr; }
       .nav-pill { display: none !important; }
       nav {
         display: none;
-        flex-direction: column;
+        flex-direction: row; flex-wrap: wrap;
         position: absolute;
         top: 64px; left: 0; right: 0;
         background: linear-gradient(160deg,#061535,#0B2060);
-        padding: .8rem;
+        padding: .5rem .6rem;
         z-index: 99;
-        gap: 4px;
+        gap: 3px;
       }
-      nav.open { display: flex; max-height: 65vh; overflow-y: auto; }
+      nav.open { display: flex; }
       nav a {
         color: rgba(255,255,255,0.82) !important;
         text-shadow: none !important;
-        padding: .5rem .8rem;
-        border-radius: 10px;
-        font-size: .88rem;
-        background: rgba(255,255,255,0.04);
-        border: 1px solid rgba(255,255,255,0.07);
-        width: 100%;
+        padding: .45rem .5rem;
+        border-radius: 8px;
+        font-size: .82rem;
+        background: rgba(255,255,255,0.05);
+        border: 1px solid rgba(255,255,255,0.08);
+        width: calc(50% - 2px);
+        text-align: center;
+        box-sizing: border-box;
       }
       nav a:hover, nav a.active {
         color: #C8A951 !important;
         background: rgba(200,169,81,0.10) !important;
         border-color: rgba(200,169,81,0.25) !important;
         text-shadow: none !important;
+      }
+      nav .btn-inscrire {
+        width: 100% !important; margin: 3px 0 0 !important;
+        text-align: center; padding: .5rem !important;
       }
       .hamburger { display: block; }
       .hero h1 { font-size: 1.5rem; }
@@ -213,8 +225,10 @@
     <a href="index.html" class="logo-block">
       <img src="/logo_officiel.jpg" alt="Bela Lekkol Montessori" style="height:48px;width:auto;border-radius:8px;object-fit:contain;flex-shrink:0;">
     </a>
-    <button class="hamburger" onclick="this.nextElementSibling.classList.toggle('open')" aria-label="Menu">☰</button>
-    <nav>
+    <button class="hamburger" id="blm-burger" onclick="document.getElementById('blm-nav').classList.toggle('open');document.getElementById('blm-bd').classList.toggle('open')" aria-label="Menu">☰</button>
+    <nav id="blm-nav">
+      <span class="nav-pill" id="nav-pill"></span>
+      <a href="index.html" class="active">Accueil</a>
       <a href="about.html">À Propos</a>
       <a href="programs.html">Programmes</a>
       <a href="cfp.html">CFP</a>
@@ -222,11 +236,19 @@
       <a href="life.html">Vie scolaire</a>
       <a href="actualites.html">Actualités</a>
       <a href="contact.html">Contact</a>
-      <a href="admissions.html#tarifs">Tarifs</a>
       <a href="admissions.html" class="btn-inscrire">S'inscrire →</a>
     </nav>
   </div>
 </header>
+<div class="nav-backdrop" id="blm-bd" onclick="document.getElementById('blm-nav').classList.remove('open');this.classList.remove('open')"></div>
+<script>
+  document.querySelectorAll('#blm-nav a').forEach(function(a){
+    a.addEventListener('click',function(){
+      document.getElementById('blm-nav').classList.remove('open');
+      document.getElementById('blm-bd').classList.remove('open');
+    });
+  });
+</script>
 
     <main>
 
