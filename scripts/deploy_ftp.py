@@ -106,10 +106,10 @@ def ftp_upload_tree(ftp, local_dir, remote_dir, label=""):
         try:
             ftp_mkdir_p(ftp, remote_folder)
             ftp_upload_file(ftp, local_file, remote_file)
-            print(f"  ✓ {label}{rel}")
+            print(f"  OK {label}{rel}")
             uploaded += 1
         except Exception as e:
-            print(f"  ✗ {label}{rel}  → {e}")
+            print(f"  ERR {label}{rel}  - {e}")
             errors += 1
 
     return uploaded, errors
@@ -138,7 +138,7 @@ def main():
         print(f"  Connecté à {host}")
     except ftplib.error_perm as e:
         print(f"\n[ERREUR] Connexion refusée : {e}")
-        print("Vérifiez vos identifiants dans hPanel → Hébergement → FTP.")
+        print("Verifiez vos identifiants dans hPanel > Hebergement > FTP.")
         sys.exit(1)
     except Exception as e:
         print(f"\n[ERREUR] Impossible de se connecter : {e}")
@@ -146,7 +146,7 @@ def main():
 
     total_up = total_err = 0
 
-    print(f"\n[2/3] Upload dist/ → {REMOTE_ROOT}/")
+    print(f"\n[2/3] Upload dist/ -> {REMOTE_ROOT}/")
     up, err = ftp_upload_tree(ftp, LOCAL_DIST, REMOTE_ROOT)
     total_up += up
     total_err += err
@@ -160,10 +160,10 @@ def main():
         remote_file = REMOTE_ROOT + "/" + fname
         try:
             ftp_upload_file(ftp, local_file, remote_file)
-            print(f"  ✓ {fname}")
+            print(f"  OK {fname}")
             total_up += 1
         except Exception as e:
-            print(f"  ✗ {fname}  → {e}")
+            print(f"  ERR {fname}  - {e}")
             total_err += 1
 
     ftp.quit()
