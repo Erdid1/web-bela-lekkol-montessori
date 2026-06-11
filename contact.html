@@ -149,36 +149,42 @@
       .main-wrap { grid-template-columns: 1fr; }
       .nav-pill { display: none !important; }
       nav {
-        display: none;
-        flex-direction: row; flex-wrap: wrap;
-        position: absolute;
-        top: 64px; left: 0; right: 0;
-        background: linear-gradient(160deg,#061535,#0B2060);
-        padding: .5rem .6rem;
-        z-index: 99;
-        gap: 3px;
+        display: none !important;
+        flex-direction: row !important; flex-wrap: wrap !important; align-items: flex-start !important;
+        position: fixed !important;
+        top: 64px !important; left: 0 !important; right: 0 !important;
+        background: linear-gradient(160deg,#061535,#0B2060) !important;
+        padding: .5rem .6rem !important;
+        z-index: 9999 !important;
+        gap: 3px !important;
+        max-height: calc(100vh - 64px) !important;
+        overflow-y: auto !important;
       }
-      nav.open { display: flex; max-height: 50vh; overflow-y: auto; }
+      nav.open { display: flex !important; }
       nav a {
-        color: rgba(255,255,255,0.82) !important;
+        color: rgba(255,255,255,0.85) !important;
         text-shadow: none !important;
-        padding: .45rem .5rem;
-        border-radius: 8px;
-        font-size: .82rem;
-        background: rgba(255,255,255,0.05);
-        border: 1px solid rgba(255,255,255,0.08);
-        width: calc(50% - 2px);
-        text-align: center;
-        box-sizing: border-box;
+        white-space: normal !important;
+        padding: .5rem .4rem !important;
+        border-radius: 8px !important;
+        font-size: .82rem !important;
+        font-weight: 500 !important;
+        background: rgba(255,255,255,0.07) !important;
+        border: 1px solid rgba(255,255,255,0.10) !important;
+        width: calc(50% - 2px) !important;
+        text-align: center !important;
+        box-sizing: border-box !important;
+        position: static !important;
+        text-decoration: none !important;
+        display: block !important;
       }
       nav a:hover, nav a.active {
         color: #C8A951 !important;
-        background: rgba(200,169,81,0.10) !important;
-        border-color: rgba(200,169,81,0.25) !important;
-        text-shadow: none !important;
+        background: rgba(200,169,81,0.12) !important;
+        border-color: rgba(200,169,81,0.30) !important;
       }
       nav .btn-inscrire { width: 100% !important; margin: 3px 0 0 !important; text-align: center !important; }
-      .hamburger { display: block; }
+      .hamburger { display: block !important; }
       .hero h1 { font-size: 1.5rem; }
     }
   
