@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admissions 2026-2027 — Bela Lekkol Montessori Conakry</title>
-    <meta name="description" content="Inscriptions 2026-2027 à Bela Lekkol Montessori Conakry. Frais de scolarité, procédure d'admission, documents requis. Tests gratuits. Paiements en 3 ou 4 tranches.">
+    <meta name="description" content="Inscriptions 2026-2027 à Bela Lekkol Montessori Conakry. Frais de scolarité, procédure d'admission, documents requis. Tests gratuits. Paiements en 1 ou 4 tranches (français) ou 1 ou 3 tranches (guinéen).">
     <meta property="og:title" content="Admissions 2026-2027 — Bela Lekkol Montessori">
     <meta property="og:description" content="Tests gratuits, paiements en tranches. Inscriptions ouvertes jusqu'au 30 juin 2026. Conakry, Guinée.">
     <meta property="og:image" content="./public/hero_bela_lekkol.jpg">
@@ -196,7 +196,7 @@
         <i class="fas fa-calendar-check"></i>
         <strong>Inscriptions ouvertes jusqu'au 30 juin 2026</strong>
         <span>·</span>
-        <span>Tests <strong>GRATUITS</strong> · Dossier <strong>GRATUIT</strong> · Paiements en 3 ou 4 tranches</span>
+        <span>Tests <strong>GRATUITS</strong> · Dossier <strong>GRATUIT</strong> · Paiements en 1 ou 4 tranches (français) ou 1 ou 3 tranches (guinéen)</span>
     </div>
 
     <header>
@@ -266,7 +266,7 @@
                         <div class="step-num">4</div>
                         <div class="step-content">
                             <h4>Dossier & Inscription</h4>
-                            <p>Remise des pièces administratives, choix du mode de paiement (1, 3 ou 4 tranches) et validation définitive.</p>
+                            <p>Remise des pièces administratives, choix du mode de paiement (1 ou 4 tranches (français) / 1 ou 3 tranches (guinéen)) et validation définitive.</p>
                         </div>
                     </div>
 
@@ -283,8 +283,7 @@
 
                 <div class="card" data-aos>
                     <h3 style="margin-bottom: 1.5rem;">Formulaire de Pré-inscription</h3>
-                    <!-- Remplacer YOUR_FORM_ID par l'ID obtenu sur formspree.io -->
-                    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" style="display: flex; flex-direction: column; gap: 1.1rem;">
+                    <form id="form-inscription" style="display: flex; flex-direction: column; gap: 1.1rem;">
                         <input type="hidden" name="_subject" value="Nouvelle demande d'inscription — Bela Lekkol">
                         <input type="hidden" name="_language" value="fr">
                         <div class="form-group">
@@ -333,13 +332,30 @@
                                 <option>Autre</option>
                             </select>
                         </div>
-                        <button type="submit" class="btn btn-secondary" style="width: 100%; margin-top: 0.5rem;">
-                            <i class="fas fa-paper-plane"></i> Envoyer ma demande
+                        <button type="button" onclick="envoyerInscriptionWhatsApp()" class="btn btn-secondary" style="width: 100%; margin-top: 0.5rem;">
+                            <i class="fab fa-whatsapp"></i> Envoyer via WhatsApp
                         </button>
                         <p style="font-size: 0.75rem; color: var(--text-light); text-align: center;">
-                            Ou directement par WhatsApp : <a href="https://wa.me/224626313180" target="_blank" rel="noopener noreferrer" style="color: var(--secondary); font-weight: 600;"><i class="fab fa-whatsapp"></i> +224 626 31 31 80</a>
+                            Ou par email : <a href="mailto:belalekkol.montessori@gmail.com" style="color: var(--secondary); font-weight: 600;">belalekkol.montessori@gmail.com</a>
                         </p>
                     </form>
+                    <script>
+                    function envoyerInscriptionWhatsApp() {
+                        var f = document.getElementById('form-inscription');
+                        var nom = f.querySelector('[name=nom]').value || '(non renseigné)';
+                        var tel = f.querySelector('[name=telephone]').value || '(non renseigné)';
+                        var email = f.querySelector('[name=email]').value || '';
+                        var niveau = f.querySelector('[name=niveau]').value || '(non renseigné)';
+                        var source = f.querySelector('[name=source]').value || '';
+                        var msg = 'Bonjour, je souhaite inscrire mon enfant à Bela Lekkol Montessori.\n'
+                            + 'Nom : ' + nom + '\n'
+                            + 'Téléphone : ' + tel + '\n'
+                            + (email ? 'Email : ' + email + '\n' : '')
+                            + 'Niveau souhaité : ' + niveau + '\n'
+                            + (source ? 'Comment connu : ' + source : '');
+                        window.open('https://wa.me/224626313180?text=' + encodeURIComponent(msg), '_blank');
+                    }
+                    </script>
                 </div>
             </div>
         </section>
@@ -453,7 +469,7 @@
                             </div>
                         </div>
                         <div style="margin-top: 1.5rem; padding: 1rem 1.25rem; background: rgba(251,191,36,0.1); border-radius: 0.5rem; border-left: 4px solid var(--accent);">
-                            <p style="font-size: 0.875rem; font-weight: 600; margin: 0;"><i class="fas fa-credit-card" style="color: var(--accent); margin-right: 0.5rem;"></i>Paiements acceptés en <strong>3 ou 4 tranches</strong></p>
+                            <p style="font-size: 0.875rem; font-weight: 600; margin: 0;"><i class="fas fa-credit-card" style="color: var(--accent); margin-right: 0.5rem;"></i>Paiements acceptés en <strong>1 ou 4 tranches</strong> (programme français) · <strong>1 ou 3 tranches</strong> (programme guinéen)</p>
                         </div>
                     </div>
                     <div>
@@ -501,7 +517,7 @@
                         <h4>Identité</h4>
                         <ul style="list-style: none; padding: 0; font-size: 0.875rem; line-height: 2; margin-top: 0.75rem; color: var(--text-light);">
                             <li><i class="fas fa-circle-dot" style="font-size: 0.5rem; margin-right: 0.5rem;"></i>Extrait de naissance</li>
-                            <li><i class="fas fa-circle-dot" style="font-size: 0.5rem; margin-right: 0.5rem;"></i>4 photos d'identité</li>
+                            <li><i class="fas fa-circle-dot" style="font-size: 0.5rem; margin-right: 0.5rem;"></i>2 photos d'identité + carte scolaire réalisée par l'école</li>
                             <li><i class="fas fa-circle-dot" style="font-size: 0.5rem; margin-right: 0.5rem;"></i>Copie pièce d'identité parent</li>
                         </ul>
                     </div>
@@ -636,6 +652,7 @@
   window.addEventListener('DOMContentLoaded', () => {
     requestAnimationFrame(initPill);
     window.addEventListener('resize', initPill, { passive: true });
+  });
 </script>
 <script>
 (function(){

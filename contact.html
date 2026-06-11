@@ -271,8 +271,7 @@
                     <div class="card" data-aos>
                         <h3 style="font-family:var(--font-serif);margin-bottom:0.5rem;">Envoyez un message</h3>
                         <p style="font-size:0.875rem;color:var(--text-light);margin-bottom:1.5rem;">Inscriptions, renseignements pédagogiques, partenariats CFP — nous répondons à tout.</p>
-                        <!-- Remplacer YOUR_FORM_ID par l'ID obtenu sur formspree.io -->
-                        <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" style="display:flex;flex-direction:column;gap:1rem;">
+                        <form id="form-contact" style="display:flex;flex-direction:column;gap:1rem;">
                             <input type="hidden" name="_subject" value="Nouveau message — Bela Lekkol Montessori">
                             <div class="grid grid-2" style="gap:1rem;">
                                 <div class="form-group">
@@ -305,8 +304,26 @@
                                 <label for="message">Votre message</label>
                                 <textarea id="message" name="message" class="form-control" placeholder="Décrivez votre demande…" required style="height:140px;resize:vertical;"></textarea>
                             </div>
-                            <button type="submit" class="btn btn-primary" style="width:100%;">Envoyer le message <i class="fas fa-paper-plane" style="margin-left:0.5rem;"></i></button>
+                            <button type="button" onclick="envoyerContactWhatsApp()" class="btn btn-primary" style="width:100%;background:#25D366;border-color:#25D366;"><i class="fab fa-whatsapp" style="margin-right:0.5rem;"></i>Envoyer via WhatsApp</button>
+                            <p style="font-size:0.75rem;color:var(--text-light);text-align:center;margin-top:0.25rem;">Ou par email : <a href="mailto:belalekkol.montessori@gmail.com" style="color:var(--secondary);font-weight:600;">belalekkol.montessori@gmail.com</a></p>
                         </form>
+                        <script>
+                        function envoyerContactWhatsApp() {
+                            var f = document.getElementById('form-contact');
+                            var nom = f.querySelector('[name=nom]').value || '(non renseigné)';
+                            var tel = f.querySelector('[name=telephone]').value || '';
+                            var email = f.querySelector('[name=email]').value || '';
+                            var objet = f.querySelector('[name=objet]').value || 'Demande générale';
+                            var message = f.querySelector('[name=message]').value || '';
+                            var txt = 'Bonjour Bela Lekkol Montessori,\n'
+                                + 'Nom : ' + nom + '\n'
+                                + (tel ? 'Tél : ' + tel + '\n' : '')
+                                + (email ? 'Email : ' + email + '\n' : '')
+                                + 'Objet : ' + objet + '\n'
+                                + (message ? 'Message : ' + message : '');
+                            window.open('https://wa.me/224626313180?text=' + encodeURIComponent(txt), '_blank');
+                        }
+                        </script>
                     </div>
 
                     <!-- Localisation + QR -->
@@ -377,11 +394,11 @@
                     </div>
                     <div class="faq-item">
                         <div class="faq-question">Comment se font les paiements des frais de scolarité ?<i class="fas fa-chevron-down"></i></div>
-                        <div class="faq-answer">Les paiements s'effectuent par chèque ou virement/versement bancaire sur les comptes de la Banque Populaire Maroco Guinéenne. Les frais sont divisés en 4 versements (inscription + 3 versements trimestriels). Le logiciel ADMISCO garantit des reçus sécurisés.</div>
+                        <div class="faq-answer">Les paiements s'effectuent par chèque ou virement/versement bancaire sur les comptes de la Banque Populaire Maroco Guinéenne. Les frais sont divisés en 1 ou 4 versements pour le programme français, et 1 ou 3 versements pour le programme guinéen. Le logiciel ADMISCO garantit des reçus sécurisés.</div>
                     </div>
                     <div class="faq-item">
                         <div class="faq-question">Quels documents fournir à l'inscription ?<i class="fas fa-chevron-down"></i></div>
-                        <div class="faq-answer">Pour l'inscription, il vous faut : 2 photos d'identité, l'extrait de naissance (copie), le carnet de santé et vaccins, les bulletins de l'année précédente et l'attestation de transfert (ou réussite aux examens pour le collège/lycée). Les frais d'inscription sont gratuits ; seule la carte d'identité scolaire est payante.</div>
+                        <div class="faq-answer">Pour l'inscription, il vous faut : 2 photos d'identité + carte scolaire réalisée par l'école, l'extrait de naissance (copie), le carnet de santé et vaccins, les bulletins de l'année précédente et l'attestation de transfert (ou réussite aux examens pour le collège/lycée). Les frais d'inscription sont gratuits ; seule la carte d'identité scolaire est payante.</div>
                     </div>
                     <div class="faq-item">
                         <div class="faq-question">Proposez-vous des activités après l'école ?<i class="fas fa-chevron-down"></i></div>
@@ -393,7 +410,7 @@
                     </div>
                     <div class="faq-item">
                         <div class="faq-question">L'école prépare-t-elle au DELF/DALF ?<i class="fas fa-chevron-down"></i></div>
-                        <div class="faq-answer">Oui. Bela Lekkol Montessori s'engage aux côtés de l'Institut Français de Guinée pour préparer les élèves au DELF (Diplôme Élémentaire de Langue Française). Ce diplôme est reconnu internationalement dans le cadre du CECRL. La préparation se déroule de mars à juin.</div>
+                        <div class="faq-answer">Oui. Bela Lekkol Montessori s'engage aux côtés de l'Institut Français de Guinée pour préparer les élèves au DELF (Diplôme d'Études en Langue Française). Ce diplôme est reconnu internationalement dans le cadre du CECRL. La préparation se déroule de mars à juin.</div>
                     </div>
                 </div>
             </div>
@@ -403,7 +420,7 @@
         <section class="cta-section">
             <div class="container" data-aos>
                 <h2>Prêt à rejoindre Bela Lekkol ?</h2>
-                <p>Dossier gratuit · Test d'admission gratuit · Paiements en 4 tranches · Partenariat Institut Français</p>
+                <p>Dossier gratuit · Test d'admission gratuit · Paiements en 1, 3 ou 4 tranches · Partenariat Institut Français</p>
                 <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
                     <a href="./admissions.html" class="btn btn-white">Voir les modalités d'inscription</a>
                     <a href="https://wa.me/224626313180?text=Bonjour%2C%20je%20souhaite%20inscrire%20mon%20enfant%20à%20Bela%20Lekkol%20Montessori." target="_blank" rel="noopener noreferrer" class="btn btn-outline-white"><i class="fab fa-whatsapp"></i> Démarrer sur WhatsApp</a>
@@ -498,6 +515,7 @@
   window.addEventListener('DOMContentLoaded', () => {
     requestAnimationFrame(initPill);
     window.addEventListener('resize', initPill, { passive: true });
+  });
 </script>
 <script>
 (function(){
