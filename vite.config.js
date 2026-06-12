@@ -23,6 +23,8 @@ export default defineConfig({
         admissions:  resolve(__dirname, 'admissions.html'),
         contact:     resolve(__dirname, 'contact.html'),
         actualites:  resolve(__dirname, 'actualites.html'),
+        reglementEcole:   resolve(__dirname, 'reglement-ecole-francaise-2026-2027.html'),
+        reglementCollege: resolve(__dirname, 'reglement-college-lycee-2026-2027.html'),
       },
       output: {
         // JS bundlés dans assets/
