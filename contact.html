@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contactez-Nous — Bela Lekkol Montessori · Kipé, Conakry</title>
+    <meta name="description" content="Contactez Bela Lekkol Montessori : téléphone, WhatsApp, email, formulaire de contact et plan d'accès. Kipé T2, Conakry, Guinée.">
+    <meta property="og:title" content="Contactez-Nous — Bela Lekkol Montessori Conakry">
+    <meta property="og:description" content="Téléphone, WhatsApp, email et plan d'accès. Kipé T2, Conakry, Guinée.">
+    <meta property="og:image" content="./public/hero_bela_lekkol.jpg">
+    <meta property="og:type" content="website">
+    <link rel="icon" href="/assets/img/favicon-jh76P1WP.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+    /* ══ NAVBAR BELA LEKKOL ══ */
+    header {
+      background: rgba(11,31,75,0.90);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-bottom: 1px solid rgba(200,169,81,0.18);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      transition: background .4s ease, box-shadow .4s ease;
+    }
+    header::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, transparent 0%, rgba(200,169,81,0.1) 20%, #C8A951 50%, rgba(200,169,81,0.1) 80%, transparent 100%);
+      background-size: 200% 100%;
+      animation: shimmer-hdr 4s ease-in-out infinite;
+    }
+    @keyframes shimmer-hdr {
+      0%   { background-position: 200% 0; opacity:.5; }
+      50%  { background-position: 0%   0; opacity:1;  }
+      100% { background-position:-200% 0; opacity:.5; }
+    }
+    header.scrolled {
+      background: rgba(255,255,255,0.96);
+      box-shadow: 0 4px 24px -4px rgba(11,31,75,0.12);
+    }
+    header.scrolled::after {
+      background: linear-gradient(90deg, transparent 0%, rgba(46,125,50,0.1) 20%, #2E7D32 50%, rgba(46,125,50,0.1) 80%, transparent 100%);
+      background-size: 200% 100%;
+    }
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+      gap: 1rem;
+    }
+    .logo-block { display: flex; align-items: center; gap: .7rem; flex-shrink: 0; text-decoration: none; }
+    .logo-circle {
+      width: 40px; height: 40px;
+      background: linear-gradient(135deg,#1B5E20,#2E7D32);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      color: #fff;
+      font-weight: 800;
+      font-size: .95rem;
+      letter-spacing: -.5px;
+      box-shadow: 0 0 14px rgba(46,125,50,0.35);
+      flex-shrink: 0;
+    }
+    .logo-text { line-height: 1.2; }
+    .logo-text strong { display: block; font-size: .93rem; color: rgba(255,255,255,0.92); font-weight: 700; }
+    .logo-text span { font-size: .70rem; color: rgba(255,255,255,0.52); }
+    header.scrolled .logo-text strong { color: var(--green-dark); }
+    header.scrolled .logo-text span   { color: var(--text-light); }
+
+    /* Nav avec pill indicator */
+    nav { display: flex; align-items: center; gap: 2px; flex-wrap: nowrap; position: relative; padding: 3px; }
+    nav a {
+      padding: .42rem .7rem;
+      border-radius: 9999px;
+      font-size: .80rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.72);
+      white-space: nowrap;
+      position: relative; z-index: 1;
+      transition: color .2s ease;
+      text-decoration: none;
+    }
+    nav a:hover { color: #C8A951; }
+    nav a.active { color: #C8A951; text-shadow: 0 0 16px rgba(200,169,81,0.5); }
+    header.scrolled nav a { color: var(--text-light); }
+    header.scrolled nav a:hover { color: var(--green-dark); }
+    header.scrolled nav a.active { color: var(--green-dark); font-weight: 700; text-shadow: none; }
+
+    /* Pill tubelight */
+    .nav-pill {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      height: calc(100% - 6px); border-radius: 9999px;
+      background: rgba(200,169,81,0.12);
+      border: 1px solid rgba(200,169,81,0.28);
+      box-shadow: 0 0 12px rgba(200,169,81,0.22), inset 0 1px 0 rgba(255,255,255,0.06);
+      transition: left .32s cubic-bezier(.4,0,.2,1), width .32s cubic-bezier(.4,0,.2,1), opacity .2s;
+      pointer-events: none; z-index: 0;
+    }
+    .nav-pill::before {
+      content: ''; position: absolute; top: -3px; left: 10%; width: 80%; height: 2px;
+      border-radius: 9999px;
+      background: linear-gradient(90deg, transparent, #C8A951, transparent);
+      opacity: .65; filter: blur(1px);
+    }
+    header.scrolled .nav-pill {
+      background: rgba(46,125,50,0.07); border-color: rgba(46,125,50,0.18);
+      box-shadow: 0 0 10px rgba(46,125,50,0.08);
+    }
+    header.scrolled .nav-pill::before {
+      background: linear-gradient(90deg, transparent, var(--green-dark), transparent); opacity: .4;
+    }
+
+    .btn-inscrire {
+      background: var(--green);
+      color: #fff !important;
+      padding: .45rem 1rem !important;
+      border-radius: 8px !important;
+      font-size: .80rem !important;
+      font-weight: 600 !important;
+      margin-left: .4rem;
+      flex-shrink: 0;
+      transition: background .2s;
+      text-decoration: none;
+    }
+    .btn-inscrire:hover { background: var(--green-dark) !important; }
+    .hamburger {
+      display: none; font-size: 1.3rem; cursor: pointer;
+      background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 7px; color: #fff; padding: .4rem .5rem;
+      transition: background .2s;
+    }
+    .hamburger:hover { background: rgba(255,255,255,0.18); }
+    header.scrolled .hamburger { color: var(--green-dark); background: rgba(46,125,50,0.07); border-color: rgba(46,125,50,0.18); }
+
+    /* ===== BREADCRUMB ===== */
+    .breadcrumb {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: .5rem 0;
+    }
+@media (max-width: 768px) {
+      .main-wrap { grid-template-columns: 1fr; }
+      .nav-pill { display: none !important; }
+      nav {
+        display: none !important;
+        flex-direction: row !important; flex-wrap: wrap !important; align-items: flex-start !important;
+        position: fixed !important;
+        top: 64px !important; left: 0 !important; right: 0 !important;
+        background: linear-gradient(160deg,#061535,#0B2060) !important;
+        padding: .5rem .6rem !important;
+        z-index: 9999 !important;
+        gap: 3px !important;
+        max-height: calc(100vh - 64px) !important;
+        overflow-y: auto !important;
+      }
+      nav.open { display: flex !important; }
+      nav a {
+        color: rgba(255,255,255,0.85) !important;
+        text-shadow: none !important;
+        white-space: normal !important;
+        padding: .5rem .4rem !important;
+        border-radius: 8px !important;
+        font-size: .82rem !important;
+        font-weight: 500 !important;
+        background: rgba(255,255,255,0.07) !important;
+        border: 1px solid rgba(255,255,255,0.10) !important;
+        width: calc(50% - 2px) !important;
+        text-align: center !important;
+        box-sizing: border-box !important;
+        position: static !important;
+        text-decoration: none !important;
+        display: block !important;
+      }
+      nav a:hover, nav a.active {
+        color: #C8A951 !important;
+        background: rgba(200,169,81,0.12) !important;
+        border-color: rgba(200,169,81,0.30) !important;
+      }
+      nav .btn-inscrire { width: 100% !important; margin: 3px 0 0 !important; text-align: center !important; }
+      .hamburger { display: block !important; }
+      .hero h1 { font-size: 1.5rem; }
+    }
+  
+</style>
+  <script type="module" crossorigin src="/assets/main-C7TVO2to.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/main-Dpo0FET7.css">
+</head>
+<body>
+
+    <!-- Top Bar style GSJC -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-left">
+                <a href="tel:+224626313180"><i class="fas fa-phone"></i> +224 626 31 31 80</a>
+                <div class="top-bar-divider"></div>
+                <a href="mailto:belalekkol.montessori@gmail.com"><i class="fas fa-envelope"></i> belalekkol.montessori@gmail.com</a>
+            </div>
+            <div class="top-bar-right">
+                <a href="https://wa.me/224626313180" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                <a href="https://www.facebook.com/profile.php?id=61562529852559" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a>
+                <a href="./admissions.html" style="background:var(--gold);color:var(--primary);padding:0.25rem 0.9rem;border-radius:20px;font-weight:700;font-size:0.73rem;">Inscriptions 2026-27 →</a>
+            </div>
+        </div>
+    </div>
+
+    <header>
+  <div class="nav-inner">
+    <a href="index.html" class="logo-block">
+      <img src="/logo_officiel.jpg" alt="Bela Lekkol Montessori" style="height:48px;width:auto;border-radius:8px;object-fit:contain;flex-shrink:0;">
+    </a>
+    <button class="hamburger" onclick="this.nextElementSibling.classList.toggle('open')" aria-label="Menu">☰</button>
+    <nav>
+      <a href="about.html">À Propos</a>
+      <a href="programs.html">Programmes</a>
+      <a href="cfp.html">CFP</a>
+      <a href="innovation.html">Innovation</a>
+      <a href="life.html">Vie scolaire</a>
+      <a href="actualites.html">Actualités</a>
+      <a href="contact.html" class="active">Contact</a>
+      <a href="admissions.html#tarifs">Tarifs</a>
+      <a href="admissions.html" class="btn-inscrire">S'inscrire →</a>
+    </nav>
+  </div>
+</header>
+
+    <main>
+        <!-- Page Header -->
+        <section style="background:var(--primary);color:white;padding:5rem 0 4rem;">
+            <div class="container text-center">
+                <p style="text-transform:uppercase;letter-spacing:0.15em;font-size:0.8rem;font-weight:600;color:var(--gold);margin-bottom:0.75rem;">Nous sommes à votre écoute</p>
+                <h1 style="font-family:var(--font-serif);font-size:2.8rem;color:white;">Nous Contacter</h1>
+                <p style="opacity:0.85;max-width:650px;margin:1rem auto 0;font-size:1.05rem;">Une question sur les inscriptions, les programmes ou les tarifs ? Réponse garantie sous 24h.</p>
+            </div>
+        </section>
+
+        <!-- Canaux de contact rapide -->
+        <section class="section-padding" style="background:var(--background);">
+            <div class="container">
+                <div class="grid grid-3" style="gap:1.5rem;margin-bottom:4rem;">
+                    <a href="tel:+224626313180" class="card text-center" style="text-decoration:none;cursor:pointer;" data-aos>
+                        <i class="fas fa-phone-alt card-icon" style="color:var(--primary);"></i>
+                        <h4>Téléphone</h4>
+                        <p style="margin-top:0.5rem;font-weight:600;color:var(--primary);">+224 626 31 31 80</p>
+                        <p style="font-size:0.78rem;color:var(--text-light);margin-top:0.25rem;">623 23 18 07</p>
+                        <p style="font-size:0.82rem;color:var(--text-light);margin-top:0.5rem;">Lundi – Vendredi, 7h30 – 17h</p>
+                    </a>
+                    <a href="https://wa.me/224626313180" target="_blank" rel="noopener noreferrer" class="card text-center" style="text-decoration:none;cursor:pointer;" data-aos>
+                        <i class="fab fa-whatsapp card-icon" style="color:#25D366;font-size:3rem;"></i>
+                        <h4>WhatsApp</h4>
+                        <p style="margin-top:0.5rem;font-weight:600;color:#25D366;">+224 626 31 31 80</p>
+                        <p style="font-size:0.82rem;color:var(--text-light);margin-top:0.5rem;">Réponse rapide · 7j/7</p>
+                        <div style="margin-top:1rem;background:#25D366;color:white;border-radius:20px;padding:0.35rem 1rem;font-size:0.8rem;font-weight:700;display:inline-block;">Discuter maintenant</div>
+                    </a>
+                    <a href="mailto:belalekkol.montessori@gmail.com" class="card text-center" style="text-decoration:none;cursor:pointer;" data-aos>
+                        <i class="fas fa-envelope card-icon" style="color:var(--secondary);"></i>
+                        <h4>Email</h4>
+                        <p style="margin-top:0.5rem;font-weight:600;color:var(--primary);font-size:0.875rem;">belalekkol.montessori@gmail.com</p>
+                        <p style="font-size:0.78rem;color:var(--text-light);margin-top:0.25rem;">cfpguinee@gmail.com <small>(CFP)</small></p>
+                        <p style="font-size:0.82rem;color:var(--text-light);margin-top:0.5rem;">Réponse sous 24h</p>
+                    </a>
+                </div>
+
+                <!-- Formulaire + Localisation -->
+                <div class="grid grid-2" style="gap:4rem;align-items:start;">
+                    <!-- Formulaire enrichi -->
+                    <div class="card" data-aos>
+                        <h3 style="font-family:var(--font-serif);margin-bottom:0.5rem;">Envoyez un message</h3>
+                        <p style="font-size:0.875rem;color:var(--text-light);margin-bottom:1.5rem;">Inscriptions, renseignements pédagogiques, partenariats CFP — nous répondons à tout.</p>
+                        <form id="form-contact" style="display:flex;flex-direction:column;gap:1rem;">
+                            <input type="hidden" name="_subject" value="Nouveau message — Bela Lekkol Montessori">
+                            <div class="grid grid-2" style="gap:1rem;">
+                                <div class="form-group">
+                                    <label for="nom">Nom complet</label>
+                                    <input type="text" id="nom" name="nom" class="form-control" placeholder="Votre nom" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="tel">Téléphone / WhatsApp</label>
+                                    <input type="tel" id="tel" name="telephone" class="form-control" placeholder="+224 …">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" class="form-control" placeholder="votre@email.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="objet">Objet de la demande</label>
+                                <select id="objet" name="objet" class="form-control">
+                                    <option value="">-- Choisir --</option>
+                                    <option>Inscription maternelle</option>
+                                    <option>Inscription primaire</option>
+                                    <option>Inscription collège / lycée</option>
+                                    <option>Renseignements tarifs</option>
+                                    <option>Formation CFP enseignants</option>
+                                    <option>Partenariat institutionnel</option>
+                                    <option>Autre</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Votre message</label>
+                                <textarea id="message" name="message" class="form-control" placeholder="Décrivez votre demande…" required style="height:140px;resize:vertical;"></textarea>
+                            </div>
+                            <button type="button" onclick="envoyerContactWhatsApp()" class="btn btn-primary" style="width:100%;background:#25D366;border-color:#25D366;"><i class="fab fa-whatsapp" style="margin-right:0.5rem;"></i>Envoyer via WhatsApp</button>
+                            <p style="font-size:0.75rem;color:var(--text-light);text-align:center;margin-top:0.25rem;">Ou par email : <a href="mailto:belalekkol.montessori@gmail.com" style="color:var(--secondary);font-weight:600;">belalekkol.montessori@gmail.com</a></p>
+                        </form>
+                        <script>
+                        function envoyerContactWhatsApp() {
+                            var f = document.getElementById('form-contact');
+                            var nom = f.querySelector('[name=nom]').value || '(non renseigné)';
+                            var tel = f.querySelector('[name=telephone]').value || '';
+                            var email = f.querySelector('[name=email]').value || '';
+                            var objet = f.querySelector('[name=objet]').value || 'Demande générale';
+                            var message = f.querySelector('[name=message]').value || '';
+                            var txt = 'Bonjour Bela Lekkol Montessori,\n'
+                                + 'Nom : ' + nom + '\n'
+                                + (tel ? 'Tél : ' + tel + '\n' : '')
+                                + (email ? 'Email : ' + email + '\n' : '')
+                                + 'Objet : ' + objet + '\n'
+                                + (message ? 'Message : ' + message : '');
+                            window.open('https://wa.me/224626313180?text=' + encodeURIComponent(txt), '_blank');
+                        }
+                        </script>
+                    </div>
+
+                    <!-- Localisation + QR -->
+                    <div data-aos>
+                        <h3 style="font-family:var(--font-serif);margin-bottom:1.25rem;">Où nous trouver ?</h3>
+
+                        <!-- Carte OpenStreetMap (Kipé, Conakry) -->
+                        <div class="map-container" style="margin-bottom:1.5rem;">
+                            <iframe
+                                src="https://www.openstreetmap.org/export/embed.html?bbox=-13.6500%2C9.5300%2C-13.6200%2C9.5500&layer=mapnik&marker=9.5403%2C-13.6365"
+                                title="Localisation Bela Lekkol Montessori — Kipé, Conakry"
+                                loading="lazy">
+                            </iframe>
+                        </div>
+
+                        <!-- Adresse -->
+                        <div class="card" style="background:var(--cream);border:none;padding:1.5rem;">
+                            <div style="display:flex;flex-direction:column;gap:1rem;">
+                                <div style="display:flex;align-items:flex-start;gap:1rem;">
+                                    <i class="fas fa-location-dot" style="color:var(--primary);font-size:1.1rem;flex-shrink:0;margin-top:0.1rem;"></i>
+                                    <div>
+                                        <strong style="font-size:0.9rem;">Adresse</strong>
+                                        <p style="font-size:0.85rem;color:var(--text-light);margin-top:0.2rem;line-height:1.6;">Kipé T2, après le carrefour Alpha Condé,<br>avant les rails et Prima Center,<br>Conakry, République de Guinée</p>
+                                    </div>
+                                </div>
+                                <div style="display:flex;align-items:flex-start;gap:1rem;">
+                                    <i class="fas fa-clock" style="color:var(--primary);font-size:1.1rem;flex-shrink:0;margin-top:0.1rem;"></i>
+                                    <div>
+                                        <strong style="font-size:0.9rem;">Horaires du secrétariat</strong>
+                                        <p style="font-size:0.85rem;color:var(--text-light);margin-top:0.2rem;line-height:1.6;">Lundi – Vendredi : 7h30 – 17h00<br>Samedi : 8h00 – 12h00 (hors vacances)</p>
+                                    </div>
+                                </div>
+                                <div style="display:flex;align-items:flex-start;gap:1rem;">
+                                    <i class="fas fa-route" style="color:var(--primary);font-size:1.1rem;flex-shrink:0;margin-top:0.1rem;"></i>
+                                    <div>
+                                        <strong style="font-size:0.9rem;">Accès</strong>
+                                        <p style="font-size:0.85rem;color:var(--text-light);margin-top:0.2rem;line-height:1.6;">Accessible via la route le Prince ou la corniche nord. Repère : 100m de Prima Center.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- QR Code -->
+                        <div style="text-align:center;margin-top:1.5rem;">
+                            <img src="/qr_code.png" alt="QR Code Bela Lekkol Montessori" style="width:140px;height:auto;border-radius:0.75rem;box-shadow:var(--shadow);">
+                            <p style="font-size:0.78rem;color:var(--text-light);margin-top:0.5rem;">Scannez pour accéder au site</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Admissions -->
+        <section class="section-padding" style="background:white;">
+            <div class="container" style="max-width:860px;margin:0 auto;">
+                <div class="text-center" style="margin-bottom:3rem;">
+                    <span style="font-size:0.72rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:0.5rem;">Questions fréquentes</span>
+                    <h2 class="font-heading" style="font-size:2rem;">FAQ — Admissions & Vie Scolaire</h2>
+                </div>
+                <div id="faq-container">
+                    <div class="faq-item">
+                        <div class="faq-question">Les frais de dossier et les tests d'admission sont-ils payants ?<i class="fas fa-chevron-down"></i></div>
+                        <div class="faq-answer">Non. Les frais de dossier et les tests d'admission sont entièrement <strong>gratuits</strong> à Bela Lekkol Montessori.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">Comment fonctionne le système de parrainage ?<i class="fas fa-chevron-down"></i></div>
+                        <div class="faq-answer">Tout élève parrainant un nouvel élève est exempté des frais d'inscription. Le parrain bénéficie également de la gratuité de ses propres frais d'inscription pour l'année suivante.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">Comment se font les paiements des frais de scolarité ?<i class="fas fa-chevron-down"></i></div>
+                        <div class="faq-answer">Les paiements s'effectuent par chèque ou virement/versement bancaire sur les comptes de la Banque Populaire Maroco Guinéenne. Les frais sont divisés en 1 ou 4 versements pour le programme français, et 1 ou 3 versements pour le programme guinéen. Le logiciel ADMISCO garantit des reçus sécurisés.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">Quels documents fournir à l'inscription ?<i class="fas fa-chevron-down"></i></div>
+                        <div class="faq-answer">Pour l'inscription, il vous faut : 2 photos d'identité + carte scolaire réalisée par l'école, l'extrait de naissance (copie), le carnet de santé et vaccins, les bulletins de l'année précédente et l'attestation de transfert (ou réussite aux examens pour le collège/lycée). Les frais d'inscription sont gratuits ; seule la carte d'identité scolaire est payante.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">Proposez-vous des activités après l'école ?<i class="fas fa-chevron-down"></i></div>
+                        <div class="faq-answer">Oui. Nous proposons des APC (Activités Pédagogiques Complémentaires), de l'aide aux devoirs, du soutien scolaire et des révisions — en option. Une garderie est également disponible pour les familles qui en ont besoin.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">Y a-t-il une réduction pour plusieurs enfants de la même famille ?<i class="fas fa-chevron-down"></i></div>
+                        <div class="faq-answer">Oui, des réductions sont accordées à partir du 3ème enfant inscrit au sein du même foyer. Contactez le secrétariat pour connaître les modalités exactes.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">L'école prépare-t-elle au DELF/DALF ?<i class="fas fa-chevron-down"></i></div>
+                        <div class="faq-answer">Oui. Bela Lekkol Montessori s'engage aux côtés de l'Institut Français de Guinée pour préparer les élèves au DELF (Diplôme d'Études en Langue Française). Ce diplôme est reconnu internationalement dans le cadre du CECRL. La préparation se déroule de mars à juin.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Inscription rapide -->
+        <section class="cta-section">
+            <div class="container" data-aos>
+                <h2>Prêt à rejoindre Bela Lekkol ?</h2>
+                <p>Dossier gratuit · Test d'admission gratuit · Paiements en 1, 3 ou 4 tranches · Partenariat Institut Français</p>
+                <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+                    <a href="./admissions.html" class="btn btn-white">Voir les modalités d'inscription</a>
+                    <a href="https://wa.me/224626313180?text=Bonjour%2C%20je%20souhaite%20inscrire%20mon%20enfant%20à%20Bela%20Lekkol%20Montessori." target="_blank" rel="noopener noreferrer" class="btn btn-outline-white"><i class="fab fa-whatsapp"></i> Démarrer sur WhatsApp</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <a href="https://wa.me/224626313180" target="_blank" rel="noopener noreferrer" class="wa-float" title="Contacter par WhatsApp"><i class="fab fa-whatsapp"></i></a>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-logo"><div class="logo-main" style="color:white;margin-bottom:5px;"><span class="t-red">BELA</span> <span class="t-yellow">LEKKOL</span> MONTESSORI</div><div style="font-size:0.65rem;opacity:0.8;letter-spacing:1px;margin-bottom:1rem;">L'ÉCOLE FRANÇAISE AU SERVICE DE LA GUINÉE</div></div>
+                    <p style="opacity:0.7;font-size:0.875rem;margin-bottom:1rem;">Programme français certifié · Pédagogie Montessori · IA Éducative · Conakry.</p>
+                    <div style="display:flex;gap:1rem;font-size:1.25rem;">
+                        <a href="https://www.facebook.com/profile.php?id=61562529852559" target="_blank" rel="noopener noreferrer" style="opacity:0.8;"><i class="fab fa-facebook"></i></a>
+                        <a href="https://wa.me/224626313180" target="_blank" rel="noopener noreferrer" style="opacity:0.8;"><i class="fab fa-whatsapp"></i></a>
+                        <a href="mailto:belalekkol.montessori@gmail.com" style="opacity:0.8;"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links"><h4>L'École</h4><ul><li><a href="./about.html">Notre Histoire</a></li><li><a href="./programs.html">Nos Programmes</a></li><li><a href="./innovation.html">Innovation</a></li><li><a href="./cfp.html">CFP Maria Montessori</a></li></ul></div>
+                <div class="footer-links"><h4>Familles</h4><ul><li><a href="./admissions.html">Inscriptions 2026-27</a></li><li><a href="./life.html">Vie scolaire</a></li><li><a href="./contact.html">Nous contacter</a></li></ul></div>
+                <div><h4>Contact</h4><ul style="opacity:0.85;font-size:0.875rem;line-height:2.2;"><li><i class="fas fa-location-dot" style="margin-right:0.5rem;color:var(--accent);"></i>T2, Kipé, 100m Prima Center, Conakry</li><li><i class="fas fa-phone" style="margin-right:0.5rem;color:var(--accent);"></i>+224 626 31 31 80 / 623 23 18 07</li><li><i class="fas fa-envelope" style="margin-right:0.5rem;color:var(--accent);"></i>belalekkol.montessori@gmail.com</li></ul></div>
+            </div>
+            <div class="footer-bottom"><p>&copy; 2026 Bela Lekkol Montessori · Tous droits réservés.</p></div>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(q => {
+            q.addEventListener('click', () => {
+                const item = q.closest('.faq-item');
+                const isOpen = item.classList.contains('open');
+                document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+                if (!isOpen) item.classList.add('open');
+            });
+        });
+    </script>
+<script>
+  // ── HEADER SCROLL — glassmorphism mode clair ─────────────────
+  const hdr = document.querySelector('header');
+  window.addEventListener('scroll', () => {
+    hdr.classList.toggle('scrolled', window.scrollY > 50);
+  }, { passive: true });
+
+  // ── TUBELIGHT PILL — effet 21st.dev ──────────────────────────
+  function initPill() {
+    const nav = document.querySelector('nav');
+    if (!nav || window.innerWidth <= 768) return;
+
+    let pill = nav.querySelector('.nav-pill');
+    if (!pill) {
+      pill = document.createElement('span');
+      pill.className = 'nav-pill';
+      nav.appendChild(pill);
+    }
+
+    const links = [...nav.querySelectorAll('a')]
+      .filter(a => !a.classList.contains('btn-inscrire'));
+
+    const activeLink = links.find(a => a.classList.contains('active')) || null;
+
+    function moveTo(el) {
+      const navRect = nav.getBoundingClientRect();
+      const elRect  = el.getBoundingClientRect();
+      pill.style.left    = (elRect.left - navRect.left) + 'px';
+      pill.style.width   = elRect.width + 'px';
+      pill.style.opacity = '1';
+    }
+
+    if (activeLink) {
+      pill.style.transition = 'none';
+      moveTo(activeLink);
+      requestAnimationFrame(() => { pill.style.transition = ''; });
+    } else {
+      pill.style.opacity = '0';
+    }
+
+    links.forEach(link => {
+      link.addEventListener('mouseenter', () => moveTo(link));
+      link.addEventListener('mouseleave', () => {
+        if (activeLink) moveTo(activeLink);
+        else pill.style.opacity = '0';
+      });
+    });
+  }
+
+  window.addEventListener('DOMContentLoaded', () => {
+    requestAnimationFrame(initPill);
+    window.addEventListener('resize', initPill, { passive: true });
+  });
+</script>
+<script>
+(function(){
+  var nav = document.querySelector('header nav');
+  var btn = document.querySelector('header .hamburger');
+  if(!nav) return;
+  nav.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){ nav.classList.remove('open'); if(btn) btn.innerHTML='&#9776;'; });
+  });
+  document.addEventListener('click', function(e){
+    if(nav.classList.contains('open') && !nav.contains(e.target) && e.target !== btn && !btn.contains(e.target)){
+      nav.classList.remove('open');
+      if(btn) btn.innerHTML='&#9776;';
+    }
+  });
+})();
+</script>
+</body>
+</html>
+
+
+
+
+

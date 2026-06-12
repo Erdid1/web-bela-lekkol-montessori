@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CFP Maria Montessori — Centre de Formation Pédagogique · Conakry</title>
+    <meta name="description" content="Le CFP Maria Montessori forme les enseignants à la pédagogie Montessori, aux méthodes MHF/MHM et à l'IA éducative à Conakry. Formation continue, ressources pédagogiques, manuels scolaires.">
+    <meta property="og:title" content="CFP Maria Montessori — Formation Pédagogique Conakry">
+    <meta property="og:description" content="Centre de Formation Pédagogique : MHF, MHM, Montessori, IA éducative. Conakry, Guinée.">
+    <meta property="og:image" content="./public/hero_bela_lekkol.jpg">
+    <meta property="og:type" content="website">
+    <link rel="icon" href="/assets/img/favicon-jh76P1WP.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+    /* ══ NAVBAR BELA LEKKOL ══ */
+    header {
+      background: rgba(11,31,75,0.90);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-bottom: 1px solid rgba(200,169,81,0.18);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      transition: background .4s ease, box-shadow .4s ease;
+    }
+    header::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, transparent 0%, rgba(200,169,81,0.1) 20%, #C8A951 50%, rgba(200,169,81,0.1) 80%, transparent 100%);
+      background-size: 200% 100%;
+      animation: shimmer-hdr 4s ease-in-out infinite;
+    }
+    @keyframes shimmer-hdr {
+      0%   { background-position: 200% 0; opacity:.5; }
+      50%  { background-position: 0%   0; opacity:1;  }
+      100% { background-position:-200% 0; opacity:.5; }
+    }
+    header.scrolled {
+      background: rgba(255,255,255,0.96);
+      box-shadow: 0 4px 24px -4px rgba(11,31,75,0.12);
+    }
+    header.scrolled::after {
+      background: linear-gradient(90deg, transparent 0%, rgba(46,125,50,0.1) 20%, #2E7D32 50%, rgba(46,125,50,0.1) 80%, transparent 100%);
+      background-size: 200% 100%;
+    }
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+      gap: 1rem;
+    }
+    .logo-block { display: flex; align-items: center; gap: .7rem; flex-shrink: 0; text-decoration: none; }
+    .logo-circle {
+      width: 40px; height: 40px;
+      background: linear-gradient(135deg,#1B5E20,#2E7D32);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      color: #fff;
+      font-weight: 800;
+      font-size: .95rem;
+      letter-spacing: -.5px;
+      box-shadow: 0 0 14px rgba(46,125,50,0.35);
+      flex-shrink: 0;
+    }
+    .logo-text { line-height: 1.2; }
+    .logo-text strong { display: block; font-size: .93rem; color: rgba(255,255,255,0.92); font-weight: 700; }
+    .logo-text span { font-size: .70rem; color: rgba(255,255,255,0.52); }
+    header.scrolled .logo-text strong { color: var(--green-dark); }
+    header.scrolled .logo-text span   { color: var(--text-light); }
+
+    /* Nav avec pill indicator */
+    nav { display: flex; align-items: center; gap: 2px; flex-wrap: nowrap; position: relative; padding: 3px; }
+    nav a {
+      padding: .42rem .7rem;
+      border-radius: 9999px;
+      font-size: .80rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.72);
+      white-space: nowrap;
+      position: relative; z-index: 1;
+      transition: color .2s ease;
+      text-decoration: none;
+    }
+    nav a:hover { color: #C8A951; }
+    nav a.active { color: #C8A951; text-shadow: 0 0 16px rgba(200,169,81,0.5); }
+    header.scrolled nav a { color: var(--text-light); }
+    header.scrolled nav a:hover { color: var(--green-dark); }
+    header.scrolled nav a.active { color: var(--green-dark); font-weight: 700; text-shadow: none; }
+
+    /* Pill tubelight */
+    .nav-pill {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      height: calc(100% - 6px); border-radius: 9999px;
+      background: rgba(200,169,81,0.12);
+      border: 1px solid rgba(200,169,81,0.28);
+      box-shadow: 0 0 12px rgba(200,169,81,0.22), inset 0 1px 0 rgba(255,255,255,0.06);
+      transition: left .32s cubic-bezier(.4,0,.2,1), width .32s cubic-bezier(.4,0,.2,1), opacity .2s;
+      pointer-events: none; z-index: 0;
+    }
+    .nav-pill::before {
+      content: ''; position: absolute; top: -3px; left: 10%; width: 80%; height: 2px;
+      border-radius: 9999px;
+      background: linear-gradient(90deg, transparent, #C8A951, transparent);
+      opacity: .65; filter: blur(1px);
+    }
+    header.scrolled .nav-pill {
+      background: rgba(46,125,50,0.07); border-color: rgba(46,125,50,0.18);
+      box-shadow: 0 0 10px rgba(46,125,50,0.08);
+    }
+    header.scrolled .nav-pill::before {
+      background: linear-gradient(90deg, transparent, var(--green-dark), transparent); opacity: .4;
+    }
+
+    .btn-inscrire {
+      background: var(--green);
+      color: #fff !important;
+      padding: .45rem 1rem !important;
+      border-radius: 8px !important;
+      font-size: .80rem !important;
+      font-weight: 600 !important;
+      margin-left: .4rem;
+      flex-shrink: 0;
+      transition: background .2s;
+      text-decoration: none;
+    }
+    .btn-inscrire:hover { background: var(--green-dark) !important; }
+    .hamburger {
+      display: none; font-size: 1.3rem; cursor: pointer;
+      background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 7px; color: #fff; padding: .4rem .5rem;
+      transition: background .2s;
+    }
+    .hamburger:hover { background: rgba(255,255,255,0.18); }
+    header.scrolled .hamburger { color: var(--green-dark); background: rgba(46,125,50,0.07); border-color: rgba(46,125,50,0.18); }
+
+    /* ===== BREADCRUMB ===== */
+    .breadcrumb {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: .5rem 0;
+    }
+@media (max-width: 768px) {
+      .main-wrap { grid-template-columns: 1fr; }
+      .nav-pill { display: none !important; }
+      nav {
+        display: none !important;
+        flex-direction: row !important; flex-wrap: wrap !important; align-items: flex-start !important;
+        position: fixed !important;
+        top: 64px !important; left: 0 !important; right: 0 !important;
+        background: linear-gradient(160deg,#061535,#0B2060) !important;
+        padding: .5rem .6rem !important;
+        z-index: 9999 !important;
+        gap: 3px !important;
+        max-height: calc(100vh - 64px) !important;
+        overflow-y: auto !important;
+      }
+      nav.open { display: flex !important; }
+      nav a {
+        color: rgba(255,255,255,0.85) !important;
+        text-shadow: none !important;
+        white-space: normal !important;
+        padding: .5rem .4rem !important;
+        border-radius: 8px !important;
+        font-size: .82rem !important;
+        font-weight: 500 !important;
+        background: rgba(255,255,255,0.07) !important;
+        border: 1px solid rgba(255,255,255,0.10) !important;
+        width: calc(50% - 2px) !important;
+        text-align: center !important;
+        box-sizing: border-box !important;
+        position: static !important;
+        text-decoration: none !important;
+        display: block !important;
+      }
+      nav a:hover, nav a.active {
+        color: #C8A951 !important;
+        background: rgba(200,169,81,0.12) !important;
+        border-color: rgba(200,169,81,0.30) !important;
+      }
+      nav .btn-inscrire { width: 100% !important; margin: 3px 0 0 !important; text-align: center !important; }
+      .hamburger { display: block !important; }
+      .hero h1 { font-size: 1.5rem; }
+    }
+  
+</style>
+  <script type="module" crossorigin src="/assets/main-C7TVO2to.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/main-Dpo0FET7.css">
+</head>
+<body>
+    <!-- Top Bar style GSJC -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-left">
+                <a href="tel:+224626313180"><i class="fas fa-phone"></i> +224 626 31 31 80</a>
+                <div class="top-bar-divider"></div>
+                <a href="mailto:belalekkol.montessori@gmail.com"><i class="fas fa-envelope"></i> belalekkol.montessori@gmail.com</a>
+            </div>
+            <div class="top-bar-right">
+                <a href="https://wa.me/224626313180" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                <a href="https://www.facebook.com/profile.php?id=61562529852559" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a>
+                <a href="./admissions.html" style="background:var(--gold);color:var(--primary);padding:0.25rem 0.9rem;border-radius:20px;font-weight:700;font-size:0.73rem;">Inscriptions 2026-27 →</a>
+            </div>
+        </div>
+    </div>
+
+    <header>
+  <div class="nav-inner">
+    <a href="index.html" class="logo-block">
+      <img src="/logo_officiel.jpg" alt="Bela Lekkol Montessori" style="height:48px;width:auto;border-radius:8px;object-fit:contain;flex-shrink:0;">
+    </a>
+    <button class="hamburger" onclick="this.nextElementSibling.classList.toggle('open')" aria-label="Menu">☰</button>
+    <nav>
+      <a href="about.html">À Propos</a>
+      <a href="programs.html">Programmes</a>
+      <a href="cfp.html" class="active">CFP</a>
+      <a href="innovation.html">Innovation</a>
+      <a href="life.html">Vie scolaire</a>
+      <a href="actualites.html">Actualités</a>
+      <a href="contact.html">Contact</a>
+      <a href="admissions.html#tarifs">Tarifs</a>
+      <a href="admissions.html" class="btn-inscrire">S'inscrire →</a>
+    </nav>
+  </div>
+</header>
+
+    <main>
+
+        <!-- Page Header -->
+        <section class="section-padding" style="background: var(--primary); color: white; margin-top: 60px;">
+            <div class="container text-center">
+                <p style="text-transform: uppercase; letter-spacing: 0.15em; font-size: 0.8rem; font-weight: 600; color: var(--accent); margin-bottom: 0.75rem;">Leader de la Formation à Conakry</p>
+                <h1 style="font-size: 2.8rem; color: white;">CFP Maria Montessori</h1>
+                <p style="opacity: 0.85; max-width: 650px; margin: 1rem auto 0; font-size: 1.05rem;">Centre de Formation Pédagogique · Innovation · IA Éducative · Ressources · Conakry, Guinée</p>
+            </div>
+        </section>
+
+        <!-- Présentation CFP -->
+        <section class="section-padding">
+            <div class="container grid grid-2" style="align-items: center; gap: 4rem;">
+                <div data-aos>
+                    <h2 class="font-heading" style="font-size: 2.2rem; margin-bottom: 1.5rem;">Former les Enseignants <span class="text-primary">à l'Avenir</span></h2>
+                    <p style="margin-bottom: 1rem; line-height: 1.8;">Le <strong>CFP Maria Montessori</strong>, créé en 2017 par Éric Didier, est l'organisme de formation et d'innovation qui pilote et produit les ressources pédagogiques de Bela Lekkol. Il accompagne plusieurs établissements de Conakry dans leur transformation pédagogique.</p>
+                    <p style="margin-bottom: 1rem; line-height: 1.8;">Notre approche est résolument pratique : "on apprend par l'expérience", tout comme nos élèves. Chaque formation combine théorie, expérimentation en classe et production de ressources adaptées au contexte guinéen.</p>
+                    <p style="line-height: 1.8;">Le CFP est également pionnier dans l'intégration de <strong>l'intelligence artificielle</strong> dans la production de manuels, d'illustrations pédagogiques et de supports d'apprentissage personnalisés.</p>
+                </div>
+                <div style="background: var(--background); padding: 2.5rem; border-radius: var(--radius); border-left: 5px solid var(--secondary);" data-aos>
+                    <h3 style="margin-bottom: 1.5rem; color: var(--primary);">Public Cible</h3>
+                    <ul style="list-style: none; padding: 0; line-height: 2.5; font-size: 0.9rem;">
+                        <li><i class="fas fa-user-check text-secondary" style="margin-right: 0.75rem;"></i>Enseignants en poste (Cycles 1, 2 et 3)</li>
+                        <li><i class="fas fa-school text-secondary" style="margin-right: 0.75rem;"></i>Directeurs et chefs d'établissement</li>
+                        <li><i class="fas fa-graduation-cap text-secondary" style="margin-right: 0.75rem;"></i>Futurs éducateurs Montessori</li>
+                        <li><i class="fas fa-building text-secondary" style="margin-right: 0.75rem;"></i>Établissements scolaires partenaires</li>
+                        <li><i class="fas fa-brain text-secondary" style="margin-right: 0.75rem;"></i>Institutions éducatives de Guinée</li>
+                    </ul>
+                    <div style="margin-top: 1.5rem; padding: 1rem; background: rgba(16,185,129,0.08); border-radius: 0.5rem;">
+                        <p style="font-size: 0.8rem; margin: 0; font-weight: 600; color: var(--secondary);">
+                            <i class="fas fa-map-marker-alt" style="margin-right: 0.5rem;"></i>
+                            Interventions à Conakry et en régions — En présentiel ou à distance
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3 Axes -->
+        <section class="section-padding" style="background: white;">
+            <div class="container">
+                <div class="text-center" style="margin-bottom: 3.5rem;">
+                    <h2 class="font-heading" style="font-size: 2.2rem;">Nos 3 Axes d'Intervention</h2>
+                </div>
+                <div class="grid grid-3">
+                    <div class="card" data-aos style="border-top: 4px solid var(--primary);">
+                        <i class="fas fa-chalkboard-user card-icon"></i>
+                        <h4>Formation des Enseignants</h4>
+                        <p style="margin-top: 0.75rem; font-size: 0.875rem; color: var(--text-light); line-height: 1.7;">Modules en présentiel et à distance. Coaching de classe, observation et conseil direct en établissement. Formation continue garantissant une pédagogie novatrice intégrant l'IA.</p>
+                    </div>
+                    <div class="card" data-aos style="border-top: 4px solid var(--secondary);">
+                        <i class="fas fa-book-open card-icon"></i>
+                        <h4>Ressources Pédagogiques</h4>
+                        <p style="margin-top: 0.75rem; font-size: 0.875rem; color: var(--text-light); line-height: 1.7;">Création de contenus transmédias : vidéos, podcasts, manuels scolaires CP→CM2, fiches enseignants, grilles d'évaluation — ancrés dans le contexte guinéen.</p>
+                    </div>
+                    <div class="card" data-aos style="border-top: 4px solid var(--accent);">
+                        <i class="fas fa-robot card-icon" style="color: var(--accent);"></i>
+                        <h4>Innovation</h4>
+                        <p style="margin-top: 0.75rem; font-size: 0.875rem; color: var(--text-light); line-height: 1.7;">Intégration de l'IA dans la production de ressources, expérimentation de nouveaux modèles pédagogiques, production de manuels illustrés par IA pour le contexte africain.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Formations phares -->
+        <section class="section-padding">
+            <div class="container">
+                <div class="text-center" style="margin-bottom: 3.5rem;">
+                    <h2 class="font-heading" style="font-size: 2.2rem;">Nos Formations Phares</h2>
+                    <p style="color: var(--text-light); margin-top: 0.5rem;">Des modules adaptés aux besoins réels des enseignants guinéens</p>
+                </div>
+                <div class="grid grid-2" style="gap: 2rem;">
+                    <div class="card" data-aos style="display: flex; gap: 1.5rem; align-items: flex-start;">
+                        <div style="background: rgba(30,58,138,0.1); width: 50px; height: 50px; border-radius: 0.75rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                            <i class="fas fa-child-reaching" style="font-size: 1.5rem; color: var(--primary);"></i>
+                        </div>
+                        <div>
+                            <h4 style="margin-bottom: 0.5rem;">Pédagogie Montessori — Cycles 1, 2 & 3</h4>
+                            <p style="font-size: 0.875rem; color: var(--text-light); line-height: 1.6;">Maîtriser les bases de la méthode pour les 3-6 ans et les 6-12 ans. Manipulation, autonomie, ambiances préparées.</p>
+                        </div>
+                    </div>
+                    <div class="card" data-aos style="display: flex; gap: 1.5rem; align-items: flex-start;">
+                        <div style="background: rgba(16,185,129,0.1); width: 50px; height: 50px; border-radius: 0.75rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                            <i class="fas fa-spell-check" style="font-size: 1.5rem; color: var(--secondary);"></i>
+                        </div>
+                        <div>
+                            <h4 style="margin-bottom: 0.5rem;">Méthodes MHF & MHM</h4>
+                            <p style="font-size: 0.875rem; color: var(--text-light); line-height: 1.6;">Méthode Heuristique de Français et de Mathématiques. Progressions périodiques P1→P5 adaptées au contexte guinéen.</p>
+                        </div>
+                    </div>
+                    <div class="card" data-aos style="display: flex; gap: 1.5rem; align-items: flex-start;">
+                        <div style="background: rgba(251,191,36,0.15); width: 50px; height: 50px; border-radius: 0.75rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                            <i class="fas fa-robot" style="font-size: 1.5rem; color: #92400e;"></i>
+                        </div>
+                        <div>
+                            <h4 style="margin-bottom: 0.5rem;">IA Éducative en Classe</h4>
+                            <p style="font-size: 0.875rem; color: var(--text-light); line-height: 1.6;">Intégrer les outils d'intelligence artificielle pour préparer les cours, personnaliser le suivi et produire des ressources adaptées.</p>
+                        </div>
+                    </div>
+                    <div class="card" data-aos style="display: flex; gap: 1.5rem; align-items: flex-start;">
+                        <div style="background: rgba(206,17,38,0.08); width: 50px; height: 50px; border-radius: 0.75rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                            <i class="fas fa-users-gear" style="font-size: 1.5rem; color: #CE1126;"></i>
+                        </div>
+                        <div>
+                            <h4 style="margin-bottom: 0.5rem;">Management Scolaire Moderne</h4>
+                            <p style="font-size: 0.875rem; color: var(--text-light); line-height: 1.6;">Gérer un établissement à l'ère du numérique avec ADMISCO & EDUMOOV — suivi des élèves, communication parents, organisation.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Productions CFP -->
+        <section class="section-padding" style="background: white;">
+            <div class="container">
+                <div class="text-center" style="margin-bottom: 3rem;">
+                    <h2 class="font-heading" style="font-size: 2.2rem;">Nos Productions</h2>
+                    <p style="color: var(--text-light); margin-top: 0.5rem;">Des ressources concrètes au service des enseignants et des élèves guinéens</p>
+                </div>
+                <div class="grid grid-3" style="gap: 1.5rem;">
+                    <div class="card text-center" data-aos>
+                        <i class="fas fa-book" style="font-size: 2.5rem; color: var(--primary); margin-bottom: 1rem;"></i>
+                        <h4>Collection de Manuels</h4>
+                        <p style="font-size: 0.875rem; color: var(--text-light); margin-top: 0.5rem;">Manuels de Français Bela Lekkol CP → CM2 en cours de production — programme français, contexte guinéen, méthode MHF.</p>
+                    </div>
+                    <div class="card text-center" data-aos>
+                        <i class="fas fa-image" style="font-size: 2.5rem; color: var(--secondary); margin-bottom: 1rem;"></i>
+                        <h4>Illustrations IA</h4>
+                        <p style="font-size: 0.875rem; color: var(--text-light); margin-top: 0.5rem;">35+ aquarelles numériques par manuel, générées par IA (Pollinations.ai), représentant des enfants africains dans leur environnement.</p>
+                    </div>
+                    <div class="card text-center" data-aos>
+                        <i class="fas fa-qrcode" style="font-size: 2.5rem; color: var(--accent); margin-bottom: 1rem;"></i>
+                        <h4>Ressources Numériques</h4>
+                        <p style="font-size: 0.875rem; color: var(--text-light); margin-top: 0.5rem;">QR codes Réseau Canopé & Maître Lucas intégrés dans chaque leçon — double ressource vidéo pour chaque notion enseignée.</p>
+                    </div>
+                </div>
+
+                <div class="text-center" style="margin-top: 3rem;">
+                    <div style="background: rgba(30,58,138,0.05); border-radius: var(--radius); padding: 2rem; display: inline-block; max-width: 700px;">
+                        <p style="font-size: 0.85rem; color: var(--text-light); margin: 0; line-height: 1.7;">
+                            <strong style="color: var(--primary);">Mention officielle :</strong><br>
+                            Réalisé par le CFP Maria Montessori — Conakry, Guinée<br>
+                            <em>Direction pédagogique : Éric Didier</em><br>
+                            Conforme au programme français de l'Éducation Nationale · Méthode MHF · Contexte guinéen · Production assistée par IA
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══ ADMISCO ═══ -->
+        <section id="admisco" class="section-padding" style="background: white;">
+            <div class="container">
+                <div class="section-header-premium" style="display:flex; gap:3rem; align-items:flex-start; flex-wrap:wrap;">
+                    <div style="flex:1; min-width:280px;">
+                        <span class="section-label">Partenaire officiel — Guinée</span>
+                        <h2>AdmiSco — <em>Logiciel de Gestion Scolaire</em></h2>
+                        <div class="gold-bar"></div>
+                        <p style="color:var(--text-light); max-width:700px;">Le CFP Maria Montessori est distributeur officiel d'<strong>AdmiSco</strong> en Guinée. Solution complète d'administration scolaire utilisée dans plus de 15 pays : France, Algérie, Maroc, Tunisie, Cameroun, Gabon, Guinée, Congo…</p>
+                    </div>
+                    <div style="flex-shrink:0;">
+                        <img src="/admisco.jpg" alt="AdmiSco — Logiciel de gestion scolaire" style="height:140px; width:auto; border-radius:var(--radius); box-shadow:var(--shadow);" loading="lazy">
+                    </div>
+                </div>
+                </div>
+
+                <div class="grid grid-3" style="gap:1.5rem; margin-bottom:3rem;">
+                    <div class="icon-box" data-aos>
+                        <div class="icon-wrap"><i class="fas fa-desktop"></i></div>
+                        <h4>Application Desktop</h4>
+                        <p>Windows · FR/AR/EN · Réseau ou monoposte. Gestion dossiers élèves, bulletins, absences, comptabilité, emplois du temps.</p>
+                    </div>
+                    <div class="icon-box" data-aos>
+                        <div class="icon-wrap"><i class="fas fa-globe"></i></div>
+                        <h4>Portail Internet</h4>
+                        <p>admisco.com — Pré-inscriptions, saisie notes enseignants, consultation parents, actualités établissement.</p>
+                    </div>
+                    <div class="icon-box" data-aos>
+                        <div class="icon-wrap"><i class="fas fa-mobile-alt"></i></div>
+                        <h4>Application Mobile</h4>
+                        <p>Android — Enregistrement absences lors des tournées de classes. Synchronisation serveur automatique.</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-2" style="gap:3rem; align-items:center;">
+                    <div data-aos>
+                        <h3 style="margin-bottom:1.5rem;">Fonctionnalités clés</h3>
+                        <div class="frais-grid">
+                            <div class="frais-item"><i class="fas fa-users"></i><span>Dossiers élèves complets</span></div>
+                            <div class="frais-item"><i class="fas fa-file-alt"></i><span>Bulletins scolaires imprimables</span></div>
+                            <div class="frais-item"><i class="fas fa-calendar-check"></i><span>Suivi des absences</span></div>
+                            <div class="frais-item"><i class="fas fa-coins"></i><span>Comptabilité / frais scolaires</span></div>
+                            <div class="frais-item"><i class="fas fa-award"></i><span>Gestion des diplômes</span></div>
+                            <div class="frais-item"><i class="fas fa-clock"></i><span>Emplois du temps</span></div>
+                            <div class="frais-item"><i class="fas fa-envelope"></i><span>Emails & SMS parents</span></div>
+                            <div class="frais-item"><i class="fas fa-chart-bar"></i><span>Rapports & statistiques</span></div>
+                        </div>
+                        <div style="margin-top:1.5rem; background:rgba(16,185,129,0.07); border-radius:var(--radius); padding:1rem 1.5rem; border-left:4px solid var(--secondary);">
+                            <p style="font-size:0.875rem; margin:0;"><strong>Avec AdmiSco, ne soyez jamais bloqué !</strong><br>Essai gratuit disponible sur <strong>admisco.com</strong> — installation et formation assurées par le CFP en Guinée.</p>
+                        </div>
+                    </div>
+                    <div class="card" data-aos style="background:var(--primary); color:white; text-align:center;">
+                        <div style="font-size:3rem; margin-bottom:1rem;"><i class="fas fa-school"></i></div>
+                        <h3 style="color:white; margin-bottom:0.75rem;">Équiper votre établissement</h3>
+                        <p style="opacity:0.85; font-size:0.9rem; margin-bottom:2rem;">Le CFP Maria Montessori assure l'installation, la formation du personnel administratif et le support technique AdmiSco en Guinée.</p>
+                        <div style="display:flex; flex-direction:column; gap:0.75rem;">
+                            <a href="https://www.admisco.com" target="_blank" rel="noopener noreferrer" class="btn btn-white" style="font-size:0.875rem;"><i class="fas fa-download"></i> Télécharger AdmiSco</a>
+                            <a href="mailto:cfpguinee@gmail.com" class="btn btn-outline-white" style="font-size:0.875rem;"><i class="fas fa-envelope"></i> cfpguinee@gmail.com</a>
+                            <a href="tel:+224623231807" class="btn btn-outline-white" style="font-size:0.875rem;"><i class="fas fa-phone"></i> +224 623 23 18 07</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══ EDUMOOV ═══ -->
+        <section id="edumoov" class="section-padding" style="background:var(--cream);">
+            <div class="container">
+                <div class="grid grid-2" style="gap:4rem;align-items:center;">
+                    <div data-aos>
+                        <span style="font-size:0.72rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--secondary);display:block;margin-bottom:0.6rem;">Logiciel officiel bulletins</span>
+                        <h2 class="font-heading" style="font-size:2rem;margin-bottom:1.25rem;">EDUMOOV — <span style="color:var(--secondary);">Livret Scolaire Numérique</span></h2>
+                        <p style="margin-bottom:1.25rem;line-height:1.8;">Bela Lekkol Montessori utilise <strong>EDUMOOV</strong> pour éditer les bulletins scolaires de tous ses élèves. Ce logiciel génère le <strong>Livret Scolaire Unique (LSU)</strong> conforme au programme français — évaluation par compétences, suivi de cycle, observations pédagogiques.</p>
+                        <div style="display:flex;flex-direction:column;gap:0.75rem;margin-bottom:1.5rem;">
+                            <div style="display:flex;align-items:flex-start;gap:0.75rem;">
+                                <i class="fas fa-check-circle" style="color:var(--secondary);margin-top:0.15rem;flex-shrink:0;"></i>
+                                <span><strong>Bulletins par compétences</strong> — conformes au programme français Cycles 1, 2 et 3</span>
+                            </div>
+                            <div style="display:flex;align-items:flex-start;gap:0.75rem;">
+                                <i class="fas fa-check-circle" style="color:var(--secondary);margin-top:0.15rem;flex-shrink:0;"></i>
+                                <span><strong>Suivi progressif</strong> — bilan des acquis scolaires, observations pédagogiques trimestrielles</span>
+                            </div>
+                            <div style="display:flex;align-items:flex-start;gap:0.75rem;">
+                                <i class="fas fa-check-circle" style="color:var(--secondary);margin-top:0.15rem;flex-shrink:0;"></i>
+                                <span><strong>Communication famille</strong> — remise solennelle des bulletins à chaque trimestre</span>
+                            </div>
+                            <div style="display:flex;align-items:flex-start;gap:0.75rem;">
+                                <i class="fas fa-check-circle" style="color:var(--secondary);margin-top:0.15rem;flex-shrink:0;"></i>
+                                <span><strong>Complémentaire AdmiSco</strong> — ADMISCO gère l'administratif, EDUMOOV édite les livrets pédagogiques</span>
+                            </div>
+                        </div>
+                        <a href="https://www.edumoov.com" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:0.5rem;background:rgba(16,185,129,0.1);color:var(--secondary-dark);padding:0.6rem 1.4rem;border-radius:8px;font-size:0.85rem;font-weight:700;text-decoration:none;border:1.5px solid rgba(16,185,129,0.3);transition:all 0.2s;" onmouseover="this.style.background='var(--secondary)';this.style.color='white'" onmouseout="this.style.background='rgba(16,185,129,0.1)';this.style.color='var(--secondary-dark)'">
+                            <i class="fas fa-external-link-alt"></i> Découvrir EDUMOOV
+                        </a>
+                    </div>
+                    <div data-aos>
+                        <div class="card" style="border-top:4px solid var(--secondary);padding:0;overflow:hidden;">
+                            <div style="background:var(--secondary);padding:1rem 1.5rem;color:white;">
+                                <div style="font-family:var(--font-serif);font-weight:700;font-size:1rem;">Livret Scolaire Unique — BLM</div>
+                                <div style="font-size:0.75rem;opacity:0.85;margin-top:0.2rem;">Bilan des acquis scolaires · Conforme programme français</div>
+                            </div>
+                            <div style="padding:1.5rem;">
+                                <div style="display:flex;flex-direction:column;gap:0.75rem;">
+                                    <div style="display:flex;justify-content:space-between;align-items:center;padding:0.6rem 1rem;background:rgba(16,185,129,0.06);border-radius:0.5rem;border-left:3px solid var(--secondary);">
+                                        <span style="font-size:0.85rem;font-weight:600;">Langage oral · Lecture · Écriture</span>
+                                        <span style="font-size:0.7rem;color:var(--secondary);font-weight:700;">CYCLE 2</span>
+                                    </div>
+                                    <div style="display:flex;justify-content:space-between;align-items:center;padding:0.6rem 1rem;background:rgba(16,185,129,0.06);border-radius:0.5rem;border-left:3px solid var(--secondary);">
+                                        <span style="font-size:0.85rem;font-weight:600;">Nombres · Calcul · Géométrie</span>
+                                        <span style="font-size:0.7rem;color:var(--secondary);font-weight:700;">CYCLE 2</span>
+                                    </div>
+                                    <div style="display:flex;justify-content:space-between;align-items:center;padding:0.6rem 1rem;background:rgba(11,31,75,0.05);border-radius:0.5rem;border-left:3px solid var(--primary);">
+                                        <span style="font-size:0.85rem;font-weight:600;">Français · Maths · Histoire-Géo · SVT</span>
+                                        <span style="font-size:0.7rem;color:var(--primary);font-weight:700;">CYCLE 3</span>
+                                    </div>
+                                    <div style="display:flex;justify-content:space-between;align-items:center;padding:0.6rem 1rem;background:rgba(200,169,81,0.1);border-radius:0.5rem;border-left:3px solid var(--gold);">
+                                        <span style="font-size:0.85rem;font-weight:600;">Éducation artistique · EPS · Langues</span>
+                                        <span style="font-size:0.7rem;color:#92400e;font-weight:700;">TOUS CYCLES</span>
+                                    </div>
+                                </div>
+                                <div style="margin-top:1.25rem;text-align:center;font-size:0.8rem;color:var(--text-light);border-top:1px solid rgba(0,0,0,0.06);padding-top:1rem;">
+                                    <i class="fas fa-file-pdf" style="color:#e53e3e;margin-right:0.4rem;"></i>Remis aux familles chaque trimestre · PDF imprimable
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recrutement de professeurs -->
+        <section class="section-padding" style="background:var(--background);" id="recrutement">
+            <div class="container">
+                <div class="text-center section-header-premium" style="margin-bottom:3rem;">
+                    <span class="section-label">Rejoindre l'équipe</span>
+                    <h2>Recrutement de <em>Professeurs</em></h2>
+                    <div class="gold-bar" style="margin:0.8rem auto 0;"></div>
+                    <p style="color:var(--text-light);max-width:600px;margin:1rem auto 0;font-size:0.95rem;">Bela Lekkol Montessori recrute des enseignants passionnés, rigoureux et ouverts à la pédagogie active. Rejoignez une équipe pionnière en Guinée.</p>
+                </div>
+
+                <div class="grid grid-3" style="gap:2rem;margin-bottom:3rem;">
+                    <div class="card" style="border-top:4px solid var(--secondary);text-align:center;" data-aos>
+                        <i class="fas fa-chalkboard-teacher" style="font-size:2rem;color:var(--secondary);margin-bottom:1rem;display:block;"></i>
+                        <h4>Enseignant(e) Primaire</h4>
+                        <p style="font-size:0.875rem;color:var(--text-light);margin-top:0.75rem;line-height:1.7;">CP · CE1 · CE2 · CM1 · CM2<br>Méthodes MHF & MHM · Programme français · Pédagogie Montessori</p>
+                        <div style="margin-top:1rem;font-size:0.8rem;color:var(--secondary);font-weight:700;"><i class="fas fa-circle" style="font-size:0.5rem;margin-right:0.4rem;"></i>Poste ouvert</div>
+                    </div>
+                    <div class="card" style="border-top:4px solid var(--primary);text-align:center;" data-aos>
+                        <i class="fas fa-graduation-cap" style="font-size:2rem;color:var(--primary);margin-bottom:1rem;display:block;"></i>
+                        <h4>Enseignant(e) Collège / Lycée</h4>
+                        <p style="font-size:0.875rem;color:var(--text-light);margin-top:0.75rem;line-height:1.7;">Français · Maths · SVT · Histoire-Géo<br>Anglais · Espagnol · Physique-Chimie</p>
+                        <div style="margin-top:1rem;font-size:0.8rem;color:var(--primary);font-weight:700;"><i class="fas fa-circle" style="font-size:0.5rem;margin-right:0.4rem;"></i>Poste ouvert</div>
+                    </div>
+                    <div class="card" style="border-top:4px solid var(--accent);text-align:center;" data-aos>
+                        <i class="fas fa-seedling" style="font-size:2rem;color:var(--accent);margin-bottom:1rem;display:block;"></i>
+                        <h4>Éducateur(trice) Maternelle</h4>
+                        <p style="font-size:0.875rem;color:var(--text-light);margin-top:0.75rem;line-height:1.7;">PS · MS · GS · Ambiances Montessori<br>Éveil sensoriel · Langage oral · Autonomie</p>
+                        <div style="margin-top:1rem;font-size:0.8rem;color:#92400e;font-weight:700;"><i class="fas fa-circle" style="font-size:0.5rem;margin-right:0.4rem;"></i>Poste ouvert</div>
+                    </div>
+                </div>
+
+                <div style="background:white;border-radius:var(--radius);box-shadow:var(--shadow);padding:2.5rem;max-width:760px;margin:0 auto;">
+                    <h3 class="font-heading" style="margin-bottom:1.5rem;text-align:center;">Profil recherché & Candidature</h3>
+                    <div class="grid grid-2" style="gap:2rem;margin-bottom:2rem;">
+                        <div>
+                            <h4 style="font-size:0.9rem;color:var(--secondary);margin-bottom:0.75rem;"><i class="fas fa-check-circle" style="margin-right:0.4rem;"></i>Qualifications</h4>
+                            <ul style="list-style:none;padding:0;font-size:0.875rem;line-height:2.2;color:var(--text-light);">
+                                <li><i class="fas fa-dot-circle" style="font-size:0.4rem;vertical-align:middle;margin-right:0.6rem;color:var(--secondary);"></i>Diplôme en éducation ou discipline enseignée</li>
+                                <li><i class="fas fa-dot-circle" style="font-size:0.4rem;vertical-align:middle;margin-right:0.6rem;color:var(--secondary);"></i>Maîtrise du français écrit et oral</li>
+                                <li><i class="fas fa-dot-circle" style="font-size:0.4rem;vertical-align:middle;margin-right:0.6rem;color:var(--secondary);"></i>Expérience en classe appréciée</li>
+                                <li><i class="fas fa-dot-circle" style="font-size:0.4rem;vertical-align:middle;margin-right:0.6rem;color:var(--secondary);"></i>Ouverture à la pédagogie Montessori</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 style="font-size:0.9rem;color:var(--primary);margin-bottom:0.75rem;"><i class="fas fa-gift" style="margin-right:0.4rem;"></i>Ce que nous offrons</h4>
+                            <ul style="list-style:none;padding:0;font-size:0.875rem;line-height:2.2;color:var(--text-light);">
+                                <li><i class="fas fa-dot-circle" style="font-size:0.4rem;vertical-align:middle;margin-right:0.6rem;color:var(--primary);"></i>Formation continue assurée par le CFP</li>
+                                <li><i class="fas fa-dot-circle" style="font-size:0.4rem;vertical-align:middle;margin-right:0.6rem;color:var(--primary);"></i>Accompagnement pédagogique personnalisé</li>
+                                <li><i class="fas fa-dot-circle" style="font-size:0.4rem;vertical-align:middle;margin-right:0.6rem;color:var(--primary);"></i>Équipe dynamique & ressources modernes</li>
+                                <li><i class="fas fa-dot-circle" style="font-size:0.4rem;vertical-align:middle;margin-right:0.6rem;color:var(--primary);"></i>Environnement innovant (IA, MHF, MHM)</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div style="text-align:center;border-top:1px solid rgba(0,0,0,0.07);padding-top:1.5rem;">
+                        <p style="font-size:0.875rem;color:var(--text-light);margin-bottom:1rem;">Envoyez votre CV + lettre de motivation à :</p>
+                        <a href="mailto:belalekkol.montessori@gmail.com?subject=Candidature enseignant — Bela Lekkol" class="btn btn-primary" style="margin-right:0.75rem;"><i class="fas fa-envelope" style="margin-right:0.5rem;"></i>Candidature par email</a>
+                        <a href="https://wa.me/224626313180?text=Bonjour, je souhaite candidater comme enseignant à Bela Lekkol Montessori." target="_blank" rel="noopener noreferrer" class="btn btn-outline"><i class="fab fa-whatsapp" style="margin-right:0.5rem;"></i>WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="cta-section">
+            <div class="container" data-aos>
+                <h2>Votre établissement veut se former ?</h2>
+                <p>Contactez le CFP Maria Montessori pour un diagnostic gratuit et un devis personnalisé.</p>
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="./contact.html" class="btn btn-white">Demander un devis formation</a>
+                    <a href="https://wa.me/224626313180" target="_blank" rel="noopener noreferrer" class="btn btn-outline-white"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-logo">
+                        <div class="logo-main" style="color: white; margin-bottom: 5px;"><span class="t-red">BELA</span> <span class="t-yellow">LEKKOL</span> MONTESSORI</div>
+                        <div style="font-size: 0.65rem; opacity: 0.8; letter-spacing: 1px; margin-bottom: 1rem;">L'ÉCOLE FRANÇAISE AU SERVICE DE LA GUINÉE</div>
+                    </div>
+                    <p style="opacity: 0.7; font-size: 0.875rem; margin-bottom: 1rem;">Programme français certifié · Pédagogie Montessori · Ancrage culturel africain.</p>
+                    <p style="opacity: 0.5; font-size: 0.75rem; margin-bottom: 1.25rem;">Partenaires : Institut Français · ISSEG · MEPU-A · Ville de Nice</p>
+                    <div style="display: flex; gap: 1rem; font-size: 1.25rem;">
+                        <a href="https://www.facebook.com/profile.php?id=61562529852559" target="_blank" rel="noopener noreferrer" style="opacity:0.8;"><i class="fab fa-facebook"></i></a>
+                        <a href="https://wa.me/224626313180" target="_blank" rel="noopener noreferrer" style="opacity:0.8;"><i class="fab fa-whatsapp"></i></a>
+                        <a href="mailto:belalekkol.montessori@gmail.com" style="opacity:0.8;"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>L'École</h4>
+                    <ul>
+                        <li><a href="./about.html">Notre Histoire & Vision</a></li>
+                        <li><a href="./programs.html">Nos Programmes</a></li>
+                        <li><a href="./innovation.html">Innovation</a></li>
+                        <li><a href="./cfp.html">CFP Maria Montessori</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Familles</h4>
+                    <ul>
+                        <li><a href="./admissions.html">Inscriptions 2026-27</a></li>
+                        <li><a href="./life.html">Vie scolaire</a></li>
+                        <li><a href="./contact.html">Nous contacter</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Contact</h4>
+                    <ul style="opacity: 0.85; font-size: 0.875rem; line-height: 2.2;">
+                        <li><i class="fas fa-location-dot" style="margin-right: 0.5rem; color: var(--accent);"></i>T2, Kipé, 100m Prima Center, Conakry</li>
+                        <li><i class="fas fa-phone" style="margin-right: 0.5rem; color: var(--accent);"></i>+224 626 31 31 80 / 623 23 18 07</li>
+                        <li><i class="fas fa-envelope" style="margin-right: 0.5rem; color: var(--accent);"></i>belalekkol.montessori@gmail.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Bela Lekkol Montessori · CFP Maria Montessori · Conakry, Guinée. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+<script>
+  // ── HEADER SCROLL — glassmorphism mode clair ─────────────────
+  const hdr = document.querySelector('header');
+  window.addEventListener('scroll', () => {
+    hdr.classList.toggle('scrolled', window.scrollY > 50);
+  }, { passive: true });
+
+  // ── TUBELIGHT PILL — effet 21st.dev ──────────────────────────
+  function initPill() {
+    const nav = document.querySelector('nav');
+    if (!nav || window.innerWidth <= 768) return;
+
+    let pill = nav.querySelector('.nav-pill');
+    if (!pill) {
+      pill = document.createElement('span');
+      pill.className = 'nav-pill';
+      nav.appendChild(pill);
+    }
+
+    const links = [...nav.querySelectorAll('a')]
+      .filter(a => !a.classList.contains('btn-inscrire'));
+
+    const activeLink = links.find(a => a.classList.contains('active')) || null;
+
+    function moveTo(el) {
+      const navRect = nav.getBoundingClientRect();
+      const elRect  = el.getBoundingClientRect();
+      pill.style.left    = (elRect.left - navRect.left) + 'px';
+      pill.style.width   = elRect.width + 'px';
+      pill.style.opacity = '1';
+    }
+
+    if (activeLink) {
+      pill.style.transition = 'none';
+      moveTo(activeLink);
+      requestAnimationFrame(() => { pill.style.transition = ''; });
+    } else {
+      pill.style.opacity = '0';
+    }
+
+    links.forEach(link => {
+      link.addEventListener('mouseenter', () => moveTo(link));
+      link.addEventListener('mouseleave', () => {
+        if (activeLink) moveTo(activeLink);
+        else pill.style.opacity = '0';
+      });
+    });
+  }
+
+  window.addEventListener('DOMContentLoaded', () => {
+    requestAnimationFrame(initPill);
+    window.addEventListener('resize', initPill, { passive: true });
+  });
+</script>
+<script>
+(function(){
+  var nav = document.querySelector('header nav');
+  var btn = document.querySelector('header .hamburger');
+  if(!nav) return;
+  nav.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){ nav.classList.remove('open'); if(btn) btn.innerHTML='&#9776;'; });
+  });
+  document.addEventListener('click', function(e){
+    if(nav.classList.contains('open') && !nav.contains(e.target) && e.target !== btn && !btn.contains(e.target)){
+      nav.classList.remove('open');
+      if(btn) btn.innerHTML='&#9776;';
+    }
+  });
+})();
+</script>
+</body>
+</html>
+
+
+
+
+
+

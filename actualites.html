@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Actualités — Bela Lekkol Montessori | Conakry</title>
+  <meta name="description" content="Actualités de Bela Lekkol Montessori : examens, événements scolaires, vie de l'école à Kipé, Conakry. Informations pour les familles.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://blmlecolefrancaise.com/actualites.html">
+  <meta property="og:title" content="Actualités — Bela Lekkol Montessori Conakry">
+  <meta property="og:description" content="Évaluations P5, kermesse, remise des bulletins, travaux de rénovation — juin 2026 à Bela Lekkol Montessori, Kipé, Conakry.">
+  <meta property="og:image" content="https://blmlecolefrancaise.com/logo_officiel.jpg">
+  <meta property="og:type" content="website">
+  <style>
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #f5f6f8;
+      color: #212121;
+      line-height: 1.6;
+    }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; }
+
+    /* ===== PALETTE ===== */
+    :root {
+      --green: #2E7D32;
+      --green-dark: #1B5E20;
+      --green-light: #E8F5E9;
+      --gold: #F9A825;
+      --gold-light: #FFF8E1;
+      --red: #C62828;
+      --red-light: #FFEBEE;
+      --blue: #1565C0;
+      --blue-light: #E3F2FD;
+      --text: #212121;
+      --text-light: #616161;
+      --border: #E0E0E0;
+      --white: #FFFFFF;
+      --bg: #f5f6f8;
+    }
+
+    /* ===== HEADER / NAV — Tubelight glassmorphism ===== */
+    header {
+      background: rgba(11,31,75,0.90);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-bottom: 1px solid rgba(200,169,81,0.18);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      transition: background .4s ease, box-shadow .4s ease;
+    }
+    header::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, transparent 0%, rgba(200,169,81,0.1) 20%, #C8A951 50%, rgba(200,169,81,0.1) 80%, transparent 100%);
+      background-size: 200% 100%;
+      animation: shimmer-hdr 4s ease-in-out infinite;
+    }
+    @keyframes shimmer-hdr {
+      0%   { background-position: 200% 0; opacity:.5; }
+      50%  { background-position: 0%   0; opacity:1;  }
+      100% { background-position:-200% 0; opacity:.5; }
+    }
+    header.scrolled {
+      background: rgba(255,255,255,0.96);
+      box-shadow: 0 4px 24px -4px rgba(11,31,75,0.12);
+    }
+    header.scrolled::after {
+      background: linear-gradient(90deg, transparent 0%, rgba(46,125,50,0.1) 20%, #2E7D32 50%, rgba(46,125,50,0.1) 80%, transparent 100%);
+      background-size: 200% 100%;
+    }
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+      gap: 1rem;
+    }
+    .logo-block { display: flex; align-items: center; gap: .7rem; flex-shrink: 0; text-decoration: none; }
+    .logo-circle {
+      width: 40px; height: 40px;
+      background: linear-gradient(135deg,#1B5E20,#2E7D32);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      color: #fff;
+      font-weight: 800;
+      font-size: .95rem;
+      letter-spacing: -.5px;
+      box-shadow: 0 0 14px rgba(46,125,50,0.35);
+      flex-shrink: 0;
+    }
+    .logo-text { line-height: 1.2; }
+    .logo-text strong { display: block; font-size: .93rem; color: rgba(255,255,255,0.92); font-weight: 700; }
+    .logo-text span { font-size: .70rem; color: rgba(255,255,255,0.52); }
+    header.scrolled .logo-text strong { color: var(--green-dark); }
+    header.scrolled .logo-text span   { color: var(--text-light); }
+
+    /* Nav avec pill indicator */
+    nav { display: flex; align-items: center; gap: 2px; flex-wrap: nowrap; position: relative; padding: 3px; }
+    nav a {
+      padding: .42rem .7rem;
+      border-radius: 9999px;
+      font-size: .80rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.72);
+      white-space: nowrap;
+      position: relative; z-index: 1;
+      transition: color .2s ease;
+      text-decoration: none;
+    }
+    nav a:hover { color: #C8A951; }
+    nav a.active { color: #C8A951; text-shadow: 0 0 16px rgba(200,169,81,0.5); }
+    header.scrolled nav a { color: var(--text-light); }
+    header.scrolled nav a:hover { color: var(--green-dark); }
+    header.scrolled nav a.active { color: var(--green-dark); font-weight: 700; text-shadow: none; }
+
+    /* Pill tubelight */
+    .nav-pill {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      height: calc(100% - 6px); border-radius: 9999px;
+      background: rgba(200,169,81,0.12);
+      border: 1px solid rgba(200,169,81,0.28);
+      box-shadow: 0 0 12px rgba(200,169,81,0.22), inset 0 1px 0 rgba(255,255,255,0.06);
+      transition: left .32s cubic-bezier(.4,0,.2,1), width .32s cubic-bezier(.4,0,.2,1), opacity .2s;
+      pointer-events: none; z-index: 0;
+    }
+    .nav-pill::before {
+      content: ''; position: absolute; top: -3px; left: 10%; width: 80%; height: 2px;
+      border-radius: 9999px;
+      background: linear-gradient(90deg, transparent, #C8A951, transparent);
+      opacity: .65; filter: blur(1px);
+    }
+    header.scrolled .nav-pill {
+      background: rgba(46,125,50,0.07); border-color: rgba(46,125,50,0.18);
+      box-shadow: 0 0 10px rgba(46,125,50,0.08);
+    }
+    header.scrolled .nav-pill::before {
+      background: linear-gradient(90deg, transparent, var(--green-dark), transparent); opacity: .4;
+    }
+
+    .btn-inscrire {
+      background: var(--green);
+      color: #fff !important;
+      padding: .45rem 1rem !important;
+      border-radius: 8px !important;
+      font-size: .80rem !important;
+      font-weight: 600 !important;
+      margin-left: .4rem;
+      flex-shrink: 0;
+      transition: background .2s;
+      text-decoration: none;
+    }
+    .btn-inscrire:hover { background: var(--green-dark) !important; }
+    .hamburger {
+      display: none; font-size: 1.3rem; cursor: pointer;
+      background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 7px; color: #fff; padding: .4rem .5rem;
+      transition: background .2s;
+    }
+    .hamburger:hover { background: rgba(255,255,255,0.18); }
+    header.scrolled .hamburger { color: var(--green-dark); background: rgba(46,125,50,0.07); border-color: rgba(46,125,50,0.18); }
+
+    /* ===== BREADCRUMB ===== */
+    .breadcrumb {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: .5rem 0;
+    }
+    .breadcrumb-inner {
+      max-width: 1100px; margin: 0 auto; padding: 0 1.2rem;
+      font-size: .8rem; color: var(--text-light);
+    }
+    .breadcrumb-inner a { color: var(--green); }
+    .breadcrumb-inner a:hover { text-decoration: underline; }
+    .breadcrumb-inner span { margin: 0 .4rem; }
+
+    /* ===== HERO ===== */
+    .hero {
+      background: linear-gradient(135deg, var(--green-dark) 0%, var(--green) 60%, #388E3C 100%);
+      color: var(--white);
+      padding: 2.5rem 1.2rem 2rem;
+      text-align: center;
+    }
+    .hero-meta { font-size: .82rem; opacity: .8; margin-bottom: .5rem; letter-spacing: .05em; text-transform: uppercase; }
+    .hero h1 { font-size: 1.9rem; font-weight: 800; margin-bottom: .5rem; }
+    .hero p { font-size: .95rem; opacity: .9; max-width: 560px; margin: 0 auto .9rem; }
+    .hero-badges { display: flex; gap: .5rem; justify-content: center; flex-wrap: wrap; }
+    .hero-badge {
+      background: rgba(255,255,255,.18);
+      border: 1px solid rgba(255,255,255,.35);
+      color: var(--white);
+      border-radius: 20px;
+      padding: .28rem .8rem;
+      font-size: .78rem;
+      font-weight: 600;
+    }
+    .hero-badge.alert-badge { background: var(--red); border-color: var(--red); }
+    .hero-badge.gold-badge { background: var(--gold); border-color: var(--gold); color: #212121; }
+
+    /* ===== FILTERS ===== */
+    .filters-bar {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: .7rem 0;
+      position: sticky;
+      top: 64px;
+      z-index: 90;
+    }
+    .filters-inner {
+      max-width: 1100px; margin: 0 auto; padding: 0 1.2rem;
+      display: flex; gap: .4rem; flex-wrap: wrap;
+    }
+    .filter-btn {
+      background: none;
+      border: 1.5px solid var(--border);
+      border-radius: 20px;
+      padding: .3rem .85rem;
+      font-size: .8rem;
+      font-weight: 500;
+      cursor: pointer;
+      color: var(--text-light);
+      transition: all .15s;
+    }
+    .filter-btn.active, .filter-btn:hover { background: var(--green); border-color: var(--green); color: var(--white); }
+
+    /* ===== MAIN LAYOUT ===== */
+    .main-wrap {
+      max-width: 1100px; margin: 0 auto;
+      padding: 2rem 1.2rem;
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    /* ===== ARTICLES ===== */
+    .articles { display: flex; flex-direction: column; gap: 1.4rem; }
+
+    /* ----- ALERT card ----- */
+    .card-alert {
+      background: var(--red-light);
+      border: 2px solid var(--red);
+      border-radius: 12px;
+      padding: 1.4rem 1.6rem;
+      position: relative;
+    }
+    .card-alert .alert-banner {
+      display: flex; align-items: center; gap: .5rem;
+      background: var(--red);
+      color: var(--white);
+      font-weight: 700; font-size: .78rem; letter-spacing: .07em;
+      padding: .3rem .8rem;
+      border-radius: 6px;
+      margin-bottom: .9rem;
+      width: fit-content;
+      text-transform: uppercase;
+    }
+    .card-alert .alert-banner::before { content: "⚠️"; font-size: 1rem; }
+    .card-alert h2 { font-size: 1.2rem; color: var(--red); margin-bottom: .5rem; }
+    .card-alert p { font-size: .9rem; color: #4a1a1a; }
+    .card-alert .card-footer { margin-top: 1rem; }
+
+    /* ----- Event/kermesse card ----- */
+    .card-event {
+      background: linear-gradient(135deg, #1B5E20 0%, var(--green) 100%);
+      border-radius: 12px;
+      padding: 1.4rem 1.6rem;
+      color: var(--white);
+    }
+    .card-event .tag { background: var(--gold); color: #212121; border-radius: 20px; padding: .2rem .7rem; font-size: .75rem; font-weight: 700; display: inline-block; margin-bottom: .7rem; }
+    .card-event h2 { font-size: 1.3rem; font-weight: 800; margin-bottom: .4rem; }
+    .card-event .date-pill { display: inline-flex; align-items: center; gap: .4rem; background: rgba(255,255,255,.2); border-radius: 20px; padding: .2rem .75rem; font-size: .8rem; margin-bottom: .6rem; }
+    .card-event p { font-size: .9rem; opacity: .92; margin-bottom: .9rem; }
+    .card-event .card-actions { display: flex; gap: .6rem; flex-wrap: wrap; }
+    .btn-white { background: var(--white); color: var(--green-dark); border-radius: 20px; padding: .4rem 1rem; font-size: .82rem; font-weight: 600; border: none; cursor: pointer; transition: background .15s; }
+    .btn-white:hover { background: var(--gold-light); }
+    .btn-ghost-white { background: transparent; color: var(--white); border: 1.5px solid rgba(255,255,255,.5); border-radius: 20px; padding: .4rem 1rem; font-size: .82rem; font-weight: 600; cursor: pointer; transition: background .15s; }
+    .btn-ghost-white:hover { background: rgba(255,255,255,.15); }
+
+    /* ----- Standard card ----- */
+    .card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.4rem 1.6rem;
+      transition: box-shadow .2s;
+    }
+    .card:hover { box-shadow: 0 4px 18px rgba(46,125,50,.1); }
+    .card-tags { display: flex; gap: .4rem; flex-wrap: wrap; margin-bottom: .7rem; }
+    .tag-base {
+      font-size: .72rem; font-weight: 600; border-radius: 20px; padding: .18rem .7rem;
+      border: 1.5px solid;
+    }
+    .tag-green { background: var(--green-light); color: var(--green-dark); border-color: var(--green); }
+    .tag-blue { background: var(--blue-light); color: var(--blue); border-color: var(--blue); }
+    .tag-gold { background: var(--gold-light); color: #5a4000; border-color: var(--gold); }
+    .tag-grey { background: #F5F5F5; color: #555; border-color: #BDBDBD; }
+    .tag-red { background: var(--red-light); color: var(--red); border-color: var(--red); }
+    .card-date { font-size: .77rem; color: var(--text-light); margin-bottom: .3rem; }
+    .card h2 { font-size: 1.1rem; font-weight: 700; color: var(--text); margin-bottom: .5rem; line-height: 1.3; }
+    .card p { font-size: .88rem; color: var(--text-light); margin-bottom: .9rem; line-height: 1.55; }
+    .card p strong { color: var(--text); }
+    .card-footer { display: flex; align-items: center; gap: .7rem; flex-wrap: wrap; }
+    .btn-green { background: var(--green); color: var(--white); border-radius: 20px; padding: .38rem .95rem; font-size: .8rem; font-weight: 600; border: none; cursor: pointer; transition: background .15s; display: inline-block; }
+    .btn-green:hover { background: var(--green-dark); }
+    .btn-outline { background: transparent; color: var(--green); border: 1.5px solid var(--green); border-radius: 20px; padding: .35rem .9rem; font-size: .8rem; font-weight: 600; cursor: pointer; transition: all .15s; display: inline-block; }
+    .btn-outline:hover { background: var(--green-light); }
+
+    /* ----- Info card (renovations, bulletins) ----- */
+    .card-info-left { border-left: 4px solid var(--gold); }
+    .card-info-left .card-icon { font-size: 1.6rem; margin-bottom: .5rem; }
+
+    /* ===== SIDEBAR ===== */
+    .sidebar { display: flex; flex-direction: column; gap: 1.2rem; }
+
+    .widget {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .widget-header {
+      background: var(--green);
+      color: var(--white);
+      padding: .7rem 1rem;
+      font-weight: 700;
+      font-size: .88rem;
+      display: flex; align-items: center; gap: .4rem;
+    }
+    .widget-body { padding: .9rem 1rem; }
+
+    /* Calendar widget */
+    .cal-month { text-align: center; margin-bottom: .7rem; }
+    .cal-month strong { color: var(--green-dark); font-size: .9rem; }
+    .cal-event {
+      display: flex;
+      gap: .8rem;
+      align-items: flex-start;
+      padding: .55rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .cal-event:last-child { border-bottom: none; }
+    .cal-day {
+      min-width: 40px; height: 40px;
+      background: var(--green-light);
+      border-radius: 8px;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      font-weight: 800; font-size: .95rem; color: var(--green-dark);
+      flex-shrink: 0;
+    }
+    .cal-day.alert-day { background: var(--red-light); color: var(--red); }
+    .cal-day.gold-day { background: var(--gold-light); color: #5a4000; }
+    .cal-day span { font-size: .58rem; font-weight: 600; text-transform: uppercase; line-height: 1; }
+    .cal-info strong { display: block; font-size: .82rem; color: var(--text); }
+    .cal-info small { font-size: .74rem; color: var(--text-light); }
+
+    /* Contact widget */
+    .contact-item { display: flex; gap: .6rem; align-items: flex-start; padding: .4rem 0; font-size: .82rem; }
+    .contact-item .icon { font-size: 1rem; flex-shrink: 0; margin-top: .1rem; }
+    .contact-item a { color: var(--green); font-weight: 500; }
+    .btn-wa { display: block; background: #25D366; color: var(--white); text-align: center; border-radius: 8px; padding: .55rem; font-weight: 600; font-size: .85rem; margin-top: .7rem; }
+    .btn-wa:hover { background: #1dab53; }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--green-dark);
+      color: rgba(255,255,255,.8);
+      text-align: center;
+      padding: 1.5rem 1.2rem;
+      font-size: .8rem;
+      margin-top: 2rem;
+    }
+    footer a { color: var(--gold); }
+    footer strong { color: var(--white); }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .main-wrap { grid-template-columns: 1fr; }
+      .nav-pill { display: none !important; }
+      nav {
+        display: none !important;
+        flex-direction: row !important; flex-wrap: wrap !important; align-items: flex-start !important;
+        position: fixed !important;
+        top: 64px !important; left: 0 !important; right: 0 !important;
+        background: linear-gradient(160deg,#061535,#0B2060) !important;
+        padding: .5rem .6rem !important;
+        z-index: 9999 !important;
+        gap: 3px !important;
+        max-height: calc(100vh - 64px) !important;
+        overflow-y: auto !important;
+      }
+      nav.open { display: flex !important; }
+      nav a {
+        color: rgba(255,255,255,0.85) !important;
+        text-shadow: none !important;
+        white-space: normal !important;
+        padding: .5rem .4rem !important;
+        border-radius: 8px !important;
+        font-size: .82rem !important;
+        font-weight: 500 !important;
+        background: rgba(255,255,255,0.07) !important;
+        border: 1px solid rgba(255,255,255,0.10) !important;
+        width: calc(50% - 2px) !important;
+        text-align: center !important;
+        box-sizing: border-box !important;
+        position: static !important;
+        text-decoration: none !important;
+        display: block !important;
+      }
+      nav a:hover, nav a.active {
+        color: #C8A951 !important;
+        background: rgba(200,169,81,0.12) !important;
+        border-color: rgba(200,169,81,0.30) !important;
+      }
+      nav .btn-inscrire { width: 100% !important; margin: 3px 0 0 !important; text-align: center !important; }
+      .hamburger { display: block !important; }
+      .hero h1 { font-size: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header>
+  <div class="nav-inner">
+    <a href="index.html" class="logo-block">
+      <img src="/logo_officiel.jpg" alt="Bela Lekkol Montessori" style="height:48px;width:auto;border-radius:8px;object-fit:contain;flex-shrink:0;">
+    </a>
+    <button class="hamburger" onclick="this.nextElementSibling.classList.toggle('open')" aria-label="Menu">☰</button>
+    <nav>
+      <a href="about.html">À Propos</a>
+      <a href="programs.html">Programmes</a>
+      <a href="cfp.html">CFP</a>
+      <a href="innovation.html">Innovation</a>
+      <a href="life.html">Vie scolaire</a>
+      <a href="actualites.html" class="active">Actualités</a>
+      <a href="contact.html">Contact</a>
+      <a href="admissions.html#tarifs">Tarifs</a>
+      <a href="admissions.html" class="btn-inscrire">S'inscrire →</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ===== BREADCRUMB ===== -->
+<div class="breadcrumb">
+  <div class="breadcrumb-inner"><span>›</span>Actualités
+  </div>
+</div>
+
+<!-- ===== HERO ===== -->
+<div class="hero">
+  <div class="hero-meta">Juin 2026 · Fin d'année scolaire</div>
+  <h1>Actualités &amp; Vie Scolaire</h1>
+  <p>Examens, événements, informations pratiques — tout ce que les familles de Bela Lekkol doivent savoir.</p>
+  <div class="hero-badges">
+    <span class="hero-badge">📝 Évaluations P5 en cours</span>
+    <span class="hero-badge gold-badge">🎉 Kermesse 27 juin</span>
+    <span class="hero-badge">📋 Bulletins 20 juin</span>
+    <span class="hero-badge">🔨 Travaux en cours</span>
+    <span class="hero-badge">📅 30 juin — Fin inscriptions 2026-27</span>
+  </div>
+</div>
+
+<!-- ===== FILTERS ===== -->
+<div class="filters-bar">
+  <div class="filters-inner">
+    <button class="filter-btn active">Toutes</button>
+    <button class="filter-btn">Examens</button>
+    <button class="filter-btn">Inscriptions</button>
+    <button class="filter-btn">Vie scolaire</button>
+    <button class="filter-btn">Événements</button>
+    <button class="filter-btn">Club IA</button>
+  </div>
+</div>
+
+<!-- ===== MAIN ===== -->
+<div class="main-wrap">
+
+  <!-- ===== ARTICLES ===== -->
+  <div class="articles">
+
+    <!-- ======================================
+         ALERTE — 10ème BREVET BLANC
+    ======================================= -->
+    <div class="card-alert">
+      <div class="alert-banner">Alerte Académique · Collège 10ème</div>
+      <div class="card-tags">
+        <span class="tag-base tag-red">⚠️ Urgent</span>
+        <span class="tag-base tag-grey">Collège · 10ème</span>
+        <span class="tag-base tag-grey">Brevet Blanc</span>
+        <span class="tag-base tag-grey">Juin 2026</span>
+      </div>
+      <h2>Brevet Blanc : certains élèves de 10ème doivent redoubler d'efforts</h2>
+      <p>Les résultats du Brevet Blanc révèlent des <strong>performances insuffisantes</strong> pour une partie des élèves de 10ème. La direction de Bela Lekkol rappelle à ces élèves et à leurs familles l'urgence de la situation : <strong>la période de révision est décisive</strong>. Des séances de soutien et de révision intensive sont organisées jusqu'à la date des épreuves officielles.</p>
+      <p><strong>Message aux parents concernés :</strong> Rapprochez-vous de la direction ou de l'enseignant référent pour un accompagnement personnalisé. La réussite de votre enfant dépend aussi de la mobilisation à la maison.</p>
+      <div class="card-footer">
+        <a href="https://wa.me/224626313180?text=Bonjour,%20je%20voudrais%20un%20suivi%20pour%20mon%20enfant%20en%2010%C3%A8me." class="btn-green">📲 Contacter la direction</a>
+        <a href="programs.html" class="btn-outline">Voir les programmes 10ème</a>
+      </div>
+    </div>
+
+    <!-- ======================================
+         KERMESSE — 27 JUIN
+    ======================================= -->
+    <div class="card-event">
+      <span class="tag">🎉 Événement · Toute l'école</span>
+      <div class="date-pill">📅 Vendredi 27 juin 2026</div>
+      <h2>Kermesse de Fin d'Année — Bela Lekkol 2026 !</h2>
+      <p>La grande fête de fin d'année de Bela Lekkol Montessori se tiendra le <strong>vendredi 27 juin 2026</strong>. Jeux, spectacles, stands et surprises — une journée de célébration pour toute la communauté scolaire : élèves, parents, enseignants et personnel.</p>
+      <p>Retrouvez tous vos enfants dans la joie et la fierté d'une année accomplie. Restez connectés pour plus de détails sur le programme de la journée.</p>
+      <div class="card-actions">
+        <a href="https://wa.me/224626313180?text=Bonjour,%20je%20voudrais%20des%20informations%20sur%20la%20kermesse%20du%2027%20juin." class="btn-white">📲 Infos sur WhatsApp</a>
+        <a href="life.html" class="btn-ghost-white">Vie scolaire →</a>
+      </div>
+    </div>
+
+    <!-- ======================================
+         REMISE DES BULLETINS — 20 JUIN
+    ======================================= -->
+    <div class="card card-info-left">
+      <div class="card-icon">📋</div>
+      <div class="card-tags">
+        <span class="tag-base tag-green">Vie scolaire</span>
+        <span class="tag-base tag-blue">Primaire · Maternelle</span>
+        <span class="tag-base tag-grey">20 juin 2026</span>
+      </div>
+      <div class="card-date">Vendredi 20 juin 2026</div>
+      <h2>Remise des bulletins du Primaire et des livrets de la Maternelle</h2>
+      <p>Les bulletins de fin d'année des élèves du <strong>Primaire (CP au CM2)</strong> et les livrets scolaires de la <strong>Maternelle (TPS au GS)</strong> seront remis aux familles le <strong>vendredi 20 juin 2026</strong>. Ce moment important permet de faire le bilan de l'année scolaire et d'évoquer les perspectives pour la rentrée 2026-2027.</p>
+      <p>Les modalités précises de remise (horaires, salles) vous seront communiquées par les enseignants de chaque classe.</p>
+      <div class="card-footer">
+        <a href="https://wa.me/224626313180?text=Bonjour,%20je%20voudrais%20des%20informations%20sur%20la%20remise%20des%20bulletins." class="btn-green">📲 Question sur WhatsApp</a>
+      </div>
+    </div>
+
+    <!-- ======================================
+         TRAVAUX DE RÉNOVATION
+    ======================================= -->
+    <div class="card card-info-left">
+      <div class="card-icon">🔨</div>
+      <div class="card-tags">
+        <span class="tag-base tag-gold">Vie scolaire</span>
+        <span class="tag-base tag-grey">En cours</span>
+        <span class="tag-base tag-grey">Jusqu'au 30 juin 2026</span>
+      </div>
+      <div class="card-date">Semaine du 7 juin 2026</div>
+      <h2>Travaux d'embellissement et de rénovation en cours</h2>
+      <p>Des <strong>travaux d'embellissement et de rénovation</strong> ont débuté ce week-end dans notre établissement. Ces travaux, qui se poursuivront jusqu'au <strong>30 juin 2026</strong>, visent à améliorer le cadre de vie et d'apprentissage pour toute la communauté scolaire.</p>
+      <p>Des aménagements temporaires peuvent être en place pendant la durée du chantier. Merci pour votre compréhension. Bela Lekkol investit pour offrir à vos enfants un environnement toujours plus beau et fonctionnel pour la rentrée 2026-2027.</p>
+      <div class="card-footer">
+        <a href="https://wa.me/224626313180?text=Bonjour,%20je%20voudrais%20des%20informations%20sur%20les%20travaux." class="btn-outline">📲 Plus d'informations</a>
+      </div>
+    </div>
+
+    <!-- ======================================
+         ÉVALUATIONS P5 — CP/CE1/CE2/CM1
+    ======================================= -->
+    <div class="card">
+      <div class="card-tags">
+        <span class="tag-base tag-blue">Examens · Primaire</span>
+        <span class="tag-base tag-grey">CP · CE1 · CE2 · CM1</span>
+        <span class="tag-base tag-grey">Période 5 · 3e trimestre</span>
+        <span class="tag-base tag-grey">Juin 2026</span>
+      </div>
+      <div class="card-date">Juin 2026 · En cours</div>
+      <h2>Début des évaluations de fin de Période 5 — CP, CE1, CE2, CM1</h2>
+      <p>Les évaluations de la <strong>Période 5 (3e trimestre)</strong> ont débuté pour les classes de <strong>CP, CE1, CE2 et CM1</strong>. Ces évaluations permettent de dresser le bilan des acquis de l'année scolaire 2025-2026 et de préparer les orientations pédagogiques pour chaque élève.</p>
+      <p><strong>Recommandations aux parents :</strong> Assurez-vous que votre enfant se couche tôt, mange bien et arrive à l'heure chaque matin. Vérifiez quotidiennement les cahiers et les messages de l'enseignant.</p>
+      <div class="card-footer">
+        <a href="https://wa.me/224626313180?text=Bonjour,%20je%20voudrais%20des%20informations%20sur%20les%20%C3%A9valuations%20P5." class="btn-green">📲 Question sur WhatsApp</a>
+        <a href="programs.html" class="btn-outline">Voir les programmes</a>
+      </div>
+    </div>
+
+    <!-- ======================================
+         EXAMEN BLANC 7ÈME (article existant)
+    ======================================= -->
+    <div class="card">
+      <div class="card-tags">
+        <span class="tag-base tag-blue">Examens CM2 · Primaire</span>
+        <span class="tag-base tag-grey">28 mai 2026 · Officiel</span>
+      </div>
+      <div class="card-date">28 mai 2026</div>
+      <h2>Examen blanc d'entrée en 7ème — Emploi du temps officiel Session 2026</h2>
+      <p>Le Ministère de l'Éducation Nationale a publié l'emploi du temps officiel de l'examen blanc d'entrée en 7ème année (Session 2026). Les épreuves se sont déroulées sur trois jours : jeudi 4, vendredi 5 et samedi 6 juin 2026. Ce document est signé par le Délégué Scolaire <strong>Amadou Dia</strong>.</p>
+
+      <div style="overflow-x:auto; margin: .8rem 0;">
+        <table style="width:100%; border-collapse:collapse; font-size:.82rem;">
+          <thead>
+            <tr style="background:var(--green); color:var(--white);">
+              <th style="padding:.5rem .7rem; text-align:left;">Heures</th>
+              <th style="padding:.5rem .7rem;">Jeu 4 juin</th>
+              <th style="padding:.5rem .7rem;">Ven 5 juin</th>
+              <th style="padding:.5rem .7rem;">Sam 6 juin</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="background:#f9f9f9;">
+              <td style="padding:.45rem .7rem; font-weight:600; color:var(--text-light);">09h00 – 10h45</td>
+              <td style="padding:.45rem .7rem; text-align:center;">Rédaction</td>
+              <td style="padding:.45rem .7rem; text-align:center;">Dictée et Questions</td>
+              <td style="padding:.45rem .7rem; text-align:center;">Calcul Écrit</td>
+            </tr>
+            <tr>
+              <td style="padding:.45rem .7rem; font-weight:600; color:var(--text-light);">11h15 – 12h30</td>
+              <td style="padding:.45rem .7rem; text-align:center;">Géographie</td>
+              <td style="padding:.45rem .7rem; text-align:center;">Sciences d'Observation</td>
+              <td style="padding:.45rem .7rem; text-align:center;">Histoire</td>
+            </tr>
+            <tr style="background:#f9f9f9;">
+              <td style="padding:.45rem .7rem; font-weight:600; color:var(--text-light);">13h00 – 14h15</td>
+              <td style="padding:.45rem .7rem; text-align:center;">Éducation Civique</td>
+              <td style="padding:.45rem .7rem; text-align:center;">—</td>
+              <td style="padding:.45rem .7rem; text-align:center;">—</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="card-footer">
+        <a href="https://wa.me/224626313180?text=Bonjour,%20j%27ai%20une%20question%20sur%20l%27examen%20blanc%20entr%C3%A9e%207%C3%A8me." class="btn-green">📲 Question sur WhatsApp</a>
+        <a href="programs.html" class="btn-outline">Voir nos programmes CM2</a>
+      </div>
+    </div>
+
+    <!-- ======================================
+         INSCRIPTIONS (article existant)
+    ======================================= -->
+    <div class="card">
+      <div class="card-tags">
+        <span class="tag-base tag-green">Inscriptions</span>
+        <span class="tag-base tag-grey">1er juin 2026</span>
+      </div>
+      <div class="card-date">1er juin 2026</div>
+      <h2>Inscriptions 2026–2027 : plus que quelques semaines</h2>
+      <p>Les inscriptions pour l'année scolaire <strong>2026-2027</strong> sont ouvertes jusqu'au <strong>30 juin 2026</strong>. Les places sont limitées pour chaque niveau. Tests d'admission et frais de dossier entièrement <strong>gratuits</strong>.</p>
+      <p>✅ <strong>Avantage parrainage :</strong> Tout élève qui parraine un nouvel inscrit est exempté de ses propres frais d'inscription l'année suivante.</p>
+      <div class="card-footer">
+        <a href="admissions.html" class="btn-green">S'inscrire maintenant</a>
+        <a href="admissions.html#tarifs" class="btn-outline">Voir les tarifs</a>
+      </div>
+    </div>
+
+    <!-- ======================================
+         CLUB IA (article existant)
+    ======================================= -->
+    <div class="card">
+      <div class="card-tags">
+        <span class="tag-base tag-blue">Club IA</span>
+        <span class="tag-base tag-grey">Mai 2026</span>
+      </div>
+      <div class="card-date">Mai 2026</div>
+      <h2>Le Club IA de Bela Lekkol : bilan de l'année</h2>
+      <p>Depuis sa fondation en avril 2026, le Club Intelligence Artificielle de Bela Lekkol réunit <strong>14 élèves passionnés</strong> autour de trois axes : marketing digital, amélioration des apprentissages et maîtrise des outils numériques. Une initiative <strong>unique à Conakry</strong>.</p>
+      <div class="card-footer">
+        <a href="innovation.html" class="btn-green">Découvrir le Club IA</a>
+      </div>
+    </div>
+
+  </div><!-- /articles -->
+
+  <!-- ===== SIDEBAR ===== -->
+  <aside class="sidebar">
+
+    <!-- Calendrier juin -->
+    <div class="widget">
+      <div class="widget-header">📅 Calendrier de juin 2026</div>
+      <div class="widget-body">
+        <div class="cal-month"><strong>Juin 2026 — Fin d'année</strong></div>
+
+        <div class="cal-event">
+          <div class="cal-day">
+            7<span>juin</span>
+          </div>
+          <div class="cal-info">
+            <strong>Début des travaux de rénovation</strong>
+            <small>Embellissement — jusqu'au 30 juin</small>
+          </div>
+        </div>
+
+        <div class="cal-event">
+          <div class="cal-day">
+            7<span>juin</span>
+          </div>
+          <div class="cal-info">
+            <strong>Évaluations P5 — Primaire</strong>
+            <small>CP · CE1 · CE2 · CM1</small>
+          </div>
+        </div>
+
+        <div class="cal-event">
+          <div class="cal-day gold-day">
+            18<span>juin</span>
+          </div>
+          <div class="cal-info">
+            <strong>Examens nationaux</strong>
+            <small>BEPC · BAC · Entrée 7ème</small>
+          </div>
+        </div>
+
+        <div class="cal-event">
+          <div class="cal-day">
+            20<span>juin</span>
+          </div>
+          <div class="cal-info">
+            <strong>Remise des bulletins</strong>
+            <small>Primaire + livrets Maternelle</small>
+          </div>
+        </div>
+
+        <div class="cal-event">
+          <div class="cal-day gold-day">
+            27<span>juin</span>
+          </div>
+          <div class="cal-info">
+            <strong>🎉 KERMESSE</strong>
+            <small>Fête de fin d'année — toute l'école</small>
+          </div>
+        </div>
+
+        <div class="cal-event">
+          <div class="cal-day">
+            30<span>juin</span>
+          </div>
+          <div class="cal-info">
+            <strong>Clôture inscriptions 2026-27</strong>
+            <small>Dernière date pour s'inscrire</small>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact widget -->
+    <div class="widget">
+      <div class="widget-header">📞 Nous contacter</div>
+      <div class="widget-body">
+        <div class="contact-item">
+          <span class="icon">📲</span>
+          <div><strong>WhatsApp</strong><br><a href="https://wa.me/224626313180">+224 626 31 31 80</a></div>
+        </div>
+        <div class="contact-item">
+          <span class="icon">📞</span>
+          <div><strong>Téléphone</strong><br>623 23 18 07</div>
+        </div>
+        <div class="contact-item">
+          <span class="icon">✉️</span>
+          <div><strong>Email</strong><br><a href="mailto:belalekkol.montessori@gmail.com">belalekkol.montessori@gmail.com</a></div>
+        </div>
+        <div class="contact-item">
+          <span class="icon">📍</span>
+          <div>Kipé T2, 100m Prima Center, Conakry<br><small>Lun–Ven 7h30–17h · Sam 8h–12h</small></div>
+        </div>
+        <a href="https://wa.me/224626313180?text=Bonjour,%20j%27aimerais%20des%20informations%20sur%20Bela%20Lekkol." class="btn-wa">💬 Écrire sur WhatsApp</a>
+      </div>
+    </div>
+
+    <!-- Inscriptions CTA -->
+    <div class="widget" style="border-color:var(--green); border-width:2px;">
+      <div class="widget-header" style="background:var(--gold); color:#212121;">📋 Inscriptions 2026–2027</div>
+      <div class="widget-body" style="text-align:center;">
+        <p style="font-size:.85rem; margin-bottom:.7rem; color:var(--text-light);">Tests d'admission <strong>gratuits</strong>. Places limitées.</p>
+        <p style="font-size:.8rem; color:var(--red); font-weight:700; margin-bottom:.8rem;">⏳ Clôture : 30 juin 2026</p>
+        <a href="admissions.html" class="btn-green" style="display:block; text-align:center; padding:.6rem;">S'inscrire maintenant →</a>
+      </div>
+    </div>
+
+  </aside>
+
+</div><!-- /main-wrap -->
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p><strong>Bela Lekkol Montessori</strong> — L'école française de Guinée</p>
+  <p style="margin-top:.4rem;"><a href="index.html">blmlecolefrancaise.com</a> · Kipé T2, Conakry · +224 626 31 31 80</p>
+</footer>
+
+<script>
+  // ── FILTER BUTTONS ──────────────────────────────────────────
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    });
+  });
+
+  // ── HEADER SCROLL — glassmorphism mode clair ─────────────────
+  const hdr = document.querySelector('header');
+  window.addEventListener('scroll', () => {
+    hdr.classList.toggle('scrolled', window.scrollY > 50);
+  }, { passive: true });
+
+  // ── TUBELIGHT PILL — effet 21st.dev ──────────────────────────
+  function initPill() {
+    const nav = document.querySelector('nav');
+    if (!nav || window.innerWidth <= 768) return;
+
+    let pill = nav.querySelector('.nav-pill');
+    if (!pill) {
+      pill = document.createElement('span');
+      pill.className = 'nav-pill';
+      nav.appendChild(pill);
+    }
+
+    const links = [...nav.querySelectorAll('a')]
+      .filter(a => !a.classList.contains('btn-inscrire'));
+
+    const activeLink = links.find(a => a.classList.contains('active')) || null;
+
+    function moveTo(el) {
+      const navRect = nav.getBoundingClientRect();
+      const elRect  = el.getBoundingClientRect();
+      pill.style.left    = (elRect.left - navRect.left) + 'px';
+      pill.style.width   = elRect.width + 'px';
+      pill.style.opacity = '1';
+    }
+
+    if (activeLink) {
+      pill.style.transition = 'none';
+      moveTo(activeLink);
+      requestAnimationFrame(() => { pill.style.transition = ''; });
+    } else {
+      pill.style.opacity = '0';
+    }
+
+    links.forEach(link => {
+      link.addEventListener('mouseenter', () => moveTo(link));
+      link.addEventListener('mouseleave', () => {
+        if (activeLink) moveTo(activeLink);
+        else pill.style.opacity = '0';
+      });
+    });
+  }
+
+  window.addEventListener('DOMContentLoaded', () => {
+    requestAnimationFrame(initPill);
+    window.addEventListener('resize', initPill, { passive: true });
+  });
+
+  // ── HAMBURGER MENU ─────────────────────────────────────────
+  const hamburger = document.querySelector('.hamburger');
+  const navEl = document.querySelector('nav');
+  if (hamburger && navEl) {
+    hamburger.addEventListener('click', () => {
+      const open = navEl.classList.toggle('open');
+      hamburger.textContent = open ? '✕' : '☰';
+    });
+    navEl.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        navEl.classList.remove('open');
+        hamburger.textContent = '☰';
+      });
+    });
+    document.addEventListener('click', e => {
+      if (navEl.classList.contains('open') &&
+          !navEl.contains(e.target) &&
+          e.target !== hamburger) {
+        navEl.classList.remove('open');
+        hamburger.textContent = '☰';
+      }
+    });
+  }
+</script>
+
+<script>
+(function(){
+  var nav = document.querySelector('header nav');
+  var btn = document.querySelector('header .hamburger');
+  if(!nav) return;
+  nav.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){ nav.classList.remove('open'); if(btn) btn.innerHTML='&#9776;'; });
+  });
+  document.addEventListener('click', function(e){
+    if(nav.classList.contains('open') && !nav.contains(e.target) && e.target !== btn && !btn.contains(e.target)){
+      nav.classList.remove('open');
+      if(btn) btn.innerHTML='&#9776;';
+    }
+  });
+})();
+</script>
+</body>
+</html>
