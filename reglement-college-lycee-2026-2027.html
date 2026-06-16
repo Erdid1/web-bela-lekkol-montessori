@@ -187,6 +187,43 @@
       .doc { box-shadow: none; border-radius: 0; margin: 0; max-width: 100%; }
       @page { size: A4; margin: 1.2cm 1.5cm 1cm; }
       h2 { break-after: avoid; }
+
+      /* Forcer tout le texte en noir lisible */
+      * { color: #000 !important; }
+
+      /* Conserver les fonds sombres des en-têtes avec texte blanc */
+      .doc-header,
+      .card-head,
+      .fee-table .thead-fr th,
+      .fee-table .thead-gn th { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .doc-header *,
+      .card-head,
+      .fee-table th { color: #fff !important; }
+
+      /* En-tête du document */
+      .doc-meta { border-bottom: 1.5px solid #000; background: none; }
+
+      /* Lignes pointillées → trait continu lisible */
+      .row { border-bottom: 1px solid #ccc; }
+
+      /* Pied de page */
+      .doc-footer { background: #f0f0f0; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .doc-footer * { color: #000 !important; }
+
+      /* Bordures tableau */
+      .fee-table td { border-bottom: 1px solid #aaa; }
+
+      /* Boîtes colorées → fond blanc + bordure */
+      .note-delf, .pay-warn {
+        background: none; border: 1.5px solid #555;
+        -webkit-print-color-adjust: exact; print-color-adjust: exact;
+      }
+
+      /* Badges niveaux et examens */
+      .exam-badge, .prog-label { border: 1px solid #555; background: none; }
+
+      /* Cartes niveaux */
+      .niveau-card { border: 1px solid #888; }
     }
   </style>
 </head>
