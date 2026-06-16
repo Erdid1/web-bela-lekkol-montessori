@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Règlement Financier — Collège & Lycée 2026-2027 · Bela Lekkol Montessori</title>
-  <meta name="description" content="Règlement financier Collège & Lycée 2026-2027 de Bela Lekkol Montessori. Grille des écolages, modalités de paiement, documents requis.">
+  <meta name="description" content="Règlement financier Collège & Lycée 2026-2027 de Bela Lekkol Montessori. Programme INRAP guinéen — grille des écolages, modalités de paiement, documents requis.">
   <link rel="icon" href="./public/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
@@ -12,7 +12,6 @@
       --primary: #0B1F4B;
       --gold:    #C8A951;
       --green:   #2E7D32;
-      --indigo:  #3730A3;
       --light:   #F9F7F2;
       --border:  #e0d9c8;
       --text:    #1a1a2e;
@@ -53,7 +52,7 @@
       background: var(--gold); color: var(--primary);
       padding: .45rem .9rem; border-radius: 6px;
       font-weight: 800; font-size: .75rem; text-align: center;
-      white-space: nowrap; align-self: flex-start; line-height: 1.4;
+      white-space: nowrap; align-self: flex-start; line-height: 1.5;
     }
     .doc-meta {
       background: rgba(200,169,81,.1); border-bottom: 2px solid var(--gold);
@@ -73,41 +72,53 @@
     }
     h2:first-child { margin-top: 0; }
 
-    /* ── PROGRAMME BADGE ── */
-    .prog-tabs { display: flex; gap: .5rem; margin-bottom: .9rem; flex-wrap: wrap; }
-    .prog-tab {
-      padding: .35rem .85rem; border-radius: 20px; font-size: .76rem; font-weight: 700;
-      border: 2px solid transparent;
+    /* ── BADGE PROGRAMME ── */
+    .prog-label {
+      display: inline-flex; align-items: center; gap: .4rem;
+      font-size: .74rem; font-weight: 700; padding: .25rem .7rem;
+      border-radius: 20px; margin-bottom: .7rem;
+      background: rgba(11,31,75,.08); color: var(--primary);
+      border: 1px solid rgba(11,31,75,.18);
     }
-    .prog-tab.fr { background: rgba(11,31,75,.1); color: var(--primary); border-color: var(--primary); }
-    .prog-tab.gn { background: rgba(200,169,81,.15); color: #92400e; border-color: var(--gold); }
 
-    /* ── TABLEAUX ── */
-    .fee-table { width: 100%; border-collapse: collapse; font-size: .83rem; margin-bottom: .5rem; }
+    /* ── TABLEAU ── */
+    .fee-table { width: 100%; border-collapse: collapse; font-size: .83rem; }
     .fee-table th {
-      padding: .48rem .65rem; font-size: .72rem; font-weight: 600;
+      background: var(--primary); color: #fff;
+      padding: .5rem .65rem; font-size: .72rem; font-weight: 600;
     }
     .fee-table th:first-child { text-align: left; }
     .fee-table th:not(:first-child) { text-align: right; }
-    .fee-table td { padding: .46rem .65rem; border-bottom: 1px solid var(--border); }
+    .fee-table td { padding: .48rem .65rem; border-bottom: 1px solid var(--border); vertical-align: middle; }
     .fee-table td:not(:first-child) { text-align: right; font-weight: 600; }
     .fee-table tr:nth-child(even) td { background: rgba(200,169,81,.04); }
-    .total { color: var(--primary); font-weight: 800; font-size: .9rem; }
-    .cycle { display: inline-block; font-size: .66rem; background: rgba(46,125,50,.1); color: var(--green); border-radius: 4px; padding: .07rem .3rem; margin-left: .25rem; }
-    .sub { font-size: .73rem; color: var(--muted); display: block; }
-
-    /* Programme français header */
-    .thead-fr th { background: var(--primary); color: #fff; }
-    /* Programme guinéen header */
-    .thead-gn th { background: #92400e; color: #fff; }
-
-    .prog-label {
-      display: inline-flex; align-items: center; gap: .35rem;
-      font-size: .72rem; font-weight: 700; padding: .2rem .55rem;
-      border-radius: 4px; margin-bottom: .5rem;
+    .fee-table .total { color: var(--primary); font-weight: 800; font-size: .9rem; }
+    .sub { font-size: .72rem; color: var(--muted); display: block; margin-top: .1rem; }
+    .exam-badge {
+      display: inline-block; font-size: .65rem; background: rgba(200,169,81,.2);
+      color: #92400e; border-radius: 4px; padding: .07rem .3rem;
+      margin-left: .25rem; font-weight: 700; vertical-align: middle;
     }
-    .prog-label.fr { background: rgba(11,31,75,.08); color: var(--primary); }
-    .prog-label.gn { background: rgba(146,64,14,.08); color: #92400e; }
+    .exam-badge.bepc { background: rgba(46,125,50,.15); color: var(--green); }
+    .exam-badge.bac  { background: rgba(11,31,75,.12); color: var(--primary); }
+
+    .note-delf {
+      background: rgba(200,169,81,.08); border-left: 3px solid var(--gold);
+      padding: .45rem .85rem; border-radius: 0 6px 6px 0;
+      font-size: .79rem; color: #92400e; margin-top: .55rem;
+    }
+
+    /* ── CORRESPONDANCE NIVEAUX ── */
+    .niveaux-grid { display: flex; gap: .55rem; flex-wrap: wrap; margin-bottom: .6rem; }
+    .niveau-card {
+      flex: 1 1 140px; border: 1px solid var(--border); border-radius: 8px;
+      padding: .6rem .7rem; text-align: center;
+    }
+    .niveau-card .cl { font-size: .95rem; font-weight: 800; color: var(--primary); }
+    .niveau-card .desc { font-size: .71rem; color: var(--muted); margin-top: .12rem; }
+    .niveau-card .exam { font-size: .68rem; background: rgba(200,169,81,.18); color: #92400e;
+                         font-weight: 700; padding: .08rem .3rem; border-radius: 4px;
+                         display: inline-block; margin-top: .2rem; }
 
     /* ── DEUX COLONNES ── */
     .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
@@ -210,84 +221,91 @@
 
   <div class="body">
 
-    <!-- GRILLE ÉCOLAGES — PROGRAMME FRANÇAIS -->
-    <h2><i class="fas fa-table" style="color:var(--gold);margin-right:.5rem;"></i>Grille des écolages</h2>
+    <!-- GRILLE ÉCOLAGES -->
+    <h2><i class="fas fa-table" style="color:var(--gold);margin-right:.5rem;"></i>Grille des frais de scolarité 2026-2027</h2>
 
-    <div class="prog-label fr"><i class="fas fa-flag"></i>Programme École française — 4 versements</div>
+    <div class="prog-label"><i class="fas fa-star"></i>Programme officiel guinéen — INRAP · 3 versements</div>
+
     <table class="fee-table">
-      <thead class="thead-fr">
+      <thead>
         <tr>
           <th>Niveau</th>
-          <th>1<sup>er</sup> versement<br><small>(Inscription)</small></th>
-          <th>2<sup>e</sup> versement<br><small>(Décembre)</small></th>
-          <th>3<sup>e</sup> versement<br><small>(Février)</small></th>
-          <th>4<sup>e</sup> versement<br><small>(Avril)</small></th>
           <th>Montant annuel</th>
+          <th>Tranche 1<br><small>(À l'inscription)</small></th>
+          <th>Tranche 2<br><small>(Décembre)</small></th>
+          <th>Tranche 3<br><small>(Mars)</small></th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <td>
-            <strong>🎓 Collège</strong>
-            <span class="cycle">Cycle 4</span>
-            <span class="sub">6<sup>e</sup> · 5<sup>e</sup> · 4<sup>e</sup> · 3<sup>e</sup></span>
+            <strong>🎓 Collège — Programme INRAP</strong>
+            <span class="sub">7<sup>e</sup> · 8<sup>e</sup> · 9<sup>e</sup> — Cycle d'orientation guinéen</span>
           </td>
-          <td>3 800 000</td>
-          <td>3 000 000</td>
-          <td>2 700 000</td>
+          <td class="total">5 450 000 gnf</td>
           <td>2 500 000</td>
-          <td class="total">12 000 000 gnf</td>
+          <td>1 500 000</td>
+          <td>1 450 000</td>
         </tr>
         <tr>
           <td>
-            <strong>🏫 Lycée</strong>
-            <span class="cycle">Cycle terminal</span>
-            <span class="sub">10<sup>e</sup> · 11<sup>e</sup> · Terminale</span>
+            <strong>🏅 10<sup>e</sup> année — Brevet</strong>
+            <span class="exam-badge bepc">BEPC</span>
+            <span class="sub">Classe d'examen — Brevet guinéen</span>
           </td>
-          <td>3 800 000</td>
-          <td>3 000 000</td>
-          <td>2 700 000</td>
-          <td>2 500 000</td>
-          <td class="total">12 000 000 gnf</td>
+          <td class="total">5 950 000 gnf</td>
+          <td>2 750 000</td>
+          <td>1 750 000</td>
+          <td>1 450 000</td>
+        </tr>
+        <tr>
+          <td>
+            <strong>🏫 Lycée — Programme INRAP</strong>
+            <span class="sub">11<sup>e</sup> · 12<sup>e</sup> — Cycle du second degré guinéen</span>
+          </td>
+          <td class="total">5 950 000 gnf</td>
+          <td>2 750 000</td>
+          <td>1 750 000</td>
+          <td>1 450 000</td>
+        </tr>
+        <tr>
+          <td>
+            <strong>🎖 Terminale — Baccalauréat</strong>
+            <span class="exam-badge bac">BAC</span>
+            <span class="sub">Préparation au Bac guinéen</span>
+          </td>
+          <td class="total">6 250 000 gnf</td>
+          <td>2 750 000</td>
+          <td>1 750 000</td>
+          <td>1 750 000</td>
         </tr>
       </tbody>
     </table>
+    <div class="note-delf">
+      <i class="fas fa-info-circle" style="margin-right:.4rem;"></i>Examens DELF préparés en interne en partenariat avec l'Institut Français de Guinée.
+    </div>
 
-    <div style="margin-top:1rem;">
-      <div class="prog-label gn"><i class="fas fa-star"></i>Programme guinéen — 3 versements</div>
-      <table class="fee-table">
-        <thead class="thead-gn">
-          <tr>
-            <th>Niveau</th>
-            <th>1<sup>er</sup> versement<br><small>(Inscription)</small></th>
-            <th>2<sup>e</sup> versement</th>
-            <th>3<sup>e</sup> versement</th>
-            <th>Montant annuel</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>
-              <strong>🎓 Collège</strong>
-              <span class="sub">7<sup>e</sup> · 8<sup>e</sup> · 9<sup>e</sup></span>
-            </td>
-            <td>3 800 000</td>
-            <td>3 000 000</td>
-            <td>2 700 000</td>
-            <td class="total">9 500 000 gnf</td>
-          </tr>
-          <tr>
-            <td>
-              <strong>🏫 Lycée</strong>
-              <span class="sub">10<sup>e</sup> · 11<sup>e</sup> · Terminale</span>
-            </td>
-            <td>3 800 000</td>
-            <td>3 000 000</td>
-            <td>2 700 000</td>
-            <td class="total">9 500 000 gnf</td>
-          </tr>
-        </tbody>
-      </table>
+    <!-- CORRESPONDANCE NIVEAUX -->
+    <h2><i class="fas fa-exchange-alt" style="color:var(--gold);margin-right:.5rem;"></i>Correspondance des niveaux</h2>
+    <div class="niveaux-grid">
+      <div class="niveau-card">
+        <div class="cl">7<sup>e</sup> · 8<sup>e</sup> · 9<sup>e</sup></div>
+        <div class="desc">Collège INRAP</div>
+      </div>
+      <div class="niveau-card">
+        <div class="cl">10<sup>e</sup></div>
+        <div class="desc">Brevet</div>
+        <div class="exam">BEPC guinéen</div>
+      </div>
+      <div class="niveau-card">
+        <div class="cl">11<sup>e</sup> · 12<sup>e</sup></div>
+        <div class="desc">Lycée INRAP</div>
+      </div>
+      <div class="niveau-card">
+        <div class="cl">Terminale</div>
+        <div class="desc">Baccalauréat</div>
+        <div class="exam">BAC guinéen</div>
+      </div>
     </div>
 
     <!-- FRAIS ANNEXES & RÉDUCTIONS -->
@@ -299,8 +317,8 @@
           <div class="row"><span class="lbl">Frais d'inscription</span><span class="val">150 000 gnf *</span></div>
           <div class="row"><span class="lbl">Photos scolaires (carte réalisée par l'école)</span><span class="val">15 000 gnf</span></div>
           <div class="row"><span class="lbl">Frais de dossier</span><span class="val free">Gratuit</span></div>
-          <div class="row"><span class="lbl">Test d'admission</span><span class="val free">Gratuit</span></div>
-          <div class="row"><span class="lbl">Soutien scolaire · APC</span><span class="val free">Gratuit</span></div>
+          <div class="row"><span class="lbl">Test d'admission / niveau</span><span class="val free">Gratuit</span></div>
+          <div class="row"><span class="lbl">Soutien scolaire · Aide aux devoirs</span><span class="val free">Gratuit</span></div>
         </div>
       </div>
       <div class="card">
@@ -309,7 +327,7 @@
           <div class="row"><span class="lbl">3<sup>e</sup> enfant inscrit</span><span class="val minus">−5 %</span></div>
           <div class="row"><span class="lbl">4<sup>e</sup> enfant inscrit</span><span class="val minus">−10 %</span></div>
           <div class="row"><span class="lbl">5<sup>e</sup> enfant et plus</span><span class="val minus">−15 %</span></div>
-          <div class="row"><span class="lbl">Paiement annuel (1 versement)</span><span class="val minus" style="color:var(--green);">−1 000 000 gnf</span></div>
+          <div class="row"><span class="lbl">Paiement annuel (1 versement)</span><span class="val minus" style="color:var(--green);">−300 000 gnf</span></div>
           <div class="row"><span class="lbl">Parrainage d'un élève</span><span class="val free">Inscription offerte</span></div>
         </div>
       </div>
@@ -317,10 +335,11 @@
     <p style="font-size:.73rem;color:var(--muted);margin-top:.45rem;">* Les frais d'inscription sont offerts au parent qui parraine un nouvel élève à l'école.</p>
 
     <!-- MODALITÉS DE PAIEMENT -->
-    <h2><i class="fas fa-university" style="color:var(--gold);margin-right:.5rem;"></i>Modalités de paiement — Collège & Lycée</h2>
+    <h2><i class="fas fa-university" style="color:var(--gold);margin-right:.5rem;"></i>Modalités de paiement</h2>
     <ul class="pay-list">
       <li><i class="fas fa-check-circle" style="color:var(--green);"></i><span>Paiements acceptés : <strong>chèque</strong>, <strong>virement bancaire</strong> ou <strong>Orange Money</strong></span></li>
       <li><i class="fas fa-building-columns" style="color:var(--gold);"></i><span><strong>Collège & Lycée :</strong> Banque Islamique de Guinée</span></li>
+      <li><i class="fas fa-building-columns" style="color:var(--gold);"></i><span><strong>École française :</strong> Banque Populaire Maroco Guinéenne — Compte <strong>25404778701</strong> — Agence Plaza</span></li>
       <li><i class="fas fa-mobile-alt" style="color:#F97316;"></i><span><strong>Orange Money :</strong> Numéro <strong>626 31 31 80</strong> — Intitulé : Bela Lekkol Montessori</span></li>
     </ul>
     <div class="pay-warn">
@@ -332,22 +351,22 @@
     <h2><i class="fas fa-folder-open" style="color:var(--gold);margin-right:.5rem;"></i>Documents requis à l'inscription</h2>
     <div class="docs-grid">
       <div class="doc-item"><i class="fas fa-image"></i>2 photos d'identité</div>
-      <div class="doc-item"><i class="fas fa-id-card"></i>Carte scolaire (réalisée par l'école)</div>
       <div class="doc-item"><i class="fas fa-book"></i>Livret scolaire précédent</div>
       <div class="doc-item"><i class="fas fa-file-alt"></i>Extrait de naissance</div>
       <div class="doc-item"><i class="fas fa-clipboard-list"></i>Dossier d'inscription rempli</div>
+      <div class="doc-item"><i class="fas fa-chart-bar"></i>Relevé de notes année N−1</div>
     </div>
-    <p style="font-size:.73rem;color:var(--muted);margin-top:.5rem;">Fiches de renseignements disponibles au secrétariat.</p>
+    <p style="font-size:.73rem;color:var(--muted);margin-top:.5rem;">Fiches de renseignements et liste de fournitures à retirer au secrétariat.</p>
 
     <!-- INFOS PÉDAGO -->
-    <h2><i class="fas fa-graduation-cap" style="color:var(--gold);margin-right:.5rem;"></i>Informations pédagogiques — Collège & Lycée</h2>
+    <h2><i class="fas fa-graduation-cap" style="color:var(--gold);margin-right:.5rem;"></i>Informations & engagements pédagogiques</h2>
     <ul class="peda">
-      <li><i class="fas fa-check"></i>Programme français officiel (Éducation Nationale) avec ancrage dans le contexte guinéen.</li>
-      <li><i class="fas fa-check"></i>Espagnol au Collège — CECRL · Préparation au DELF — Institut Français de Guinée.</li>
-      <li><i class="fas fa-check"></i>Évaluations trimestrielles (dont certaines internationales) communiquées via EDUMOOV.</li>
-      <li><i class="fas fa-check"></i>Intelligence Artificielle intégrée pour améliorer les apprentissages.</li>
-      <li><i class="fas fa-check"></i>Coopérations avec des établissements européens et africains · Tournoi interscolaire · Francophonie.</li>
-      <li><i class="fas fa-check"></i>Coordinateur pédagogique : <strong>Eric Didier</strong> — CFP Maria Montessori, Conakry.</li>
+      <li><i class="fas fa-check"></i><span><strong>Programme officiel :</strong> Le programme officiel guinéen (INRAP) est enseigné intégralement et enrichi par des ressources pédagogiques produites grâce à l'IA, adaptées au contexte guinéen.</span></li>
+      <li><i class="fas fa-check"></i><span><strong>Gestion numérique (AdmiSco) :</strong> Les évaluations et la gestion des frais de scolarité sont gérées par le logiciel AdmiSco, distribué en Guinée par le CFP Maria Montessori. Suivi disponible sur EDUMOOV.</span></li>
+      <li><i class="fas fa-check"></i><span><strong>Langues :</strong> Français · Anglais · Espagnol. Examens DELF en partenariat avec l'Institut Français de Guinée.</span></li>
+      <li><i class="fas fa-check"></i><span><strong>Examens nationaux préparés :</strong> BEPC (Brevet guinéen) · Baccalauréat guinéen (toutes séries).</span></li>
+      <li><i class="fas fa-check"></i><span><strong>IA & Innovation :</strong> Cours et fiches adaptés au contexte guinéen, parcours personnalisés et formation continue des enseignants.</span></li>
+      <li><i class="fas fa-check"></i><span><strong>Coordinateur pédagogique :</strong> Eric Didier — CFP Maria Montessori, Conakry. Rénovation en cours pour offrir les meilleures conditions d'enseignement.</span></li>
     </ul>
 
     <div class="events">
