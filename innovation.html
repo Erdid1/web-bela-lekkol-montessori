@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Innovation & IA Éducative — N°1 à Conakry · Bela Lekkol Montessori</title>
+    <meta name="description" content="Bela Lekkol Montessori est le premier établissement de Guinée à intégrer l'IA dans son cursus quotidien. Apprentissage adaptatif, parcours personnalisés, formation des enseignants.">
+    <meta property="og:title" content="Innovation & IA Éducative — Bela Lekkol Montessori">
+    <meta property="og:description" content="Premier établissement de Guinée à intégrer l'IA en classe. Apprentissage adaptatif. Conakry.">
+    <meta property="og:image" content="./public/hero_bela_lekkol.jpg">
+    <meta property="og:type" content="website">
+    <link rel="icon" href="/assets/img/favicon-jh76P1WP.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+    /* ══ NAVBAR BELA LEKKOL ══ */
+    header {
+      background: rgba(11,31,75,0.90);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-bottom: 1px solid rgba(200,169,81,0.18);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      transition: background .4s ease, box-shadow .4s ease;
+    }
+    header::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, transparent 0%, rgba(200,169,81,0.1) 20%, #C8A951 50%, rgba(200,169,81,0.1) 80%, transparent 100%);
+      background-size: 200% 100%;
+      animation: shimmer-hdr 4s ease-in-out infinite;
+    }
+    @keyframes shimmer-hdr {
+      0%   { background-position: 200% 0; opacity:.5; }
+      50%  { background-position: 0%   0; opacity:1;  }
+      100% { background-position:-200% 0; opacity:.5; }
+    }
+    header.scrolled {
+      background: rgba(255,255,255,0.96);
+      box-shadow: 0 4px 24px -4px rgba(11,31,75,0.12);
+    }
+    header.scrolled::after {
+      background: linear-gradient(90deg, transparent 0%, rgba(46,125,50,0.1) 20%, #2E7D32 50%, rgba(46,125,50,0.1) 80%, transparent 100%);
+      background-size: 200% 100%;
+    }
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+      gap: 1rem;
+    }
+    .logo-block { display: flex; align-items: center; gap: .7rem; flex-shrink: 0; text-decoration: none; }
+    .logo-circle {
+      width: 40px; height: 40px;
+      background: linear-gradient(135deg,#1B5E20,#2E7D32);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      color: #fff;
+      font-weight: 800;
+      font-size: .95rem;
+      letter-spacing: -.5px;
+      box-shadow: 0 0 14px rgba(46,125,50,0.35);
+      flex-shrink: 0;
+    }
+    .logo-text { line-height: 1.2; }
+    .logo-text strong { display: block; font-size: .93rem; color: rgba(255,255,255,0.92); font-weight: 700; }
+    .logo-text span { font-size: .70rem; color: rgba(255,255,255,0.52); }
+    header.scrolled .logo-text strong { color: var(--green-dark); }
+    header.scrolled .logo-text span   { color: var(--text-light); }
+
+    /* Nav avec pill indicator */
+    nav { display: flex; align-items: center; gap: 2px; flex-wrap: nowrap; position: relative; padding: 3px; }
+    nav a {
+      padding: .42rem .7rem;
+      border-radius: 9999px;
+      font-size: .80rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.72);
+      white-space: nowrap;
+      position: relative; z-index: 1;
+      transition: color .2s ease;
+      text-decoration: none;
+    }
+    nav a:hover { color: #C8A951; }
+    nav a.active { color: #C8A951; text-shadow: 0 0 16px rgba(200,169,81,0.5); }
+    header.scrolled nav a { color: var(--text-light); }
+    header.scrolled nav a:hover { color: var(--green-dark); }
+    header.scrolled nav a.active { color: var(--green-dark); font-weight: 700; text-shadow: none; }
+
+    /* Pill tubelight */
+    .nav-pill {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      height: calc(100% - 6px); border-radius: 9999px;
+      background: rgba(200,169,81,0.12);
+      border: 1px solid rgba(200,169,81,0.28);
+      box-shadow: 0 0 12px rgba(200,169,81,0.22), inset 0 1px 0 rgba(255,255,255,0.06);
+      transition: left .32s cubic-bezier(.4,0,.2,1), width .32s cubic-bezier(.4,0,.2,1), opacity .2s;
+      pointer-events: none; z-index: 0;
+    }
+    .nav-pill::before {
+      content: ''; position: absolute; top: -3px; left: 10%; width: 80%; height: 2px;
+      border-radius: 9999px;
+      background: linear-gradient(90deg, transparent, #C8A951, transparent);
+      opacity: .65; filter: blur(1px);
+    }
+    header.scrolled .nav-pill {
+      background: rgba(46,125,50,0.07); border-color: rgba(46,125,50,0.18);
+      box-shadow: 0 0 10px rgba(46,125,50,0.08);
+    }
+    header.scrolled .nav-pill::before {
+      background: linear-gradient(90deg, transparent, var(--green-dark), transparent); opacity: .4;
+    }
+
+    .btn-inscrire {
+      background: var(--green);
+      color: #fff !important;
+      padding: .45rem 1rem !important;
+      border-radius: 8px !important;
+      font-size: .80rem !important;
+      font-weight: 600 !important;
+      margin-left: .4rem;
+      flex-shrink: 0;
+      transition: background .2s;
+      text-decoration: none;
+    }
+    .btn-inscrire:hover { background: var(--green-dark) !important; }
+    .hamburger {
+      display: none; font-size: 1.3rem; cursor: pointer;
+      background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 7px; color: #fff; padding: .4rem .5rem;
+      transition: background .2s;
+    }
+    .hamburger:hover { background: rgba(255,255,255,0.18); }
+    header.scrolled .hamburger { color: var(--green-dark); background: rgba(46,125,50,0.07); border-color: rgba(46,125,50,0.18); }
+
+    /* ===== BREADCRUMB ===== */
+    .breadcrumb {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: .5rem 0;
+    }
+@media (max-width: 768px) {
+      .main-wrap { grid-template-columns: 1fr; }
+      .nav-pill { display: none !important; }
+      nav {
+        display: none !important;
+        flex-direction: row !important; flex-wrap: wrap !important; align-items: flex-start !important;
+        position: fixed !important;
+        top: 64px !important; left: 0 !important; right: 0 !important;
+        background: linear-gradient(160deg,#061535,#0B2060) !important;
+        padding: .5rem .6rem !important;
+        z-index: 9999 !important;
+        gap: 3px !important;
+        max-height: calc(100vh - 64px) !important;
+        overflow-y: auto !important;
+      }
+      nav.open { display: flex !important; }
+      nav a {
+        color: rgba(255,255,255,0.85) !important;
+        text-shadow: none !important;
+        white-space: normal !important;
+        padding: .5rem .4rem !important;
+        border-radius: 8px !important;
+        font-size: .82rem !important;
+        font-weight: 500 !important;
+        background: rgba(255,255,255,0.07) !important;
+        border: 1px solid rgba(255,255,255,0.10) !important;
+        width: calc(50% - 2px) !important;
+        text-align: center !important;
+        box-sizing: border-box !important;
+        position: static !important;
+        text-decoration: none !important;
+        display: block !important;
+      }
+      nav a:hover, nav a.active {
+        color: #C8A951 !important;
+        background: rgba(200,169,81,0.12) !important;
+        border-color: rgba(200,169,81,0.30) !important;
+      }
+      nav .btn-inscrire { width: 100% !important; margin: 3px 0 0 !important; text-align: center !important; }
+      .hamburger { display: block !important; }
+      .hero h1 { font-size: 1.5rem; }
+    }
+  
+</style>
+  <script type="module" crossorigin src="/assets/main-Cts1h-fo.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/main-C7KpuhV7.css">
+</head>
+<body>
+
+    <!-- Top Bar style GSJC -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-left">
+                <a href="tel:+224626313180"><i class="fas fa-phone"></i> +224 626 31 31 80</a>
+                <div class="top-bar-divider"></div>
+                <a href="mailto:belalekkol.montessori@gmail.com"><i class="fas fa-envelope"></i> belalekkol.montessori@gmail.com</a>
+            </div>
+            <div class="top-bar-right">
+                <a href="https://wa.me/224626313180" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                <a href="https://www.facebook.com/profile.php?id=61562529852559" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a>
+                <a href="./admissions.html" style="background:var(--gold);color:var(--primary);padding:0.25rem 0.9rem;border-radius:20px;font-weight:700;font-size:0.73rem;">Inscriptions 2026-27 →</a>
+            </div>
+        </div>
+    </div>
+
+    <header>
+  <div class="nav-inner">
+    <a href="index.html" class="logo-block">
+      <img src="/logo_officiel.jpg" alt="Bela Lekkol Montessori" style="height:48px;width:auto;border-radius:8px;object-fit:contain;flex-shrink:0;">
+    </a>
+    <button class="hamburger" onclick="this.nextElementSibling.classList.toggle('open')" aria-label="Menu">☰</button>
+    <nav>
+      <a href="about.html">À Propos</a>
+      <a href="programs.html">Programmes</a>
+      <a href="cfp.html">CFP</a>
+      <a href="innovation.html" class="active">Innovation</a>
+      <a href="life.html">Vie scolaire</a>
+      <a href="actualites.html">Actualités</a>
+      <a href="contact.html">Contact</a>
+      <a href="admissions.html#tarifs">Tarifs</a>
+      <a href="admissions.html" class="btn-inscrire">S'inscrire →</a>
+    </nav>
+  </div>
+</header>
+
+    <main>
+        <!-- Page Header -->
+        <section style="background:linear-gradient(135deg,var(--primary) 0%,#111827 100%);color:white;padding:6rem 0 4rem;">
+            <div class="container text-center">
+                <span style="display:inline-block;background:rgba(200,169,81,0.15);border:1px solid rgba(200,169,81,0.4);border-radius:30px;padding:0.4rem 1.2rem;font-size:0.73rem;font-weight:700;letter-spacing:0.12em;color:var(--gold);text-transform:uppercase;margin-bottom:1.5rem;"><i class="fas fa-microchip"></i> Pionniers en Guinée depuis 2024</span>
+                <h1 style="font-family:var(--font-serif);font-size:clamp(2rem,4vw,3.2rem);color:white;margin-bottom:1.2rem;">Innovation & <span style="color:var(--gold);">IA Éducative</span></h1>
+                <p style="opacity:0.85;max-width:640px;margin:0 auto;font-size:1.05rem;line-height:1.75;">En combinant la sagesse de Montessori avec la technologie de pointe, Bela Lekkol prépare chaque enfant à un monde en constante évolution — sans jamais sacrifier l'humain.</p>
+            </div>
+        </section>
+
+        <!-- Bandeau stat -->
+        <section style="background:var(--gold);padding:1.25rem 0;">
+            <div class="container" style="display:flex;justify-content:center;align-items:center;gap:3rem;flex-wrap:wrap;text-align:center;">
+                <div><div style="font-family:var(--font-serif);font-size:2rem;font-weight:700;color:var(--primary);">N°1</div><div style="font-size:0.72rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--primary);">IA éducative à Conakry</div></div>
+                <div style="width:1px;height:40px;background:rgba(11,31,75,0.2);"></div>
+                <div><div style="font-family:var(--font-serif);font-size:2rem;font-weight:700;color:var(--primary);">3</div><div style="font-size:0.72rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--primary);">Piliers technologiques</div></div>
+                <div style="width:1px;height:40px;background:rgba(11,31,75,0.2);"></div>
+                <div><div style="font-family:var(--font-serif);font-size:2rem;font-weight:700;color:var(--primary);">100%</div><div style="font-size:0.72rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--primary);">Intégration cursus quotidien</div></div>
+            </div>
+        </section>
+
+        <!-- Photo 1 — Élèves sur laptops (pleine largeur) -->
+        <div style="overflow:hidden;max-height:460px;">
+            <img src="/ia_event.jpg" alt="Élèves Bela Lekkol — Numérique & Littérature Jeunesse" style="width:100%;height:460px;object-fit:cover;object-position:center 55%;display:block;" loading="lazy">
+        </div>
+
+        <!-- Section principale -->
+        <section class="section-padding" style="background:var(--background);">
+            <div class="container grid grid-2" style="align-items:center;gap:4rem;">
+                <div data-aos>
+                    <span style="font-size:0.72rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:0.6rem;">Notre Positionnement</span>
+                    <h2 class="font-heading" style="font-size:2.2rem;margin-bottom:1.25rem;">L'Intelligence Artificielle <span style="color:var(--primary);">au Service de l'Apprenant</span></h2>
+                    <p style="margin-bottom:1rem;line-height:1.8;">Nous ne voyons pas l'IA comme un simple gadget, mais comme un <strong>puissant levier de personnalisation</strong>. Elle permet d'adapter les exercices au niveau exact de chaque élève, de surmonter les blocages individuels et de stimuler la créativité.</p>
+                    <p style="margin-bottom:2rem;line-height:1.8;">Bela Lekkol Montessori est le <strong>premier établissement de Guinée</strong> à intégrer l'intelligence artificielle dans son cursus quotidien — tout en maintenant l'enseignant au cœur de la relation pédagogique.</p>
+                    <div style="display:flex;gap:0.75rem;flex-wrap:wrap;">
+                        <a href="./cfp.html" class="btn btn-primary">Formation enseignants IA</a>
+                        <a href="./admissions.html" class="btn btn-outline">Inscrire mon enfant</a>
+                    </div>
+                </div>
+                <!-- Photo 2 — Afrique & IA -->
+                <div data-aos style="border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-lg);">
+                    <img src="/ia_afrique.jpg" alt="L'IA en Afrique — Bela Lekkol Montessori" style="width:100%;height:auto;display:block;">
+                </div>
+            </div>
+        </section>
+
+        <!-- 6 Usages IA -->
+        <section class="section-padding" style="background:white;">
+            <div class="container">
+                <div class="text-center section-header-premium" style="margin-bottom:3rem;">
+                    <span class="section-label">Comment nous utilisons l'IA</span>
+                    <h2>L'IA au <em>Quotidien</em> en Classe</h2>
+                    <div class="gold-bar" style="margin:0.8rem auto 0;"></div>
+                </div>
+
+                <!-- Photo 3 + Photo 4 côte à côte -->
+                <div class="grid grid-2" style="gap:1.5rem;margin-bottom:3rem;align-items:start;">
+                    <div style="border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);">
+                        <img src="/ia_enseignement.jpg" alt="L'IA et l'enseignement — Bela Lekkol Montessori" style="width:100%;height:auto;display:block;" loading="lazy">
+                    </div>
+                    <div style="border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);">
+                        <img src="/ia_usages.png" alt="Les 6 usages pédagogiques de l'IA" style="width:100%;height:auto;display:block;" loading="lazy">
+                    </div>
+                </div>
+
+                <div class="grid grid-3" style="gap:1.75rem;">
+                    <div class="icon-box" data-aos>
+                        <div class="icon-wrap"><i class="fas fa-laptop-code"></i></div>
+                        <h4>Aide à l'Apprentissage</h4>
+                        <p>Tuteurs intelligents qui accompagnent l'élève pendant l'exercice pour lui donner des indices constructifs, sans donner la réponse directe.</p>
+                    </div>
+                    <div class="icon-box" data-aos>
+                        <div class="icon-wrap"><i class="fas fa-route"></i></div>
+                        <h4>Parcours Personnalisés</h4>
+                        <p>L'IA analyse les forces et lacunes de l'élève pour proposer un chemin d'apprentissage unique respectant sa vitesse.</p>
+                    </div>
+                    <div class="icon-box" data-aos>
+                        <div class="icon-wrap"><i class="fas fa-chalkboard-user"></i></div>
+                        <h4>Outils pour Enseignants</h4>
+                        <p>Génération automatique de supports variés — fiches de lecture, exercices différenciés — pour que le prof se concentre sur l'humain.</p>
+                    </div>
+                    <div class="icon-box" data-aos>
+                        <div class="icon-wrap"><i class="fas fa-book-open-reader"></i></div>
+                        <h4>Manuels Adaptés à la Guinée</h4>
+                        <p>Textes de lecture contextualisés à la réalité africaine — contes guinéens, exemples locaux — pour que chaque enfant s'identifie dans ses supports.</p>
+                    </div>
+                    <div class="icon-box" data-aos>
+                        <div class="icon-wrap"><i class="fas fa-chart-line"></i></div>
+                        <h4>Suivi & Rapports Parents</h4>
+                        <p>L'IA génère des synthèses de progression par élève, facilitant le dialogue entre l'école et les familles via ADMISCO et EDUMOOV.</p>
+                    </div>
+                    <div class="icon-box" data-aos>
+                        <div class="icon-wrap"><i class="fas fa-robot"></i></div>
+                        <h4>Initiation au Codage</h4>
+                        <p>Pensée algorithmique dès le primaire. Au collège : codage Python et IA générative dans la section IA & Sciences.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mot du directeur pédagogique (style GSJC) -->
+        <section class="section-padding" style="background:var(--cream);">
+            <div class="container grid grid-2" style="gap:4rem;align-items:center;">
+                <div style="border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-lg);height:400px;">
+                    <img src="/eric_officiel2.jpg" alt="Éric Didier — Directeur pédagogique Bela Lekkol" style="width:100%;height:100%;object-fit:cover;object-position:top center;" loading="lazy">
+                </div>
+                <div data-aos>
+                    <span style="font-size:0.72rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:0.75rem;">Mot du Directeur Pédagogique</span>
+                    <h2 class="font-heading" style="font-size:1.8rem;margin-bottom:1.5rem;">Éric Didier</h2>
+                    <blockquote style="border-left:4px solid var(--gold);padding-left:1.5rem;font-style:italic;font-size:1.02rem;line-height:1.8;color:var(--text);margin-bottom:1.5rem;">
+                        « L'IA ne remplace pas le maître. Elle lui offre du temps — du temps pour observer, pour écouter, pour accompagner chaque enfant là où il en est vraiment. C'est ça, la pédagogie Montessori à l'ère du numérique. »
+                    </blockquote>
+                    <p style="font-size:0.875rem;color:var(--text-light);line-height:1.7;margin-bottom:1.5rem;">Issu du Ministère de l'Éducation Nationale française, ancien directeur de l'Alliance Française (Brésil, Portugal), Éric Didier forme les enseignants de Conakry à la pédagogie active et à l'usage éthique de l'intelligence artificielle depuis 2017.</p>
+                    <a href="./cfp.html" class="btn btn-primary">Découvrir le CFP Montessori</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Timeline + IA Éthique -->
+        <section class="section-padding" style="background:white;">
+            <div class="container grid grid-2" style="gap:4rem;align-items:start;">
+                <div>
+                    <span style="font-size:0.72rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:0.6rem;">Notre Parcours</span>
+                    <h2 class="font-heading" style="font-size:2rem;margin-bottom:2.5rem;">Une Vision <span style="color:var(--primary);">depuis 2017</span></h2>
+                    <div class="timeline">
+                        <div class="timeline-item"><div class="timeline-year">2017</div><div class="timeline-content"><h4>CFP Maria Montessori</h4><p>Éric Didier débute la formation des enseignants de Conakry à la pédagogie active et aux outils numériques.</p></div></div>
+                        <div class="timeline-item"><div class="timeline-year">2022</div><div class="timeline-content"><h4>Premiers outils IA en classe</h4><p>Supports générés par IA dans les classes de primaire — textes de lecture contextualisés Guinée.</p></div></div>
+                        <div class="timeline-item"><div class="timeline-year">2024</div><div class="timeline-content"><h4>Intégration cursus officiel</h4><p>L'IA entre officiellement dans le programme : maternelle, primaire, collège. Bela Lekkol devient N°1 à Conakry.</p></div></div>
+                        <div class="timeline-item"><div class="timeline-year">2025–2026</div><div class="timeline-content"><h4>Section IA & Sciences au Lycée</h4><p>Codage avancé, robotique, IA générative et pensée critique dans un monde algorithmique.</p></div></div>
+                        <div class="timeline-item"><div class="timeline-year">2030</div><div class="timeline-content"><h4>Vision — Référence Afrique de l'Ouest</h4><p>Devenir le modèle de l'éducation innovante en Afrique de l'Ouest, Montessori + IA pour 1000+ élèves.</p></div></div>
+                    </div>
+                </div>
+                <div data-aos>
+                    <div class="card" style="background:var(--background);border:none;">
+                        <h3 style="margin-bottom:1.5rem;font-family:var(--font-serif);">IA Éthique & Responsable</h3>
+                        <div style="display:flex;flex-direction:column;gap:1.25rem;">
+                            <div style="display:flex;align-items:flex-start;gap:1rem;">
+                                <i class="fas fa-check-circle" style="color:var(--secondary);font-size:1.1rem;flex-shrink:0;margin-top:0.1rem;"></i>
+                                <div><strong style="font-size:0.9rem;">Pas de dépendance à l'IA</strong><p style="font-size:0.82rem;color:var(--text-light);margin-top:0.2rem;line-height:1.6;">Les élèves apprennent à utiliser l'IA comme outil, pas comme béquille. L'effort de réflexion reste primordial.</p></div>
+                            </div>
+                            <div style="display:flex;align-items:flex-start;gap:1rem;">
+                                <i class="fas fa-check-circle" style="color:var(--secondary);font-size:1.1rem;flex-shrink:0;margin-top:0.1rem;"></i>
+                                <div><strong style="font-size:0.9rem;">Données protégées</strong><p style="font-size:0.82rem;color:var(--text-light);margin-top:0.2rem;line-height:1.6;">Aucune donnée personnelle transmise à des tiers. Outils choisis pour leur conformité à la vie privée.</p></div>
+                            </div>
+                            <div style="display:flex;align-items:flex-start;gap:1rem;">
+                                <i class="fas fa-check-circle" style="color:var(--secondary);font-size:1.1rem;flex-shrink:0;margin-top:0.1rem;"></i>
+                                <div><strong style="font-size:0.9rem;">Enseignant augmenté, non remplacé</strong><p style="font-size:0.82rem;color:var(--text-light);margin-top:0.2rem;line-height:1.6;">La technologie libère du temps pour les moments humains essentiels : écoute, encouragement, accompagnement.</p></div>
+                            </div>
+                            <div style="display:flex;align-items:flex-start;gap:1rem;">
+                                <i class="fas fa-check-circle" style="color:var(--secondary);font-size:1.1rem;flex-shrink:0;margin-top:0.1rem;"></i>
+                                <div><strong style="font-size:0.9rem;">Ancrage culturel africain</strong><p style="font-size:0.82rem;color:var(--text-light);margin-top:0.2rem;line-height:1.6;">Les contenus générés sont adaptés au contexte guinéen — pas de copier-coller de supports étrangers décontextualisés.</p></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="cta-section">
+            <div class="container" data-aos>
+                <h2>Votre enfant mérite l'éducation du futur</h2>
+                <p>Rejoignez le premier établissement de Guinée à allier système français, pédagogie Montessori et intelligence artificielle. Inscriptions 2026-2027 ouvertes.</p>
+                <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+                    <a href="./admissions.html" class="btn btn-white">Inscrire mon enfant</a>
+                    <a href="./cfp.html" class="btn btn-outline-white">Formation enseignants</a>
+                    <a href="https://wa.me/224626313180" target="_blank" rel="noopener noreferrer" class="btn btn-outline-white"><i class="fab fa-whatsapp"></i> Nous écrire</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <a href="https://wa.me/224626313180" target="_blank" rel="noopener noreferrer" class="wa-float" title="Contacter par WhatsApp"><i class="fab fa-whatsapp"></i></a>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-logo"><div class="logo-main" style="color:white;margin-bottom:5px;"><span class="t-red">BELA</span> <span class="t-yellow">LEKKOL</span> MONTESSORI</div><div style="font-size:0.65rem;opacity:0.8;letter-spacing:1px;margin-bottom:1rem;">L'ÉCOLE FRANÇAISE AU SERVICE DE LA GUINÉE</div></div>
+                    <p style="opacity:0.7;font-size:0.875rem;margin-bottom:1rem;">Programme français · Pédagogie Montessori · IA Éducative · Conakry.</p>
+                    <div style="display:flex;gap:1rem;font-size:1.25rem;">
+                        <a href="https://www.facebook.com/profile.php?id=61562529852559" target="_blank" rel="noopener noreferrer" style="opacity:0.8;"><i class="fab fa-facebook"></i></a>
+                        <a href="https://wa.me/224626313180" target="_blank" rel="noopener noreferrer" style="opacity:0.8;"><i class="fab fa-whatsapp"></i></a>
+                        <a href="mailto:belalekkol.montessori@gmail.com" style="opacity:0.8;"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links"><h4>L'École</h4><ul><li><a href="./about.html">Notre Histoire</a></li><li><a href="./programs.html">Nos Programmes</a></li><li><a href="./innovation.html">Innovation</a></li><li><a href="./cfp.html">CFP Maria Montessori</a></li></ul></div>
+                <div class="footer-links"><h4>Familles</h4><ul><li><a href="./admissions.html">Inscriptions 2026-27</a></li><li><a href="./life.html">Vie scolaire</a></li><li><a href="./contact.html">Nous contacter</a></li></ul></div>
+                <div><h4>Contact</h4><ul style="opacity:0.85;font-size:0.875rem;line-height:2.2;"><li><i class="fas fa-location-dot" style="margin-right:0.5rem;color:var(--accent);"></i>T2, Kipé, 100m Prima Center, Conakry</li><li><i class="fas fa-phone" style="margin-right:0.5rem;color:var(--accent);"></i>+224 626 31 31 80</li><li><i class="fas fa-envelope" style="margin-right:0.5rem;color:var(--accent);"></i>belalekkol.montessori@gmail.com</li></ul></div>
+            </div>
+            <div class="footer-bottom"><p>&copy; 2026 Bela Lekkol Montessori · CFP Maria Montessori · Conakry, Guinée. Tous droits réservés.</p></div>
+        </div>
+    </footer>
+
+<script>
+  // ── HEADER SCROLL — glassmorphism mode clair ─────────────────
+  const hdr = document.querySelector('header');
+  window.addEventListener('scroll', () => {
+    hdr.classList.toggle('scrolled', window.scrollY > 50);
+  }, { passive: true });
+
+  // ── TUBELIGHT PILL — effet 21st.dev ──────────────────────────
+  function initPill() {
+    const nav = document.querySelector('nav');
+    if (!nav || window.innerWidth <= 768) return;
+
+    let pill = nav.querySelector('.nav-pill');
+    if (!pill) {
+      pill = document.createElement('span');
+      pill.className = 'nav-pill';
+      nav.appendChild(pill);
+    }
+
+    const links = [...nav.querySelectorAll('a')]
+      .filter(a => !a.classList.contains('btn-inscrire'));
+
+    const activeLink = links.find(a => a.classList.contains('active')) || null;
+
+    function moveTo(el) {
+      const navRect = nav.getBoundingClientRect();
+      const elRect  = el.getBoundingClientRect();
+      pill.style.left    = (elRect.left - navRect.left) + 'px';
+      pill.style.width   = elRect.width + 'px';
+      pill.style.opacity = '1';
+    }
+
+    if (activeLink) {
+      pill.style.transition = 'none';
+      moveTo(activeLink);
+      requestAnimationFrame(() => { pill.style.transition = ''; });
+    } else {
+      pill.style.opacity = '0';
+    }
+
+    links.forEach(link => {
+      link.addEventListener('mouseenter', () => moveTo(link));
+      link.addEventListener('mouseleave', () => {
+        if (activeLink) moveTo(activeLink);
+        else pill.style.opacity = '0';
+      });
+    });
+  }
+
+  window.addEventListener('DOMContentLoaded', () => {
+    requestAnimationFrame(initPill);
+    window.addEventListener('resize', initPill, { passive: true });
+  });
+</script>
+<script>
+(function(){
+  var nav = document.querySelector('header nav');
+  var btn = document.querySelector('header .hamburger');
+  if(!nav) return;
+  nav.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){ nav.classList.remove('open'); if(btn) btn.innerHTML='&#9776;'; });
+  });
+  document.addEventListener('click', function(e){
+    if(nav.classList.contains('open') && !nav.contains(e.target) && e.target !== btn && !btn.contains(e.target)){
+      nav.classList.remove('open');
+      if(btn) btn.innerHTML='&#9776;';
+    }
+  });
+})();
+</script>
+</body>
+</html>
+
+
+
+
+

@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Règlement Financier — Collège & Lycée 2026-2027 · Bela Lekkol Montessori</title>
+  <meta name="description" content="Règlement financier Collège & Lycée 2026-2027 de Bela Lekkol Montessori. Programme INRAP guinéen — grille des écolages, modalités de paiement, documents requis.">
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #0B1F4B;
+      --gold:    #C8A951;
+      --green:   #2E7D32;
+      --light:   #F9F7F2;
+      --border:  #e0d9c8;
+      --text:    #1a1a2e;
+      --muted:   #6b6b7d;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', Arial, sans-serif; background: var(--light); color: var(--text); font-size: 14px; line-height: 1.5; }
+
+    /* ── BARRE RETOUR ── */
+    .back-bar {
+      background: var(--primary); color: rgba(255,255,255,.8);
+      padding: .45rem 1.4rem;
+      display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+      font-size: .78rem;
+    }
+    .back-bar a { color: var(--gold); text-decoration: none; font-weight: 600; }
+    .back-bar a:hover { text-decoration: underline; }
+
+    /* ── DOCUMENT ── */
+    .doc {
+      max-width: 870px; margin: 1.4rem auto 3rem;
+      background: #fff; border-radius: 8px;
+      box-shadow: 0 2px 22px rgba(0,0,0,.11); overflow: hidden;
+    }
+
+    /* ── EN-TÊTE ── */
+    .doc-header {
+      background: var(--primary); color: #fff;
+      padding: 1.6rem 2rem 1.3rem;
+      display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+    }
+    .logo-row { display: flex; align-items: center; gap: .9rem; }
+    .logo-row img { height: 62px; width: auto; border-radius: 6px; }
+    .school-name h1 { font-size: 1.25rem; font-weight: 800; line-height: 1.2; }
+    .school-name p { font-size: .76rem; opacity: .7; margin-top: .15rem; }
+    .school-name small { font-size: .66rem; opacity: .5; display: block; margin-top: .1rem; }
+    .badge-rf {
+      background: var(--gold); color: var(--primary);
+      padding: .45rem .9rem; border-radius: 6px;
+      font-weight: 800; font-size: .75rem; text-align: center;
+      white-space: nowrap; align-self: flex-start; line-height: 1.5;
+    }
+    .doc-meta {
+      background: rgba(200,169,81,.1); border-bottom: 2px solid var(--gold);
+      padding: .5rem 2rem;
+      display: flex; flex-wrap: wrap; gap: .4rem 1.8rem; font-size: .76rem; color: var(--muted);
+    }
+    .doc-meta span { display: flex; align-items: center; gap: .3rem; }
+    .doc-meta i { color: var(--gold); width: 13px; }
+
+    /* ── CORPS ── */
+    .body { padding: 1.6rem 2rem; }
+
+    h2 {
+      font-size: .95rem; font-weight: 700; color: var(--primary);
+      border-left: 4px solid var(--gold); padding-left: .65rem;
+      margin: 1.8rem 0 .85rem;
+    }
+    h2:first-child { margin-top: 0; }
+
+    /* ── BADGE PROGRAMME ── */
+    .prog-label {
+      display: inline-flex; align-items: center; gap: .4rem;
+      font-size: .74rem; font-weight: 700; padding: .25rem .7rem;
+      border-radius: 20px; margin-bottom: .7rem;
+      background: rgba(11,31,75,.08); color: var(--primary);
+      border: 1px solid rgba(11,31,75,.18);
+    }
+
+    /* ── TABLEAU ── */
+    .fee-table { width: 100%; border-collapse: collapse; font-size: .83rem; }
+    .fee-table th {
+      background: var(--primary); color: #fff;
+      padding: .5rem .65rem; font-size: .72rem; font-weight: 600;
+    }
+    .fee-table th:first-child { text-align: left; }
+    .fee-table th:not(:first-child) { text-align: right; }
+    .fee-table td { padding: .48rem .65rem; border-bottom: 1px solid var(--border); vertical-align: middle; }
+    .fee-table td:not(:first-child) { text-align: right; font-weight: 600; white-space: nowrap; }
+    .fee-table th:not(:first-child) { white-space: nowrap; }
+    .fee-table tr:nth-child(even) td { background: rgba(200,169,81,.04); }
+    .fee-table .total { color: var(--primary); font-weight: 800; font-size: .85rem; white-space: nowrap; }
+    .sub { font-size: .72rem; color: var(--muted); display: block; margin-top: .1rem; }
+    .exam-badge {
+      display: inline-block; font-size: .65rem; background: rgba(200,169,81,.2);
+      color: #92400e; border-radius: 4px; padding: .07rem .3rem;
+      margin-left: .25rem; font-weight: 700; vertical-align: middle;
+    }
+    .exam-badge.bepc { background: rgba(46,125,50,.15); color: var(--green); }
+    .exam-badge.bac  { background: rgba(11,31,75,.12); color: var(--primary); }
+
+    .note-delf {
+      background: rgba(200,169,81,.08); border-left: 3px solid var(--gold);
+      padding: .45rem .85rem; border-radius: 0 6px 6px 0;
+      font-size: .79rem; color: #92400e; margin-top: .55rem;
+    }
+
+    /* ── CORRESPONDANCE NIVEAUX ── */
+    .niveaux-grid { display: flex; gap: .55rem; flex-wrap: wrap; margin-bottom: .6rem; }
+    .niveau-card {
+      flex: 1 1 140px; border: 1px solid var(--border); border-radius: 8px;
+      padding: .6rem .7rem; text-align: center;
+    }
+    .niveau-card .cl { font-size: .95rem; font-weight: 800; color: var(--primary); }
+    .niveau-card .desc { font-size: .71rem; color: var(--muted); margin-top: .12rem; }
+    .niveau-card .exam { font-size: .68rem; background: rgba(200,169,81,.18); color: #92400e;
+                         font-weight: 700; padding: .08rem .3rem; border-radius: 4px;
+                         display: inline-block; margin-top: .2rem; }
+
+    /* ── DEUX COLONNES ── */
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    @media (max-width: 580px) { .grid-2 { grid-template-columns: 1fr; } }
+
+    .card { border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+    .card-head { background: var(--primary); color: #fff; padding: .38rem .75rem; font-size: .76rem; font-weight: 700; }
+    .card-body { padding: .65rem .75rem; }
+    .row { display: flex; justify-content: space-between; align-items: center;
+           padding: .28rem 0; border-bottom: 1px dashed var(--border); font-size: .8rem; }
+    .row:last-child { border-bottom: none; }
+    .row .lbl { color: var(--muted); }
+    .row .val { font-weight: 700; color: var(--primary); }
+    .row .val.free { color: var(--green); }
+    .row .val.minus { color: #d97706; }
+
+    /* ── PAIEMENT ── */
+    .pay-list { list-style: none; }
+    .pay-list li { padding: .38rem 0; border-bottom: 1px dashed var(--border);
+                   font-size: .81rem; display: flex; align-items: flex-start; gap: .5rem; }
+    .pay-list li:last-child { border-bottom: none; }
+    .pay-list i { width: 16px; flex-shrink: 0; margin-top: .15rem; }
+    .pay-warn {
+      background: rgba(245,158,11,.1); border: 1px solid rgba(245,158,11,.3);
+      border-radius: 6px; padding: .45rem .8rem; font-size: .8rem; font-weight: 700;
+      color: #92400e; display: flex; align-items: center; gap: .5rem; margin-top: .6rem;
+    }
+
+    /* ── DOCUMENTS ── */
+    .docs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: .45rem; }
+    @media (max-width: 460px) { .docs-grid { grid-template-columns: 1fr; } }
+    .doc-item {
+      display: flex; align-items: center; gap: .45rem;
+      background: rgba(200,169,81,.07); border: 1px solid rgba(200,169,81,.22);
+      border-radius: 6px; padding: .45rem .65rem; font-size: .8rem; font-weight: 600;
+    }
+    .doc-item i { color: var(--gold); width: 15px; }
+
+    /* ── INFOS PÉDAGO ── */
+    .peda { list-style: none; }
+    .peda li { padding: .32rem 0; font-size: .81rem; display: flex; gap: .45rem; border-bottom: 1px dashed var(--border); }
+    .peda li:last-child { border-bottom: none; }
+    .peda i { color: var(--green); flex-shrink: 0; width: 14px; margin-top: .15rem; }
+
+    /* ── ÉVÉNEMENTS ── */
+    .events { display: flex; gap: .8rem; flex-wrap: wrap; margin-top: .85rem; }
+    .evt {
+      background: var(--gold); color: var(--primary);
+      border-radius: 6px; padding: .38rem .85rem; font-size: .76rem; font-weight: 700;
+      display: flex; align-items: center; gap: .4rem;
+    }
+    .evt a { color: var(--primary); text-decoration: none; }
+
+    /* ── PIED ── */
+    .doc-footer {
+      background: var(--primary); color: rgba(255,255,255,.65);
+      padding: .7rem 2rem; font-size: .7rem;
+      display: flex; justify-content: space-between; flex-wrap: wrap; gap: .35rem;
+    }
+    .doc-footer strong { color: var(--gold); }
+
+    /* ── PRINT ── */
+    @media print {
+      @page { size: A4; margin: 0.8cm 1cm; }
+
+      .back-bar { display: none; }
+      body { background: #fff; margin: 0; padding: 0; font-size: 11px; }
+
+      .doc {
+        box-shadow: none; border-radius: 0;
+        margin: 0; max-width: 100%; width: 100%;
+        -webkit-print-color-adjust: exact; print-color-adjust: exact;
+      }
+
+      h2 { break-after: avoid; margin: 1rem 0 .6rem; font-size: .85rem; }
+      h2:first-child { margin-top: 0; }
+
+      /* En-têtes conservent leur fond coloré */
+      .doc-header,
+      .card-head,
+      .fee-table th,
+      .doc-footer {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      /* Texte blanc sur fonds sombres */
+      .doc-header *, .card-head { color: #fff !important; }
+      .fee-table th { color: #fff !important; }
+
+      /* Fond doc-meta */
+      .doc-meta { border-bottom: 1.5px solid #c8a951; background: rgba(200,169,81,.08) !important;
+                  -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+      /* Lignes */
+      .row { border-bottom: 1px solid #ddd; }
+      .fee-table td { border-bottom: 1px solid #bbb; }
+
+      /* Pied de page */
+      .doc-footer { background: var(--primary) !important; }
+      .doc-footer span { color: rgba(255,255,255,.8) !important; }
+      .doc-footer strong { color: var(--gold) !important; }
+
+      /* Boîtes encadrées */
+      .note-delf, .pay-warn {
+        -webkit-print-color-adjust: exact; print-color-adjust: exact;
+      }
+
+      /* Éviter les coupures de page dans les blocs clés */
+      .fee-table, .grid-2, .niveaux-grid, .docs-grid { break-inside: avoid; }
+      .card { break-inside: avoid; border: 1px solid #ccc; }
+      .news-card, .events { break-inside: avoid; }
+
+      /* Badges */
+      .exam-badge, .prog-label, .niveau-card .exam {
+        -webkit-print-color-adjust: exact; print-color-adjust: exact;
+      }
+      .niveau-card { border: 1px solid #ccc; }
+
+      /* Compacter légèrement les espacements */
+      .body { padding: 1rem 1.4rem; }
+      .events { margin-top: .5rem; gap: .5rem; }
+      .evt { padding: .28rem .6rem; font-size: .7rem;
+             -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .pay-list li { padding: .28rem 0; }
+      .peda li { padding: .22rem 0; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="back-bar">
+  <span><i class="fas fa-school" style="margin-right:.4rem;"></i>Bela Lekkol Montessori — L'École française de Guinée</span>
+  <a href="./index.html"><i class="fas fa-arrow-left" style="margin-right:.3rem;"></i>Retour au site</a>
+</div>
+
+<div class="doc">
+
+  <!-- EN-TÊTE -->
+  <div class="doc-header">
+    <div class="logo-row">
+      <img src="/logo_officiel.jpg" alt="Logo Bela Lekkol Montessori" onerror="this.style.display='none'">
+      <div class="school-name">
+        <h1>Bela Lekkol Montessori</h1>
+        <p>L'École française de Guinée — Conakry</p>
+        <small>Agrément MEPU-EC/CAB/SNEP N° 99/5739 — DCE Ratoma, IRE Conakry</small>
+      </div>
+    </div>
+    <div class="badge-rf">RÈGLEMENT FINANCIER<br>Collège & Lycée<br>Année 2026-2027</div>
+  </div>
+
+  <div class="doc-meta">
+    <span><i class="fas fa-envelope"></i> belalekkol.montessori@gmail.com</span>
+    <span><i class="fas fa-phone"></i> 626 31 31 80 · 623-23-18-07</span>
+    <span><i class="fas fa-globe"></i> blmlecolefrancaise.com</span>
+    <span><i class="fas fa-clock"></i> Lun.–Ven. · 8 h–16 h (sans rendez-vous)</span>
+  </div>
+
+  <div class="body">
+
+    <!-- GRILLE ÉCOLAGES -->
+    <h2><i class="fas fa-table" style="color:var(--gold);margin-right:.5rem;"></i>Grille des frais de scolarité 2026-2027</h2>
+
+    <div class="prog-label"><i class="fas fa-star"></i>Programme officiel guinéen — INRAP · 3 versements</div>
+
+    <table class="fee-table">
+      <thead>
+        <tr>
+          <th>Niveau</th>
+          <th>Montant annuel</th>
+          <th>Tranche 1<br><small>(À l'inscription)</small></th>
+          <th>Tranche 2<br><small>(Décembre)</small></th>
+          <th>Tranche 3<br><small>(Mars)</small></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <strong>🎓 Collège — Programme INRAP</strong>
+            <span class="sub">7<sup>e</sup> · 8<sup>e</sup> · 9<sup>e</sup> — Cycle d'orientation guinéen</span>
+          </td>
+          <td class="total">5 450 000 gnf</td>
+          <td>2 500 000</td>
+          <td>1 500 000</td>
+          <td>1 450 000</td>
+        </tr>
+        <tr>
+          <td>
+            <strong>🏅 10<sup>e</sup> année — Brevet</strong>
+            <span class="exam-badge bepc">BEPC</span>
+            <span class="sub">Classe d'examen — Brevet guinéen</span>
+          </td>
+          <td class="total">5 950 000 gnf</td>
+          <td>2 750 000</td>
+          <td>1 750 000</td>
+          <td>1 450 000</td>
+        </tr>
+        <tr>
+          <td>
+            <strong>🏫 Lycée — Programme INRAP</strong>
+            <span class="sub">11<sup>e</sup> · 12<sup>e</sup> — Cycle du second degré guinéen</span>
+          </td>
+          <td class="total">5 950 000 gnf</td>
+          <td>2 750 000</td>
+          <td>1 750 000</td>
+          <td>1 450 000</td>
+        </tr>
+        <tr>
+          <td>
+            <strong>🎖 Terminale — Baccalauréat</strong>
+            <span class="exam-badge bac">BAC</span>
+            <span class="sub">Préparation au Bac guinéen</span>
+          </td>
+          <td class="total">6 250 000 gnf</td>
+          <td>2 750 000</td>
+          <td>1 750 000</td>
+          <td>1 750 000</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="note-delf">
+      <i class="fas fa-info-circle" style="margin-right:.4rem;"></i>Examens DELF préparés en interne en partenariat avec l'Institut Français de Guinée.
+    </div>
+
+    <!-- CORRESPONDANCE NIVEAUX -->
+    <h2><i class="fas fa-exchange-alt" style="color:var(--gold);margin-right:.5rem;"></i>Correspondance des niveaux</h2>
+    <div class="niveaux-grid">
+      <div class="niveau-card">
+        <div class="cl">7<sup>e</sup> · 8<sup>e</sup> · 9<sup>e</sup></div>
+        <div class="desc">Collège INRAP</div>
+      </div>
+      <div class="niveau-card">
+        <div class="cl">10<sup>e</sup></div>
+        <div class="desc">Brevet</div>
+        <div class="exam">BEPC guinéen</div>
+      </div>
+      <div class="niveau-card">
+        <div class="cl">11<sup>e</sup> · 12<sup>e</sup></div>
+        <div class="desc">Lycée INRAP</div>
+      </div>
+      <div class="niveau-card">
+        <div class="cl">Terminale</div>
+        <div class="desc">Baccalauréat</div>
+        <div class="exam">BAC guinéen</div>
+      </div>
+    </div>
+
+    <!-- FRAIS ANNEXES & RÉDUCTIONS -->
+    <h2><i class="fas fa-receipt" style="color:var(--gold);margin-right:.5rem;"></i>Frais annexes & réductions</h2>
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-head">Frais à l'inscription</div>
+        <div class="card-body">
+          <div class="row"><span class="lbl">Frais d'inscription / réinscription <small style="color:var(--muted);font-weight:400;">(maillots + rame de papier inclus)</small></span><span class="val">250 000 gnf *</span></div>
+          <div class="row"><span class="lbl">Photos scolaires (carte réalisée par l'école)</span><span class="val">15 000 gnf</span></div>
+          <div class="row"><span class="lbl">Frais de dossier</span><span class="val free">Gratuit</span></div>
+          <div class="row"><span class="lbl">Test d'admission / niveau</span><span class="val free">Gratuit</span></div>
+          <div class="row"><span class="lbl">Soutien scolaire · Aide aux devoirs</span><span class="val free">Gratuit</span></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-head">Réductions accordées</div>
+        <div class="card-body">
+          <div class="row"><span class="lbl">3<sup>e</sup> enfant inscrit</span><span class="val minus">−5 %</span></div>
+          <div class="row"><span class="lbl">4<sup>e</sup> enfant inscrit</span><span class="val minus">−10 %</span></div>
+          <div class="row"><span class="lbl">5<sup>e</sup> enfant et plus</span><span class="val minus">−15 %</span></div>
+          <div class="row"><span class="lbl">Paiement annuel (1 versement)</span><span class="val minus" style="color:var(--green);">−300 000 gnf</span></div>
+          <div class="row"><span class="lbl">Parrainage d'un élève</span><span class="val free">Inscription offerte</span></div>
+        </div>
+      </div>
+    </div>
+    <p style="font-size:.73rem;color:var(--muted);margin-top:.45rem;">* Inclut les maillots de l'école et une rame de papier. Offerts au parrain qui recommande un nouvel élève à l'école.</p>
+
+    <!-- MODALITÉS DE PAIEMENT -->
+    <h2><i class="fas fa-university" style="color:var(--gold);margin-right:.5rem;"></i>Modalités de paiement</h2>
+    <ul class="pay-list">
+      <li><i class="fas fa-check-circle" style="color:var(--green);"></i><span>Paiements acceptés : <strong>chèque</strong>, <strong>virement bancaire</strong> ou <strong>Orange Money</strong></span></li>
+      <li><i class="fas fa-building-columns" style="color:var(--gold);"></i><span><strong>Collège & Lycée :</strong> Banque Islamique de Guinée</span></li>
+      <li><i class="fas fa-building-columns" style="color:var(--gold);"></i><span><strong>École française :</strong> Banque Populaire Maroco Guinéenne — Compte <strong>25404778701</strong> — Agence Plaza</span></li>
+      <li><i class="fas fa-mobile-alt" style="color:#F97316;"></i><span><strong>Orange Money :</strong> Numéro <strong>626 31 31 80</strong> — Intitulé : Bela Lekkol Montessori</span></li>
+    </ul>
+    <div class="pay-warn">
+      <i class="fas fa-exclamation-triangle"></i>
+      Tout versement doit être justifié par un bordereau remis au secrétariat de l'école sans délai.
+    </div>
+
+    <!-- DOCUMENTS -->
+    <h2><i class="fas fa-folder-open" style="color:var(--gold);margin-right:.5rem;"></i>Documents requis à l'inscription</h2>
+    <div class="docs-grid">
+      <div class="doc-item"><i class="fas fa-image"></i>2 photos d'identité</div>
+      <div class="doc-item"><i class="fas fa-book"></i>Livret scolaire précédent</div>
+      <div class="doc-item"><i class="fas fa-file-alt"></i>Extrait de naissance</div>
+      <div class="doc-item"><i class="fas fa-clipboard-list"></i>Dossier d'inscription rempli</div>
+      <div class="doc-item"><i class="fas fa-chart-bar"></i>Relevé de notes année N−1</div>
+    </div>
+    <p style="font-size:.73rem;color:var(--muted);margin-top:.5rem;">Fiches de renseignements et liste de fournitures à retirer au secrétariat.</p>
+
+    <!-- INFOS PÉDAGO -->
+    <h2><i class="fas fa-graduation-cap" style="color:var(--gold);margin-right:.5rem;"></i>Informations & engagements pédagogiques</h2>
+    <ul class="peda">
+      <li><i class="fas fa-check"></i><span><strong>Programme officiel :</strong> Le programme officiel guinéen (INRAP) est enseigné intégralement et enrichi par des ressources pédagogiques produites grâce à l'IA, adaptées au contexte guinéen.</span></li>
+      <li><i class="fas fa-check"></i><span><strong>Gestion numérique (AdmiSco) :</strong> Les évaluations et la gestion des frais de scolarité sont gérées par le logiciel AdmiSco, distribué en Guinée par le CFP Maria Montessori. Suivi disponible sur EDUMOOV.</span></li>
+      <li><i class="fas fa-check"></i><span><strong>Langues :</strong> Français · Anglais · Espagnol. Examens DELF en partenariat avec l'Institut Français de Guinée.</span></li>
+      <li><i class="fas fa-check"></i><span><strong>Examens nationaux préparés :</strong> BEPC (Brevet guinéen) · Baccalauréat guinéen (toutes séries).</span></li>
+      <li><i class="fas fa-check"></i><span><strong>IA & Innovation :</strong> Cours et fiches adaptés au contexte guinéen, parcours personnalisés et formation continue des enseignants.</span></li>
+      <li><i class="fas fa-check"></i><span><strong>Coordinateur pédagogique :</strong> Eric Didier — CFP Maria Montessori, Conakry. Formation continue des enseignants et accompagnement pédagogique tout au long de l'année.</span></li>
+    </ul>
+
+    <div class="events">
+      <div class="evt"><i class="fas fa-door-open"></i>Portes ouvertes : 29 juin</div>
+      <div class="evt"><i class="fas fa-clock"></i>Secrétariat : Lun.–Ven. · 8 h–16 h</div>
+      <div class="evt"><i class="fas fa-print"></i><a href="#" onclick="window.print();return false;">Imprimer ce document</a></div>
+    </div>
+
+  </div><!-- /body -->
+
+  <div class="doc-footer">
+    <span><strong>Bela Lekkol Montessori</strong> — Q/KIPE-C, RATOMA, CONAKRY, Guinée</span>
+    <span>École française depuis 2024 · CFP depuis 2017 · Agrément <strong>MEPU-EC N° 99/5739</strong></span>
+  </div>
+
+</div><!-- /doc -->
+
+</body>
+</html>
