@@ -46,6 +46,18 @@ h1, h2, h3, h4, .font-heading {
   line-height: 1.2;
 }
 
+/* Hiérarchie typographique — line-height adapté à chaque niveau */
+h1 { line-height: 1.15; text-wrap: balance; letter-spacing: -0.02em; }
+h2 { line-height: 1.25; text-wrap: balance; letter-spacing: -0.01em; }
+h3 { line-height: 1.35; text-wrap: balance; }
+h4 { line-height: 1.4; }
+
+/* Prose — limite de largeur pour lisibilité */
+.prose p, .card p, .section-padding p {
+  max-width: 68ch;
+  line-height: 1.75;
+}
+
 a {
   text-decoration: none;
   color: inherit;
@@ -73,6 +85,10 @@ img {
   padding: 5rem 0;
 }
 
+/* Rythme des espacements — variation intentionnelle */
+.section-padding-xl { padding: 7rem 0; }
+.section-padding-sm { padding: 3.5rem 0; }
+
 .grid {
   display: grid;
   gap: 2rem;
@@ -96,12 +112,8 @@ img {
 .text-center { text-align: center; }
 .text-primary { color: var(--primary); }
 .text-secondary { color: var(--secondary); }
-.text-gradient {
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
+.text-light { color: var(--text-light); }
+/* Note: .text-gradient supprimé — gradient-text sur fond coloré est un pattern interdit */
 
 /* Buttons */
 .btn {

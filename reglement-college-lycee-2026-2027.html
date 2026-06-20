@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Règlement Financier — Collège & Lycée 2026-2027 · Bela Lekkol Montessori</title>
   <meta name="description" content="Règlement financier Collège & Lycée 2026-2027 de Bela Lekkol Montessori. Programme INRAP guinéen — grille des écolages, modalités de paiement, documents requis.">
-  <link rel="icon" href="./public/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     :root {
@@ -90,9 +90,10 @@
     .fee-table th:first-child { text-align: left; }
     .fee-table th:not(:first-child) { text-align: right; }
     .fee-table td { padding: .48rem .65rem; border-bottom: 1px solid var(--border); vertical-align: middle; }
-    .fee-table td:not(:first-child) { text-align: right; font-weight: 600; }
+    .fee-table td:not(:first-child) { text-align: right; font-weight: 600; white-space: nowrap; }
+    .fee-table th:not(:first-child) { white-space: nowrap; }
     .fee-table tr:nth-child(even) td { background: rgba(200,169,81,.04); }
-    .fee-table .total { color: var(--primary); font-weight: 800; font-size: .9rem; }
+    .fee-table .total { color: var(--primary); font-weight: 800; font-size: .85rem; white-space: nowrap; }
     .sub { font-size: .72rem; color: var(--muted); display: block; margin-top: .1rem; }
     .exam-badge {
       display: inline-block; font-size: .65rem; background: rgba(200,169,81,.2);
@@ -182,48 +183,69 @@
 
     /* ── PRINT ── */
     @media print {
+      @page { size: A4; margin: 0.8cm 1cm; }
+
       .back-bar { display: none; }
-      body { background: #fff; }
-      .doc { box-shadow: none; border-radius: 0; margin: 0; max-width: 100%; }
-      @page { size: A4; margin: 1.2cm 1.5cm 1cm; }
-      h2 { break-after: avoid; }
+      body { background: #fff; margin: 0; padding: 0; font-size: 11px; }
 
-      /* Forcer tout le texte en noir lisible */
-      * { color: #000 !important; }
-
-      /* Conserver les fonds sombres des en-têtes avec texte blanc */
-      .doc-header,
-      .card-head,
-      .fee-table .thead-fr th,
-      .fee-table .thead-gn th { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-      .doc-header *,
-      .card-head,
-      .fee-table th { color: #fff !important; }
-
-      /* En-tête du document */
-      .doc-meta { border-bottom: 1.5px solid #000; background: none; }
-
-      /* Lignes pointillées → trait continu lisible */
-      .row { border-bottom: 1px solid #ccc; }
-
-      /* Pied de page */
-      .doc-footer { background: #f0f0f0; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-      .doc-footer * { color: #000 !important; }
-
-      /* Bordures tableau */
-      .fee-table td { border-bottom: 1px solid #aaa; }
-
-      /* Boîtes colorées → fond blanc + bordure */
-      .note-delf, .pay-warn {
-        background: none; border: 1.5px solid #555;
+      .doc {
+        box-shadow: none; border-radius: 0;
+        margin: 0; max-width: 100%; width: 100%;
         -webkit-print-color-adjust: exact; print-color-adjust: exact;
       }
 
-      /* Badges niveaux et examens */
-      .exam-badge, .prog-label { border: 1px solid #555; background: none; }
+      h2 { break-after: avoid; margin: 1rem 0 .6rem; font-size: .85rem; }
+      h2:first-child { margin-top: 0; }
 
-      /* Cartes niveaux */
-      .niveau-card { border: 1px solid #888; }
+      /* En-têtes conservent leur fond coloré */
+      .doc-header,
+      .card-head,
+      .fee-table th,
+      .doc-footer {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      /* Texte blanc sur fonds sombres */
+      .doc-header *, .card-head { color: #fff !important; }
+      .fee-table th { color: #fff !important; }
+
+      /* Fond doc-meta */
+      .doc-meta { border-bottom: 1.5px solid #c8a951; background: rgba(200,169,81,.08) !important;
+                  -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+      /* Lignes */
+      .row { border-bottom: 1px solid #ddd; }
+      .fee-table td { border-bottom: 1px solid #bbb; }
+
+      /* Pied de page */
+      .doc-footer { background: var(--primary) !important; }
+      .doc-footer span { color: rgba(255,255,255,.8) !important; }
+      .doc-footer strong { color: var(--gold) !important; }
+
+      /* Boîtes encadrées */
+      .note-delf, .pay-warn {
+        -webkit-print-color-adjust: exact; print-color-adjust: exact;
+      }
+
+      /* Éviter les coupures de page dans les blocs clés */
+      .fee-table, .grid-2, .niveaux-grid, .docs-grid { break-inside: avoid; }
+      .card { break-inside: avoid; border: 1px solid #ccc; }
+      .news-card, .events { break-inside: avoid; }
+
+      /* Badges */
+      .exam-badge, .prog-label, .niveau-card .exam {
+        -webkit-print-color-adjust: exact; print-color-adjust: exact;
+      }
+      .niveau-card { border: 1px solid #ccc; }
+
+      /* Compacter légèrement les espacements */
+      .body { padding: 1rem 1.4rem; }
+      .events { margin-top: .5rem; gap: .5rem; }
+      .evt { padding: .28rem .6rem; font-size: .7rem;
+             -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .pay-list li { padding: .28rem 0; }
+      .peda li { padding: .22rem 0; }
     }
   </style>
 </head>
@@ -231,7 +253,7 @@
 
 <div class="back-bar">
   <span><i class="fas fa-school" style="margin-right:.4rem;"></i>Bela Lekkol Montessori — L'École française de Guinée</span>
-  <a href="/"><i class="fas fa-arrow-left" style="margin-right:.3rem;"></i>Retour au site</a>
+  <a href="./index.html"><i class="fas fa-arrow-left" style="margin-right:.3rem;"></i>Retour au site</a>
 </div>
 
 <div class="doc">
@@ -381,7 +403,7 @@
     </ul>
     <div class="pay-warn">
       <i class="fas fa-exclamation-triangle"></i>
-      Ramener obligatoirement le bordereau de paiement au secrétariat de l'école.
+      Tout versement doit être justifié par un bordereau remis au secrétariat de l'école sans délai.
     </div>
 
     <!-- DOCUMENTS -->
@@ -403,7 +425,7 @@
       <li><i class="fas fa-check"></i><span><strong>Langues :</strong> Français · Anglais · Espagnol. Examens DELF en partenariat avec l'Institut Français de Guinée.</span></li>
       <li><i class="fas fa-check"></i><span><strong>Examens nationaux préparés :</strong> BEPC (Brevet guinéen) · Baccalauréat guinéen (toutes séries).</span></li>
       <li><i class="fas fa-check"></i><span><strong>IA & Innovation :</strong> Cours et fiches adaptés au contexte guinéen, parcours personnalisés et formation continue des enseignants.</span></li>
-      <li><i class="fas fa-check"></i><span><strong>Coordinateur pédagogique :</strong> Eric Didier — CFP Maria Montessori, Conakry. Rénovation en cours pour offrir les meilleures conditions d'enseignement.</span></li>
+      <li><i class="fas fa-check"></i><span><strong>Coordinateur pédagogique :</strong> Eric Didier — CFP Maria Montessori, Conakry. Formation continue des enseignants et accompagnement pédagogique tout au long de l'année.</span></li>
     </ul>
 
     <div class="events">
